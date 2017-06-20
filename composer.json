@@ -1,0 +1,38 @@
+{
+    "name": "fousky/idoklad",
+    "description": "Implement iDoklad API v2",
+    "type": "library",
+    "require": {
+        "php": ">=7.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "doctrine/collections": "^1",
+        "guzzlehttp/guzzle": "^6",
+        "psr/http-message": "^1",
+        "symfony/options-resolver": "^3",
+        "symfony/filesystem": "^3"
+    },
+    "suggest": {
+        "symfony/filesystem": "Needs for AccessTokenFileStorage - save API token to the file.",
+        "symfony/http-foundation": "Needs for AccessTokenSessionStorage - save API token to the session.",
+        "doctrine/orm": "Needs for useful doctrine traits"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fousky\\Component\\iDoklad\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lukáš Brzák",
+            "email": "lukas.brzak@email.cz"
+        }
+    ],
+    "minimum-stability": "stable",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

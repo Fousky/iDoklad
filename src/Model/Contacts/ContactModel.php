@@ -1,0 +1,103 @@
+<?php
+
+namespace Fousky\Component\iDoklad\Model\Contacts;
+
+use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
+
+/**
+ * @method string getAddressIdg()
+ * @method string getCreditCheck()
+ * @method string getDateLastChange()
+ * @method string getDefaultBankAccount()
+ * @method string getId()
+ * @method string getCompanyName()
+ * @method string getCountryId()
+ * @method string getIsRegisteredForVatOnPay()
+ * @method string getCity()
+ * @method string getDiscountPercentage()
+ * @method string getEmail()
+ * @method string getFax()
+ * @method string getFirstname()
+ * @method string getIdentificationNumber()
+ * @method string getIsSendReminder()
+ * @method string getMobile()
+ * @method string getPhone()
+ * @method string getPostalCode()
+ * @method string getStreet()
+ * @method string getSurname()
+ * @method string getTitle()
+ * @method string getVatIdentificationNumber()
+ * @method string getVatIdentificationNumberSk()
+ * @method string getWww()
+ *
+ * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ */
+class ContactModel extends iDokladAbstractModel
+{
+    public $Id;
+    public $AddressIdg;
+    public $CreditCheck;
+    public $DateLastChange;
+    public $DefaultBankAccount;
+    public $CompanyName;
+    public $CountryId;
+    public $IsRegisteredForVatOnPay;
+    public $City;
+    public $DiscountPercentage;
+    public $Email;
+    public $Fax;
+    public $Www;
+    public $Title;
+    public $Firstname;
+    public $Surname;
+    public $IdentificationNumber;
+    public $IsSendReminder;
+    public $Mobile;
+    public $Phone;
+    public $Street;
+    public $PostalCode;
+    public $VatIdentificationNumber;
+    public $VatIdentificationNumberSk;
+
+    /**
+     * @return string
+     */
+    public function getFullname(): string
+    {
+        return trim(sprintf('%s %s', $this->getFirstname(), $this->getSurname()));
+    }
+
+    /**
+     * @param array $options
+     * @return array
+     */
+    public function toArray(array $options = []): array
+    {
+        return [
+//            'Id' => $this->Id,
+            'AddressIdg' => $this->AddressIdg,
+            'CreditCheck' => $this->CreditCheck,
+            'DateLastChange' => $this->DateLastChange,
+            'DefaultBankAccount' => $this->DefaultBankAccount,
+            'CompanyName' => $this->CompanyName,
+//            'CountryId' => $this->CountryId,
+//            'IsRegisteredForVatOnPay' => $this->IsRegisteredForVatOnPay,
+            'City' => $this->City,
+            'DiscountPercentage' => $this->DiscountPercentage,
+            'Email' => $this->Email,
+            'Fax' => $this->Fax,
+            'Www' => $this->Www,
+            'Title' => $this->Title,
+            'Firstname' => $this->Firstname,
+            'Surname' => $this->Surname,
+            'IdentificationNumber' => $this->IdentificationNumber,
+            'IsSendReminder' => $this->IsSendReminder,
+            'Mobile' => $this->Mobile,
+            'Phone' => $this->Phone,
+            'Street' => $this->Street,
+            'PostalCode' => $this->PostalCode,
+            'VatIdentificationNumber' => $this->VatIdentificationNumber,
+            'VatIdentificationNumberSk' => $this->VatIdentificationNumberSk,
+        ];
+    }
+}
