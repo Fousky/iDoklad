@@ -8,17 +8,15 @@ use Fousky\Component\iDoklad\Model\Contacts\ContactModel;
 /**
  * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
  */
-class CreateContact extends iDokladAbstractFunction
+class UpdateContact extends iDokladAbstractFunction
 {
-    /** @var ContactModel $subject */
-    protected $subject;
+    protected $id;
+    protected $data;
 
-    /**
-     * @param ContactModel $subject
-     */
-    public function __construct(ContactModel $subject)
+    public function __construct($id, ContactModel $data)
     {
-        $this->subject = $subject;
+        $this->id = $id;
+        $this->data = $data;
     }
 
     /**
@@ -42,7 +40,7 @@ class CreateContact extends iDokladAbstractFunction
      */
     public function getHttpMethod(): string
     {
-        return 'POST';
+        return 'PATCH';
     }
 
     /**
@@ -54,7 +52,7 @@ class CreateContact extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return 'Contacts';
+        return sprintf('Contacts/%d', $this->id);
     }
 
     /**
@@ -64,15 +62,11 @@ class CreateContact extends iDokladAbstractFunction
      * @see iDokladApiClient::call()
      *
      * @return array
-     * @throws \ReflectionException
-     * @throws \InvalidArgumentException
      */
     public function getGuzzleOptions(): array
     {
-        $params = [
-            'json' => $this->subject->toArray(),
+        return [
+            'json' => $this->data->toArray(),
         ];
-
-        return $params;
     }
 }

@@ -59,7 +59,9 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
             $getter = 'get' . ucfirst($property->getName());
             $value = $this->{$getter}();
 
-            if (is_object($value) && method_exists($value, 'createJson')) {
+            if (is_object($value) && method_exists($value, 'toArray')) {
+                $value = $value->toArray();
+            } else if (is_object($value) && method_exists($value, 'createJson')) {
                 $value = $value->createJson();
             }
 
@@ -79,7 +81,7 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
     public function __call($name, $arguments)
     {
         if (method_exists($this, $name)) {
-            return $this->{$name}($arguments);
+            return call_user_func_array([$this, $name], $arguments);
         }
 
         if (stripos($name, 'get') === 0) {

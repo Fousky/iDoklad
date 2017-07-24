@@ -1,24 +1,25 @@
 <?php
 
-namespace Fousky\Component\iDoklad\Functions\Contacts;
+namespace Fousky\Component\iDoklad\Functions\ProformaInvoices;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\Contacts\ContactModel;
+use Fousky\Component\iDoklad\Model\ProformaInvoices\ProformaInvoiceApiModel;
+use Fousky\Component\iDoklad\Model\ProformaInvoices\ProformaInvoiceModel;
 
 /**
  * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
  */
-class CreateContact extends iDokladAbstractFunction
+class CreateProformaInvoice extends iDokladAbstractFunction
 {
-    /** @var ContactModel $subject */
-    protected $subject;
+    /** @var ProformaInvoiceModel $data */
+    protected $data;
 
     /**
-     * @param ContactModel $subject
+     * @param ProformaInvoiceModel $data
      */
-    public function __construct(ContactModel $subject)
+    public function __construct(ProformaInvoiceModel $data)
     {
-        $this->subject = $subject;
+        $this->data = $data;
     }
 
     /**
@@ -30,7 +31,7 @@ class CreateContact extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return ContactModel::class;
+        return ProformaInvoiceApiModel::class;
     }
 
     /**
@@ -54,7 +55,7 @@ class CreateContact extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return 'Contacts';
+        return 'ProformaInvoices';
     }
 
     /**
@@ -64,15 +65,12 @@ class CreateContact extends iDokladAbstractFunction
      * @see iDokladApiClient::call()
      *
      * @return array
-     * @throws \ReflectionException
-     * @throws \InvalidArgumentException
+     * @throws \Exception
      */
     public function getGuzzleOptions(): array
     {
-        $params = [
-            'json' => $this->subject->toArray(),
+        return [
+            'json' => $this->data->toArray(),
         ];
-
-        return $params;
     }
 }

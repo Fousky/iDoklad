@@ -1,24 +1,24 @@
 <?php
 
-namespace Fousky\Component\iDoklad\Functions\Contacts;
+namespace Fousky\Component\iDoklad\Functions\Banks;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\Contacts\ContactModel;
+use Fousky\Component\iDoklad\Model\Banks\BankApiModel;
 
 /**
  * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
  */
-class CreateContact extends iDokladAbstractFunction
+class GetBank extends iDokladAbstractFunction
 {
-    /** @var ContactModel $subject */
-    protected $subject;
+    /** @var string $id */
+    protected $id;
 
     /**
-     * @param ContactModel $subject
+     * @param string $id
      */
-    public function __construct(ContactModel $subject)
+    public function __construct(string $id)
     {
-        $this->subject = $subject;
+        $this->id = $id;
     }
 
     /**
@@ -30,7 +30,7 @@ class CreateContact extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return ContactModel::class;
+        return BankApiModel::class;
     }
 
     /**
@@ -42,7 +42,7 @@ class CreateContact extends iDokladAbstractFunction
      */
     public function getHttpMethod(): string
     {
-        return 'POST';
+        return 'GET';
     }
 
     /**
@@ -54,7 +54,7 @@ class CreateContact extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return 'Contacts';
+        return sprintf('Banks/%s', $this->id);
     }
 
     /**
@@ -64,15 +64,9 @@ class CreateContact extends iDokladAbstractFunction
      * @see iDokladApiClient::call()
      *
      * @return array
-     * @throws \ReflectionException
-     * @throws \InvalidArgumentException
      */
     public function getGuzzleOptions(): array
     {
-        $params = [
-            'json' => $this->subject->toArray(),
-        ];
-
-        return $params;
+        return [];
     }
 }

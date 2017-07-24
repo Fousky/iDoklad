@@ -80,7 +80,7 @@ class ContactModel extends iDokladAbstractModel
             'DateLastChange' => $this->DateLastChange,
             'DefaultBankAccount' => $this->DefaultBankAccount,
             'CompanyName' => $this->CompanyName,
-//            'CountryId' => $this->CountryId,
+            'CountryId' => $this->CountryId,
 //            'IsRegisteredForVatOnPay' => $this->IsRegisteredForVatOnPay,
             'City' => $this->City,
             'DiscountPercentage' => $this->DiscountPercentage,
