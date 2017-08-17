@@ -16,10 +16,10 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  */
 class CurrencyModel extends iDokladAbstractModel
 {
-    protected $Id;
-    protected $Code;
-    protected $Country;
-    protected $Name;
-    protected $Priority;
-    protected $Symbol;
+    public $Id;
+    public $Code;
+    public $Country;
+    public $Name;
+    public $Priority;
+    public $Symbol;
 }

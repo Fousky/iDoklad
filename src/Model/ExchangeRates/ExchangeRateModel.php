@@ -5,9 +5,6 @@ namespace Fousky\Component\iDoklad\Model\ExchangeRates;
 use Fousky\Component\iDoklad\Model\Currencies\CurrencyModel;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\Model\iDokladModelInterface;
-use Fousky\Component\iDoklad\Util\DateUtil;
-use Fousky\Component\iDoklad\Util\ResponseUtil;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * @method null|string getId()
@@ -39,24 +36,22 @@ class ExchangeRateModel extends iDokladAbstractModel
      */
     public static function createFromStd(\stdClass $data): iDokladModelInterface
     {
-        $model = new static();
+        /** @var ExchangeRateModel $model */
+        $model = parent::createFromStd($data);
 
-        foreach ((array) $data as $key => $value) {
-
-            if ($key === 'Currency') {
-                $model->Currency = CurrencyModel::createFromStd($value);
-                continue;
-            }
-
-            if (in_array($key, ['Date', 'DateLastChange'], true)) {
-                $value = DateUtil::convertDateTime($value);
-            }
-
-            if (property_exists(__CLASS__, $key)) {
-                $model->{$key} = $value;
-            }
-        }
+        $model->Currency = CurrencyModel::createFromStd($model->Currency);
 
         return $model;
+    }
+
+    /**
+     * @return array
+     */
+    public static function getDateTimeProperties(): array
+    {
+        return [
+            'Date',
+            'DateLastChange',
+        ];
     }
 }

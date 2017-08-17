@@ -16,14 +16,14 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  * @method string|null getBaseTaxZeroRateHc()
  * @method string|null getConstantSymbolId()
  * @method string|null getCurrencyId()
- * @method string|null getDateLastChange()
- * @method string|null getDateOfAccountingEvent()
- * @method string|null getDateOfIssue()
- * @method string|null getDateOfLastReminder()
- * @method string|null getDateOfMaturity()
- * @method string|null getDateOfPayment()
- * @method string|null getDateOfTaxing()
- * @method string|null getDateOfVatApplication()
+ * @method string|\DateTime getDateLastChange()
+ * @method string|\DateTime getDateOfAccountingEvent()
+ * @method string|\DateTime getDateOfIssue()
+ * @method string|\DateTime getDateOfLastReminder()
+ * @method string|\DateTime getDateOfMaturity()
+ * @method string|\DateTime getDateOfPayment()
+ * @method string|\DateTime getDateOfTaxing()
+ * @method string|\DateTime getDateOfVatApplication()
  * @method string|null getDescription()
  * @method string|null getDiscount()
  * @method string|null getDocumentNumber()
@@ -154,4 +154,21 @@ class IssuedInvoiceApiModel extends iDokladAbstractModel
     public $VatRateBasic;
     public $VatRateReduced1;
     public $VatRateReduced2;
+
+    /**
+     * @return array
+     */
+    public static function getDateTimeProperties(): array
+    {
+        return [
+            'DateLastChange',
+            'DateOfAccountingEvent',
+            'DateOfIssue',
+            'DateOfLastReminder',
+            'DateOfMaturity',
+            'DateOfPayment',
+            'DateOfTaxing',
+            'DateOfVatApplication',
+        ];
+    }
 }

@@ -17,12 +17,12 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  * @method string|null getBaseTaxZeroRateHc()
  * @method string|null getConstantSymbolId()
  * @method string|null getCurrencyId()
- * @method string|null getDateLastChange()
- * @method string|null getDateOfAccountingEvent()
- * @method string|null getDateOfIssue()
- * @method string|null getDateOfLastReminder()
- * @method string|null getDateOfMaturity()
- * @method string|null getDateOfPayment()
+ * @method string|\DateTime getDateLastChange()
+ * @method string|\DateTime getDateOfAccountingEvent()
+ * @method string|\DateTime getDateOfIssue()
+ * @method string|\DateTime getDateOfLastReminder()
+ * @method string|\DateTime getDateOfMaturity()
+ * @method string|\DateTime getDateOfPayment()
  * @method string|null getDescription()
  * @method string|null getDocumentNumber()
  * @method string|null getDocumentSerialNumber()
@@ -148,4 +148,19 @@ class ProformaInvoiceApiModel extends iDokladAbstractModel
     public $VatRateBasic;
     public $VatRateReduced1;
     public $VatRateReduced2;
+
+    /**
+     * @return array
+     */
+    public static function getDateTimeProperties(): array
+    {
+        return [
+            'DateLastChange',
+            'DateOfAccountingEvent',
+            'DateOfIssue',
+            'DateOfLastReminder',
+            'DateOfMaturity',
+            'DateOfPayment',
+        ];
+    }
 }

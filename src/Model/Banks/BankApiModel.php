@@ -9,7 +9,7 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  * @method string|null getCode()
  * @method string|null getCountry()
  * @method string|null getCountryId()
- * @method string|null getDateLastChange()
+ * @method \DateTime|null getDateLastChange()
  * @method string|null getIsOutOfDate()
  * @method string|null getName()
  * @method string|null getNumberCode()
@@ -28,4 +28,14 @@ class BankApiModel extends iDokladAbstractModel
     public $Name;
     public $NumberCode;
     public $Swift;
+
+    /**
+     * @return array
+     */
+    public static function getDateTimeProperties(): array
+    {
+        return [
+            'DateLastChange',
+        ];
+    }
 }

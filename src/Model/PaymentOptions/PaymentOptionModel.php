@@ -22,4 +22,14 @@ class PaymentOptionModel extends iDokladAbstractModel
     public $IsDefault;
     public $IsRounded;
     public $Name;
+
+    /**
+     * @return array
+     */
+    public static function getDateTimeProperties(): array
+    {
+        return [
+            'DateLastChange',
+        ];
+    }
 }

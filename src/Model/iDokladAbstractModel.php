@@ -24,6 +24,16 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
     }
 
     /**
+     * Need convert some DateTime public properties of this model?
+     *
+     * @return array
+     */
+    public static function getDateTimeProperties(): array
+    {
+        return [];
+    }
+
+    /**
      * @param \stdClass $data
      *
      * @return iDokladModelInterface
@@ -35,6 +45,13 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
         foreach ((array) $data as $key => $value) {
             if (property_exists($model, $key)) {
                 $model->{$key} = $value;
+            }
+        }
+
+        // convert DateTime properties from string to \DateTime object.
+        foreach (static::getDateTimeProperties() as $property) {
+            if (false !== $value = new \DateTime($model->{$property})) {
+                $model->{$property} = $value;
             }
         }
 
@@ -59,7 +76,10 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
             $getter = 'get' . ucfirst($property->getName());
             $value = $this->{$getter}();
 
-            if (is_object($value) && method_exists($value, 'toArray')) {
+            // convert \DateTime to string date representation.
+            if ($value instanceof \DateTime) {
+                $value = $value->format(\DateTime::ATOM);
+            } else if (is_object($value) && method_exists($value, 'toArray')) {
                 $value = $value->toArray();
             } else if (is_object($value) && method_exists($value, 'createJson')) {
                 $value = $value->createJson();

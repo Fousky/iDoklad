@@ -2,6 +2,8 @@
 
 namespace Fousky\Component\iDoklad\Model\IssuedInvoices;
 
+use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
+
 /**
  * @method string|null getAccountNumber()
  * @method string|null getBankId()
@@ -9,11 +11,11 @@ namespace Fousky\Component\iDoklad\Model\IssuedInvoices;
  * @method string|null getBankNumberCode()
  * @method string|null getConstantSymbolId()
  * @method string|null getCurrencyId()
- * @method string|null getDateOfIssue()
- * @method string|null getDateOfMaturity()
- * @method string|null getDateOfPayment()
- * @method string|null getDateOfTaxing()
- * @method string|null getDateOfVatApplication()
+ * @method string|\DateTime getDateOfIssue()
+ * @method string|\DateTime getDateOfMaturity()
+ * @method string|\DateTime getDateOfPayment()
+ * @method string|\DateTime getDateOfTaxing()
+ * @method string|\DateTime getDateOfVatApplication()
  * @method string|null getDescription()
  * @method string|null getDiscountPercentage()
  * @method string|null getDocumentNumber()
@@ -40,7 +42,7 @@ namespace Fousky\Component\iDoklad\Model\IssuedInvoices;
  *
  * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
  */
-class IssuedInvoiceItemModel
+class IssuedInvoiceItemModel extends iDokladAbstractModel
 {
     public $AccountNumber;
     public $BankId;
@@ -76,4 +78,18 @@ class IssuedInvoiceItemModel
     public $Swift;
     public $VariableSymbol;
     public $VatOnPayStatus;
+
+    /**
+     * @return array
+     */
+    public static function getDateTimeProperties(): array
+    {
+        return [
+            'DateOfIssue',
+            'DateOfMaturity',
+            'DateOfPayment',
+            'DateOfTaxing',
+            'DateOfVatApplication',
+        ];
+    }
 }

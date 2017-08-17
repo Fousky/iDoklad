@@ -7,7 +7,7 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 /**
  * @method string getAddressIdg()
  * @method string getCreditCheck()
- * @method string getDateLastChange()
+ * @method null|string|\DateTime getDateLastChange()
  * @method string getDefaultBankAccount()
  * @method string getId()
  * @method string getCompanyName()
@@ -77,7 +77,9 @@ class ContactModel extends iDokladAbstractModel
 //            'Id' => $this->Id,
             'AddressIdg' => $this->AddressIdg,
             'CreditCheck' => $this->CreditCheck,
-            'DateLastChange' => $this->DateLastChange,
+            'DateLastChange' => $this->getDateLastChange() instanceof \DateTime
+                ? $this->getDateLastChange()->format(\DateTime::ATOM)
+                : $this->getDateLastChange(),
             'DefaultBankAccount' => $this->DefaultBankAccount,
             'CompanyName' => $this->CompanyName,
             'CountryId' => $this->CountryId,
@@ -98,6 +100,16 @@ class ContactModel extends iDokladAbstractModel
             'PostalCode' => $this->PostalCode,
             'VatIdentificationNumber' => $this->VatIdentificationNumber,
             'VatIdentificationNumberSk' => $this->VatIdentificationNumberSk,
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public static function getDateTimeProperties(): array
+    {
+        return [
+            'DateLastChange',
         ];
     }
 }

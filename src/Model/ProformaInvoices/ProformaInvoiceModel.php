@@ -11,10 +11,10 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  * @method null|string getBankNumberCode()
  * @method null|string getConstantSymbolId()
  * @method null|string getCurrencyId()
- * @method null|string getDateOfIssue()
- * @method null|string getDateOfMaturity()
- * @method null|string getDateOfPayment()
- * @method null|string getDateOfTaxing()
+ * @method null|\DateTime getDateOfIssue()
+ * @method null|\DateTime getDateOfMaturity()
+ * @method null|\DateTime getDateOfPayment()
+ * @method null|\DateTime getDateOfTaxing()
  * @method null|string getDescription()
  * @method null|string getDiscountPercentage()
  * @method null|string getDocumentNumber()
@@ -75,4 +75,17 @@ class ProformaInvoiceModel extends iDokladAbstractModel
     public $SalesPosEquipmentId;
     public $Swift;
     public $VariableSymbol;
+
+    /**
+     * @return array
+     */
+    public static function getDateTimeProperties(): array
+    {
+        return [
+            'DateOfIssue',
+            'DateOfMaturity',
+            'DateOfPayment',
+            'DateOfTaxing',
+        ];
+    }
 }

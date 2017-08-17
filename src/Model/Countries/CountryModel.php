@@ -7,6 +7,14 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
 /**
+ * @method null|string getId()
+ * @method null|string getCode()
+ * @method null|string getCurrency()
+ * @method null|string getCurrencyId()
+ * @method null|\DateTime getDateLastChange()
+ * @method null|string getName()
+ * @method null|string getNameEnglish()
+ *
  * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
  */
 class CountryModel extends iDokladAbstractModel
@@ -26,20 +34,21 @@ class CountryModel extends iDokladAbstractModel
      */
     public static function createFromStd(\stdClass $data): iDokladModelInterface
     {
-        $model = new static();
+        /** @var CountryModel $model */
+        $model = parent::createFromStd($data);
 
-        foreach ((array) $data as $key => $value) {
-
-            if ($key === 'Currency') {
-                $model->{$key} = CurrencyModel::createFromStd($value);
-                continue;
-            }
-
-            if (property_exists($model, $key)) {
-                $model->{$key} = $value;
-            }
-        }
+        $model->Currency = CurrencyModel::createFromStd($model->Currency);
 
         return $model;
+    }
+
+    /**
+     * @return array
+     */
+    public static function getDateTimeProperties(): array
+    {
+        return [
+            'DateLastChange',
+        ];
     }
 }

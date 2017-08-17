@@ -59,11 +59,11 @@ class AccessToken extends iDokladAbstractModel implements \Serializable
             throw new \InvalidArgumentException(sprintf('Invalid argument 1 \$data for %s', __METHOD__));
         }
 
-        return new AccessToken(
+        return new self(
             $data['token'],
             $data['expires'],
             $data['type'],
-            \DateTime::createFromFormat('Y-m-d H:i:s', $data['requestedAt'])
+            new \DateTime($data['requestedAt'])
         );
     }
 
@@ -144,7 +144,7 @@ class AccessToken extends iDokladAbstractModel implements \Serializable
             throw new InvalidResponseException();
         }
 
-        return new static(
+        return new self(
             $result['access_token'],
             $result['expires_in'],
             $result['token_type'],
