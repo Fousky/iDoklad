@@ -2,6 +2,7 @@
 
 namespace Fousky\Component\iDoklad;
 
+use Fousky\Component\iDoklad\Storage\AccessTokenVoidStorage;
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;
 use Fousky\Component\iDoklad\Exception\InvalidTokenException;
@@ -11,7 +12,7 @@ use Fousky\Component\iDoklad\Model\Auth\AccessToken;
 /**
  * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
  */
-class iDokladApiHelper
+class iDokladTokenFactory
 {
     /** @var AccessTokenStorageInterface $storage */
     protected $storage;
@@ -19,8 +20,12 @@ class iDokladApiHelper
     /**
      * @param AccessTokenStorageInterface $storage
      */
-    public function __construct(AccessTokenStorageInterface $storage)
+    public function __construct(AccessTokenStorageInterface $storage = null)
     {
+        if (null === $storage) {
+            $storage = new AccessTokenVoidStorage();
+        }
+
         $this->storage = $storage;
     }
 

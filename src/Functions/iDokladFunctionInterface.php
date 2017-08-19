@@ -2,6 +2,10 @@
 
 namespace Fousky\Component\iDoklad\Functions;
 
+use Fousky\Component\iDoklad\UrlExtension\iDokladFilter;
+use Fousky\Component\iDoklad\UrlExtension\iDokladPaginator;
+use Fousky\Component\iDoklad\UrlExtension\iDokladSortable;
+use Fousky\Component\iDoklad\iDoklad;
 use Psr\Http\Message\ResponseInterface;
 use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
@@ -29,9 +33,10 @@ interface iDokladFunctionInterface
     /**
      * Configuration is injected before getters are called.
      *
-     * @see iDokladApiClient::call()
+     * @see iDoklad::call()
      *
      * @param array $config
+     *
      * @return iDokladFunctionInterface
      */
     public function setConfig(array $config): iDokladFunctionInterface;
@@ -39,7 +44,7 @@ interface iDokladFunctionInterface
     /**
      * GET|POST|PUT|DELETE e.g.
      *
-     * @see iDokladApiCaller::request()
+     * @see iDoklad::request()
      *
      * @return string
      */
@@ -48,7 +53,7 @@ interface iDokladFunctionInterface
     /**
      * Return base URI, e.g. /invoices; /invoice/1/edit and so on.
      *
-     * @see iDokladApiClient::call()
+     * @see iDoklad::call()
      *
      * @return string
      */
@@ -58,7 +63,7 @@ interface iDokladFunctionInterface
      * Vrátí seznam parametrů, které se předají GuzzleHttp\Client
      *
      * @see \GuzzleHttp\Client::request()
-     * @see iDokladApiClient::call()
+     * @see iDoklad::call()
      *
      * @return array
      */
@@ -72,4 +77,49 @@ interface iDokladFunctionInterface
      * @return iDokladModelInterface
      */
     public function handleResponse(ResponseInterface $response): iDokladModelInterface;
+
+    /**
+     * @return bool
+     */
+    public function hasSortable(): bool;
+
+    /**
+     * @return iDokladSortable
+     */
+    public function getSortable(): iDokladSortable;
+
+    /**
+     * @param null|iDokladSortable $sortable
+     */
+    public function setSortable(iDokladSortable $sortable = null);
+
+    /**
+     * @return bool
+     */
+    public function hasPaginator(): bool;
+
+    /**
+     * @return iDokladPaginator
+     */
+    public function getPaginator(): iDokladPaginator;
+
+    /**
+     * @param null|iDokladPaginator $paginator
+     */
+    public function setPaginator(iDokladPaginator $paginator = null);
+
+    /**
+     * @return bool
+     */
+    public function hasFilter(): bool;
+
+    /**
+     * @return iDokladFilter
+     */
+    public function getFilter(): iDokladFilter;
+
+    /**
+     * @param null|iDokladFilter $filter
+     */
+    public function setFilter(iDokladFilter $filter = null);
 }

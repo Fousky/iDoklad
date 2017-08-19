@@ -10,6 +10,10 @@ use Fousky\Component\iDoklad\Util\ResponseUtil;
 use Psr\Http\Message\ResponseInterface;
 
 /**
+ * @method BankApiModel[]|ArrayCollection getData()
+ * @method int getTotalItems()
+ * @method int getTotalPages()
+ *
  * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
  */
 class BankCollectionModel extends iDokladAbstractModel

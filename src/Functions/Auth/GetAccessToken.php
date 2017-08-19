@@ -40,7 +40,7 @@ class GetAccessToken extends iDokladAbstractFunction
 
     /**
      * Vrátí seznam parametrů, které se předají do HTTP klienta
-     * @see iDokladApiCaller::request()
+     * @see iDoklad::request()
      *
      * @return array
      */

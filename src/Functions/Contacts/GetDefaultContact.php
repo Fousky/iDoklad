@@ -21,7 +21,7 @@ class GetDefaultContact extends iDokladAbstractFunction
     /**
      * GET|POST|PUT|DELETE e.g.
      *
-     * @see iDokladApiCaller::request()
+     * @see iDoklad::request()
      *
      * @return string
      */
@@ -33,7 +33,7 @@ class GetDefaultContact extends iDokladAbstractFunction
     /**
      * Return base URI, e.g. /invoices; /invoice/1/edit and so on.
      *
-     * @see iDokladApiClient::call()
+     * @see iDoklad::call()
      *
      * @return string
      */
@@ -46,7 +46,7 @@ class GetDefaultContact extends iDokladAbstractFunction
      * Vrátí seznam parametrů, které se předají GuzzleHttp\Client
      *
      * @see \GuzzleHttp\Client::request()
-     * @see iDokladApiClient::call()
+     * @see iDoklad::call()
      *
      * @return array
      */
