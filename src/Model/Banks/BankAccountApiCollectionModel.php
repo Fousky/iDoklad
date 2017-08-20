@@ -27,15 +27,38 @@ class BankAccountApiCollectionModel extends iDokladAbstractModel
         /** @var \stdClass[] $items */
         $items = \GuzzleHttp\json_decode($response->getBody()->getContents());
 
+        $model = new static();
+        $model->BankAccounts = static::createCollection($items);
+
+        return $model;
+    }
+
+    /**
+     * @param array $items
+     *
+     * @return BankAccountApiCollectionModel
+     */
+    public static function createFromArray(array $items): BankAccountApiCollectionModel
+    {
+        $model = new static();
+        $model->BankAccounts = static::createCollection($items);
+
+        return $model;
+    }
+
+    /**
+     * @param array|\stdClass[] $items
+     *
+     * @return ArrayCollection
+     */
+    protected static function createCollection(array $items): ArrayCollection
+    {
         $collection = new ArrayCollection();
 
         foreach ($items as $item) {
             $collection->add(BankAccountApiModel::createFromStd($item));
         }
 
-        $model = new static();
-        $model->BankAccounts = $collection;
-
-        return $model;
+        return $collection;
     }
 }
