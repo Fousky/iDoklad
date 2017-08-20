@@ -2,11 +2,10 @@
 
 namespace Fousky\Component\iDoklad\Model\RegisteredSale;
 
-use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\LOV\EetResponsibilityEnum;
-use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 use Fousky\Component\iDoklad\LOV\ElectronicRecordsOfSalesStatusEnum;
-use Fousky\Component\iDoklad\Model\RegisteredSale\RegisteredSaleInformationApiModel;
+use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
+use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
 /**
  * @method null|EetResponsibilityEnum getEetResponsibility()

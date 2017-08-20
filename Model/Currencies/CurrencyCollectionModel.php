@@ -21,10 +21,10 @@ class CurrencyCollectionModel extends iDokladAbstractModel
     /**
      * @param ResponseInterface $response
      *
-     * @return iDokladModelInterface
-     *
      * @throws \RuntimeException
      * @throws InvalidResponseException
+     *
+     * @return iDokladModelInterface
      */
     public static function createFromResponse(ResponseInterface $response): iDokladModelInterface
     {

@@ -2,13 +2,13 @@
 
 namespace Fousky\Component\iDoklad\Functions;
 
+use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 use Fousky\Component\iDoklad\UrlExtension\iDokladFilter;
 use Fousky\Component\iDoklad\UrlExtension\iDokladPaginator;
 use Fousky\Component\iDoklad\UrlExtension\iDokladSortable;
 use Psr\Http\Message\ResponseInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\Exception\ExceptionInterface;
-use Fousky\Component\iDoklad\Model\iDokladModelInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
@@ -79,10 +79,11 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
      *
      * @param ResponseInterface $response
      *
-     * @return iDokladModelInterface
      * @throws \InvalidArgumentException
      * @throws \Fousky\Component\iDoklad\Exception\InvalidResponseException
      * @throws \ReflectionException
+     *
+     * @return iDokladModelInterface
      */
     public function handleResponse(ResponseInterface $response): iDokladModelInterface
     {
@@ -91,12 +92,13 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
 
     /**
      * @param string|iDokladModelInterface $modelClass
-     * @param ResponseInterface $response
+     * @param ResponseInterface            $response
      *
-     * @return iDokladModelInterface
      * @throws \ReflectionException
      * @throws \InvalidArgumentException
      * @throws \Fousky\Component\iDoklad\Exception\InvalidResponseException
+     *
+     * @return iDokladModelInterface
      */
     protected function createModel($modelClass, ResponseInterface $response): iDokladModelInterface
     {
@@ -115,17 +117,19 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
 
     /**
      * @param array $config
-     * @return array
+     *
      * @throws ExceptionInterface
+     *
+     * @return array
      */
     public static function assertConfiguration(array $config): array
     {
         return (new OptionsResolver())
             ->setDefaults([
-                'debug' => false,
-                'url' => 'https://app.idoklad.cz/developer/api/v2/',
+                'debug'          => false,
+                'url'            => 'https://app.idoklad.cz/developer/api/v2/',
                 'token_endpoint' => 'https://app.idoklad.cz/identity/server/connect/token',
-                'scope' => 'idoklad_api',
+                'scope'          => 'idoklad_api',
                 // iDoklad sends DateTime in UTC, so we tranform to another PHP \DateTimeZone
                 'timezone' => 'Europe/Prague',
             ])
@@ -139,8 +143,7 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
             ->setAllowedTypes('client_secret', ['string'])
             ->setAllowedTypes('token_endpoint', ['string'])
             ->setAllowedTypes('scope', ['string'])
-            ->resolve($config)
-        ;
+            ->resolve($config);
     }
 
     /**
@@ -164,8 +167,9 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
     }
 
     /**
-     * @return iDokladSortable
      * @throws \RuntimeException
+     *
+     * @return iDokladSortable
      */
     public function getSortable(): iDokladSortable
     {
@@ -196,8 +200,9 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
     }
 
     /**
-     * @return iDokladPaginator
      * @throws \RuntimeException
+     *
+     * @return iDokladPaginator
      */
     public function getPaginator(): iDokladPaginator
     {
@@ -228,8 +233,9 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
     }
 
     /**
-     * @return iDokladFilter
      * @throws \RuntimeException
+     *
+     * @return iDokladFilter
      */
     public function getFilter(): iDokladFilter
     {

@@ -12,8 +12,9 @@ class ResponseUtil
     /**
      * @param ResponseInterface $response
      *
-     * @return \stdClass|array
      * @throws \RuntimeException
+     *
+     * @return \stdClass|array
      */
     public static function handle(ResponseInterface $response)
     {

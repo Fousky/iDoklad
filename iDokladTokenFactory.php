@@ -2,12 +2,12 @@
 
 namespace Fousky\Component\iDoklad;
 
+use Fousky\Component\iDoklad\Exception\InvalidTokenException;
+use Fousky\Component\iDoklad\Model\Auth\AccessToken;
+use Fousky\Component\iDoklad\Storage\AccessTokenStorageInterface;
 use Fousky\Component\iDoklad\Storage\AccessTokenVoidStorage;
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;
-use Fousky\Component\iDoklad\Exception\InvalidTokenException;
-use Fousky\Component\iDoklad\Storage\AccessTokenStorageInterface;
-use Fousky\Component\iDoklad\Model\Auth\AccessToken;
 
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
@@ -31,13 +31,13 @@ class iDokladTokenFactory
 
     /**
      * @param Client $client
-     * @param array $config
-     *
-     * @return AccessToken
+     * @param array  $config
      *
      * @throws \RuntimeException
      * @throws Exception\TokenNotFoundException
      * @throws InvalidTokenException
+     *
+     * @return AccessToken
      */
     public function getToken(Client $client, array $config): AccessToken
     {
@@ -50,21 +50,21 @@ class iDokladTokenFactory
 
     /**
      * @param Client $client
-     * @param array $config
-     *
-     * @return AccessToken
+     * @param array  $config
      *
      * @throws \RuntimeException
      * @throws InvalidTokenException
+     *
+     * @return AccessToken
      */
     protected function createToken(Client $client, array $config): AccessToken
     {
         return $this->extractToken(
             $client->request('POST', $config['token_endpoint'], [
                 'form_params' => [
-                    'scope' => $config['scope'],
-                    'grant_type' => 'client_credentials',
-                    'client_id' => $config['client_id'],
+                    'scope'         => $config['scope'],
+                    'grant_type'    => 'client_credentials',
+                    'client_id'     => $config['client_id'],
                     'client_secret' => $config['client_secret'],
                 ],
                 'debug' => (bool) $config['debug'],
@@ -75,11 +75,12 @@ class iDokladTokenFactory
 
     /**
      * @param ResponseInterface $response
-     * @param \DateTime $requestedAt
+     * @param \DateTime         $requestedAt
      *
-     * @return AccessToken
      * @throws \RuntimeException
      * @throws InvalidTokenException
+     *
+     * @return AccessToken
      */
     protected function extractToken(ResponseInterface $response, \DateTime $requestedAt): AccessToken
     {

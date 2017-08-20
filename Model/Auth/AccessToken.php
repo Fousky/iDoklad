@@ -2,11 +2,11 @@
 
 namespace Fousky\Component\iDoklad\Model\Auth;
 
-use Fousky\Component\iDoklad\Util\ResponseUtil;
-use Psr\Http\Message\ResponseInterface;
 use Fousky\Component\iDoklad\Exception\InvalidResponseException;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\Model\iDokladModelInterface;
+use Fousky\Component\iDoklad\Util\ResponseUtil;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
@@ -26,9 +26,9 @@ class AccessToken extends iDokladAbstractModel implements \Serializable
     protected $requestedAt;
 
     /**
-     * @param string $token Access token string.
-     * @param int $expires Expires in seconds.
-     * @param string $type Access token type.
+     * @param string    $token       Access token string.
+     * @param int       $expires     Expires in seconds.
+     * @param string    $type        Access token type.
      * @param \DateTime $requestedAt Token requested at some time.
      */
     public function __construct(
@@ -46,8 +46,9 @@ class AccessToken extends iDokladAbstractModel implements \Serializable
     /**
      * @param array $data
      *
-     * @return AccessToken
      * @throws \InvalidArgumentException
+     *
+     * @return AccessToken
      */
     public static function create(array $data): AccessToken
     {
@@ -122,15 +123,16 @@ class AccessToken extends iDokladAbstractModel implements \Serializable
             $this->expires,
             $this->type,
             $this->requestedAt
-        ) = unserialize($serialized, ['allowed_classes' => AccessToken::class]);
+        ) = unserialize($serialized, ['allowed_classes' => self::class]);
     }
 
     /**
      * @param ResponseInterface $response
      *
-     * @return iDokladModelInterface
      * @throws InvalidResponseException
      * @throws \RuntimeException
+     *
+     * @return iDokladModelInterface
      */
     public static function createFromResponse(ResponseInterface $response): iDokladModelInterface
     {

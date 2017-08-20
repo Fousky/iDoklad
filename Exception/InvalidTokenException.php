@@ -11,9 +11,9 @@ class InvalidTokenException extends \Exception implements iDokladExceptionInterf
 {
     /**
      * @param ResponseInterface $response
-     * @param int $uniqueCode
-     * @param int $code
-     * @param \Throwable|null $previous
+     * @param int               $uniqueCode
+     * @param int               $code
+     * @param \Throwable|null   $previous
      */
     public function __construct(
         ResponseInterface $response,

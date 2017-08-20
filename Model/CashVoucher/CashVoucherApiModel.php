@@ -2,11 +2,11 @@
 
 namespace Fousky\Component\iDoklad\Model\CashVoucher;
 
-use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
-use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 use Fousky\Component\iDoklad\LOV\EetResponsibilityEnum;
 use Fousky\Component\iDoklad\LOV\ExportedStateEnum;
 use Fousky\Component\iDoklad\LOV\MovementTypeEnum;
+use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
+use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 use Fousky\Component\iDoklad\Model\RegisteredSale\RegisteredSaleApiModel;
 
 /**

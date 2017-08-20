@@ -2,9 +2,9 @@
 
 namespace Fousky\Component\iDoklad\Storage;
 
-use Symfony\Component\Filesystem\Filesystem;
 use Fousky\Component\iDoklad\Exception\TokenNotFoundException;
 use Fousky\Component\iDoklad\Model\Auth\AccessToken;
+use Symfony\Component\Filesystem\Filesystem;
 
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
@@ -48,6 +48,7 @@ class AccessTokenFileStorage implements AccessTokenStorageInterface
 
             if ($token instanceof AccessToken) {
                 $this->token = $token;
+
                 return true;
             }
         } catch (\Throwable $e) {
@@ -60,8 +61,9 @@ class AccessTokenFileStorage implements AccessTokenStorageInterface
     /**
      * Get AccessToken from Storage or throw TokenNotFoundException if not found.
      *
-     * @return AccessToken
      * @throws TokenNotFoundException
+     *
+     * @return AccessToken
      */
     public function getToken(): AccessToken
     {
@@ -114,7 +116,6 @@ class AccessTokenFileStorage implements AccessTokenStorageInterface
             }
 
             return $token->isExpired();
-
         } catch (\Throwable $e) {
             return true;
         }

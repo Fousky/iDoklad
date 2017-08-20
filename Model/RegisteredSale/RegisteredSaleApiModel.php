@@ -2,11 +2,11 @@
 
 namespace Fousky\Component\iDoklad\Model\RegisteredSale;
 
-use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
-use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 use Fousky\Component\iDoklad\LOV\DocumentTypeEnum;
 use Fousky\Component\iDoklad\LOV\EetRegimeEnum;
 use Fousky\Component\iDoklad\LOV\RegisteredSaleStateEnum;
+use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
+use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
 /**
  * @method null|float getBaseTaxBasicRateHc()

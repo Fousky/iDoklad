@@ -2,8 +2,8 @@
 
 namespace Fousky\Component\iDoklad\Model;
 
-use Psr\Http\Message\ResponseInterface;
 use Fousky\Component\iDoklad\Exception\InvalidResponseException;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
@@ -24,9 +24,9 @@ interface iDokladModelInterface
      *
      * @param ResponseInterface $response
      *
-     * @return iDokladModelInterface
-     *
      * @throws InvalidResponseException
+     *
+     * @return iDokladModelInterface
      */
     public static function createFromResponse(ResponseInterface $response): iDokladModelInterface;
 }

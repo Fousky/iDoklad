@@ -2,12 +2,12 @@
 
 namespace Fousky\Component\iDoklad\Functions;
 
+use Fousky\Component\iDoklad\iDoklad;
+use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 use Fousky\Component\iDoklad\UrlExtension\iDokladFilter;
 use Fousky\Component\iDoklad\UrlExtension\iDokladPaginator;
 use Fousky\Component\iDoklad\UrlExtension\iDokladSortable;
-use Fousky\Component\iDoklad\iDoklad;
 use Psr\Http\Message\ResponseInterface;
-use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
@@ -60,7 +60,7 @@ interface iDokladFunctionInterface
     public function getUri(): string;
 
     /**
-     * Vrátí seznam parametrů, které se předají GuzzleHttp\Client
+     * Vrátí seznam parametrů, které se předají GuzzleHttp\Client.
      *
      * @see \GuzzleHttp\Client::request()
      * @see iDoklad::call()

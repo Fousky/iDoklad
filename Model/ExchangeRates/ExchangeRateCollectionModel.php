@@ -18,14 +18,13 @@ class ExchangeRateCollectionModel extends iDokladAbstractModel
     protected $TotalItems = 0;
     protected $TotalPages = 0;
 
-
     /**
      * @param ResponseInterface $response
      *
-     * @return iDokladModelInterface
-     *
      * @throws \RuntimeException
      * @throws InvalidResponseException
+     *
+     * @return iDokladModelInterface
      */
     public static function createFromResponse(ResponseInterface $response): iDokladModelInterface
     {

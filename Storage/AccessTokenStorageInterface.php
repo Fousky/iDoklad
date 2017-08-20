@@ -20,8 +20,9 @@ interface AccessTokenStorageInterface
     /**
      * Get AccessToken from Storage or throw TokenNotFoundException if not found.
      *
-     * @return AccessToken
      * @throws TokenNotFoundException
+     *
+     * @return AccessToken
      */
     public function getToken(): AccessToken;
 

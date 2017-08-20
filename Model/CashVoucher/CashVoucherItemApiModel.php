@@ -2,10 +2,10 @@
 
 namespace Fousky\Component\iDoklad\Model\CashVoucher;
 
-use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\LOV\PriceTypeWithoutOnlyBaseEnum;
-use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 use Fousky\Component\iDoklad\LOV\VatRateTypeEnum;
+use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
+use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
 /**
  * @method null|float getAmount()

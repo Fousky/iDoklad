@@ -2,8 +2,8 @@
 
 namespace Fousky\Component\iDoklad\Model\Agendas;
 
-use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Doctrine\Common\Collections\ArrayCollection;
+use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 use Psr\Http\Message\ResponseInterface;
 

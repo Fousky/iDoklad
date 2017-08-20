@@ -24,9 +24,9 @@ class PairCashVoucher extends iDokladAbstractFunction
     protected $invoiceId;
 
     /**
-     * @param CashVoucherApiModelInsert $data Cash voucher identification (or create new)
-     * @param int $invoiceType Pair with invoice type (object InvoiceTypeEnum constant)
-     * @param string $invoiceId Pair with invoice ID of the $invoiceType
+     * @param CashVoucherApiModelInsert $data        Cash voucher identification (or create new)
+     * @param int                       $invoiceType Pair with invoice type (object InvoiceTypeEnum constant)
+     * @param string                    $invoiceId   Pair with invoice ID of the $invoiceType
      */
     public function __construct(CashVoucherApiModelInsert $data, int $invoiceType, string $invoiceId)
     {
@@ -76,14 +76,15 @@ class PairCashVoucher extends iDokladAbstractFunction
     }
 
     /**
-     * Vrátí seznam parametrů, které se předají GuzzleHttp\Client
+     * Vrátí seznam parametrů, které se předají GuzzleHttp\Client.
      *
      * @see \GuzzleHttp\Client::request()
      * @see iDoklad::call()
      *
-     * @return array
      * @throws \ReflectionException
      * @throws \InvalidArgumentException
+     *
+     * @return array
      */
     public function getGuzzleOptions(): array
     {

@@ -3,10 +3,10 @@
 namespace Fousky\Component\iDoklad\Model\Agendas;
 
 use Fousky\Component\iDoklad\Model\Banks\BankAccountApiCollectionModel;
+use Fousky\Component\iDoklad\Model\Banks\BankAccountApiModel;
+use Fousky\Component\iDoklad\Model\Countries\CountryModel;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\Model\iDokladModelInterface;
-use Fousky\Component\iDoklad\Model\Countries\CountryModel;
-use Fousky\Component\iDoklad\Model\Banks\BankAccountApiModel;
 
 /**
  * @method null|int getAddressIdg()

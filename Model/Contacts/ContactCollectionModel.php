@@ -3,11 +3,11 @@
 namespace Fousky\Component\iDoklad\Model\Contacts;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Fousky\Component\iDoklad\Util\ResponseUtil;
-use Psr\Http\Message\ResponseInterface;
 use Fousky\Component\iDoklad\Exception\InvalidResponseException;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\Model\iDokladModelInterface;
+use Fousky\Component\iDoklad\Util\ResponseUtil;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
@@ -31,10 +31,10 @@ class ContactCollectionModel extends iDokladAbstractModel
     /**
      * @param ResponseInterface $response
      *
-     * @return iDokladModelInterface
-     *
      * @throws \RuntimeException
      * @throws InvalidResponseException
+     *
+     * @return iDokladModelInterface
      */
     public static function createFromResponse(ResponseInterface $response): iDokladModelInterface
     {
