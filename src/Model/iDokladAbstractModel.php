@@ -79,10 +79,14 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
             // convert \DateTime to string date representation.
             if ($value instanceof \DateTime) {
                 $value = $value->format(\DateTime::ATOM);
-            } else if (is_object($value) && method_exists($value, 'toArray')) {
-                $value = $value->toArray();
-            } else if (is_object($value) && method_exists($value, 'createJson')) {
-                $value = $value->createJson();
+            } else if (is_object($value)) {
+                if (method_exists($value, 'toArray')) {
+                    $value = $value->toArray();
+                } else if (method_exists($value, 'createJson')) {
+                    $value = $value->createJson();
+                } else if (method_exists($value, '__toString')) {
+                    $value = (string) $value;
+                }
             }
 
             $result[$name] = $value;

@@ -11,6 +11,7 @@ class MovementTypeEnum extends iDokladAbstractEnum
     const ISSUE = -1;   // výdaj
 
     /**
+     * Příjem?
      * @return bool
      */
     public function isEntry(): bool
@@ -19,6 +20,7 @@ class MovementTypeEnum extends iDokladAbstractEnum
     }
 
     /**
+     * Výdaj?
      * @return bool
      */
     public function isIssue(): bool

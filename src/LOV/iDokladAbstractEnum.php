@@ -11,6 +11,14 @@ abstract class iDokladAbstractEnum implements iDokladEnumInterface
     protected $value;
 
     /**
+     * @return int
+     */
+    public function createJson(): int
+    {
+        return $this->value;
+    }
+
+    /**
      * @return string
      */
     public function __toString()
