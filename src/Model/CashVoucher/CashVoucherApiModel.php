@@ -38,7 +38,7 @@ use Fousky\Component\iDoklad\Model\RegisteredSale\RegisteredSaleApiModel;
  * @method null|float getTotalWithVat()
  * @method null|float getTotalWithVatHc()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class CashVoucherApiModel extends iDokladAbstractModel
 {

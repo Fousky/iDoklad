@@ -5,7 +5,7 @@ namespace Fousky\Component\iDoklad\Doctrine\Traits;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 trait iDokladIdTrait
 {

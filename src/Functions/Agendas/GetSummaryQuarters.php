@@ -6,7 +6,7 @@ use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
 use Fousky\Component\iDoklad\Model\Agendas\SummaryQuarterCollectionModel;
 
 /**
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class GetSummaryQuarters extends iDokladAbstractFunction
 {

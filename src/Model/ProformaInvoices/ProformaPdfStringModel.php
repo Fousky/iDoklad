@@ -7,7 +7,7 @@ use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class ProformaPdfStringModel extends iDokladAbstractModel
 {

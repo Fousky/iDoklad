@@ -12,7 +12,7 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  * @method string|null getIsRounded()
  * @method string|null getName()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class PaymentOptionModel extends iDokladAbstractModel
 {

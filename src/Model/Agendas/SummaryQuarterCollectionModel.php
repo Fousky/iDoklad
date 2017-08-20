@@ -10,7 +10,7 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * @method null|ArrayCollection|SummaryQuarterModel[] getQuarters()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class SummaryQuarterCollectionModel extends iDokladAbstractModel
 {

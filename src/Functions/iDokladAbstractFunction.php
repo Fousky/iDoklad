@@ -11,7 +11,7 @@ use Symfony\Component\OptionsResolver\Exception\ExceptionInterface;
 use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
 /**
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 abstract class iDokladAbstractFunction implements iDokladFunctionInterface
 {

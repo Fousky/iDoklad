@@ -10,7 +10,7 @@ use Fousky\Component\iDoklad\Storage\AccessTokenStorageInterface;
 use Fousky\Component\iDoklad\Model\Auth\AccessToken;
 
 /**
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class iDokladTokenFactory
 {

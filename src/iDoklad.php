@@ -12,7 +12,7 @@ use GuzzleHttp\Client;
 use Symfony\Component\OptionsResolver\Exception\ExceptionInterface;
 
 /**
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class iDoklad
 {

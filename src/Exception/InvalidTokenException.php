@@ -5,7 +5,7 @@ namespace Fousky\Component\iDoklad\Exception;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class InvalidTokenException extends \Exception implements iDokladExceptionInterface
 {

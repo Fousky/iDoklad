@@ -3,7 +3,7 @@
 namespace Fousky\Component\iDoklad\Exception;
 
 /**
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class TokenNotFoundException extends \Exception implements iDokladExceptionInterface
 {

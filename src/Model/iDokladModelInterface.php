@@ -6,7 +6,7 @@ use Psr\Http\Message\ResponseInterface;
 use Fousky\Component\iDoklad\Exception\InvalidResponseException;
 
 /**
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 interface iDokladModelInterface
 {

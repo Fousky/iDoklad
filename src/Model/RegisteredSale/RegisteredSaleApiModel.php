@@ -50,7 +50,7 @@ use Fousky\Component\iDoklad\LOV\RegisteredSaleStateEnum;
  * @method null|string getUuid()
  * @method null|string getVatIdentificationNumber()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class RegisteredSaleApiModel extends iDokladAbstractModel
 {

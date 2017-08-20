@@ -15,7 +15,7 @@ use Fousky\Component\iDoklad\Model\iDokladModelInterface;
  * @method null|string getName()
  * @method null|string getNameEnglish()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class CountryModel extends iDokladAbstractModel
 {

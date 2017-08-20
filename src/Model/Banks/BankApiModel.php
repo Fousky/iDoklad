@@ -15,7 +15,7 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  * @method string|null getNumberCode()
  * @method string|null getSwift()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class BankApiModel extends iDokladAbstractModel
 {

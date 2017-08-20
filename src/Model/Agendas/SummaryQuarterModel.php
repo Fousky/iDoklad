@@ -12,7 +12,7 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  * @method null|float getTotalProforma()
  * @method null|float getTotalUnPaid()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class SummaryQuarterModel extends iDokladAbstractModel
 {

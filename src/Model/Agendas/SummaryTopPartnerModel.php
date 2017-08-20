@@ -9,7 +9,7 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  * @method string|null getName()
  * @method float|null getTotalWithVatHc()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class SummaryTopPartnerModel extends iDokladAbstractModel
 {

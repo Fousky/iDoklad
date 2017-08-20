@@ -3,7 +3,7 @@
 namespace Fousky\Component\iDoklad\UrlExtension;
 
 /**
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class iDokladFilter implements UrlExtensionInterface
 {

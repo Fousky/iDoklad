@@ -11,7 +11,7 @@ use Fousky\Component\iDoklad\Model\iDokladModelInterface;
  * @method null|int getTotalItems()
  * @method null|int getTotalPages()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class CashRegisterApiCollectionModel extends iDokladAbstractModel
 {

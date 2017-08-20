@@ -10,7 +10,7 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * @method ArrayCollection|SummaryTopPartnerModel[] getPartners()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class SummaryTopPartnerCollectionModel extends iDokladAbstractModel
 {

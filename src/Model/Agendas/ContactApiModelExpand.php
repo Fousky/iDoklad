@@ -36,7 +36,7 @@ use Fousky\Component\iDoklad\Model\Banks\BankAccountApiModel;
  * @method null|string getVatIdentificationNumberSk()
  * @method null|string getWww()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class ContactApiModelExpand extends iDokladAbstractModel
 {

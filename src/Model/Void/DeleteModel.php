@@ -5,7 +5,7 @@ namespace Fousky\Component\iDoklad\Model\Void;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 
 /**
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class DeleteModel extends iDokladAbstractModel
 {

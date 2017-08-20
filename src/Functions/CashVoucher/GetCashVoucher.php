@@ -1,15 +1,26 @@
 <?php
 
-namespace Fousky\Component\iDoklad\Functions\Agendas;
+namespace Fousky\Component\iDoklad\Functions\CashVoucher;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\Agendas\AgendaCollectionModel;
+use Fousky\Component\iDoklad\Model\CashVoucher\CashVoucherApiModel;
 
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class GetAgendas extends iDokladAbstractFunction
+class GetCashVoucher extends iDokladAbstractFunction
 {
+    /** @var string $id */
+    protected $id;
+
+    /**
+     * @param string $id
+     */
+    public function __construct(string $id)
+    {
+        $this->id = $id;
+    }
+
     /**
      * Get iDokladModelInterface class.
      *
@@ -19,7 +30,7 @@ class GetAgendas extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return AgendaCollectionModel::class;
+        return CashVoucherApiModel::class;
     }
 
     /**
@@ -43,7 +54,7 @@ class GetAgendas extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return 'Agendas';
+        return sprintf('CashVouchers/%s', $this->id);
     }
 
     /**

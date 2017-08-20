@@ -16,7 +16,7 @@ use Fousky\Component\iDoklad\Model\iDokladModelInterface;
  * @method null|int getExchangeListId()
  * @method null|float getExchangeRateValue()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class ExchangeRateModel extends iDokladAbstractModel
 {

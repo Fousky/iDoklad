@@ -9,7 +9,7 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  * @method int|null getIssuedInvoices()
  * @method int|null getPriceListItems()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class AgendaSummaryModel extends iDokladAbstractModel
 {

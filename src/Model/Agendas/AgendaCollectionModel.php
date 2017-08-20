@@ -14,7 +14,7 @@ use Psr\Http\Message\ResponseInterface;
  * @method int getTotalItems()
  * @method int getTotalPages()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class AgendaCollectionModel extends iDokladAbstractModel
 {

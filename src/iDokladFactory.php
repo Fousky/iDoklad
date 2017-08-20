@@ -5,7 +5,7 @@ namespace Fousky\Component\iDoklad;
 use Fousky\Component\iDoklad\Storage\AccessTokenStorageInterface;
 
 /**
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class iDokladFactory
 {

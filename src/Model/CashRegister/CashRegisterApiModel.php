@@ -14,7 +14,7 @@ use Fousky\Component\iDoklad\Model\iDokladModelInterface;
  * @method null|float getInitialState()
  * @method null|string getName()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class CashRegisterApiModel extends iDokladAbstractModel
 {

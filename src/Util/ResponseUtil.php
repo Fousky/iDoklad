@@ -5,7 +5,7 @@ namespace Fousky\Component\iDoklad\Util;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class ResponseUtil
 {

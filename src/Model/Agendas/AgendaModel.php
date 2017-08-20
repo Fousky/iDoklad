@@ -19,7 +19,7 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  * @method string|null getRoundingDifference()
  * @method string|null getVatRegistrationType()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class AgendaModel extends iDokladAbstractModel
 {

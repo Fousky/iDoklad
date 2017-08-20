@@ -12,7 +12,7 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  * @method string getPriority()
  * @method string getSymbol()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class CurrencyModel extends iDokladAbstractModel
 {

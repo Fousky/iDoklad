@@ -6,7 +6,7 @@ use Fousky\Component\iDoklad\Util\ResponseUtil;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 abstract class iDokladAbstractModel implements iDokladModelInterface
 {

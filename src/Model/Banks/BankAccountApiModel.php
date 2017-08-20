@@ -19,7 +19,7 @@ use Fousky\Component\iDoklad\Model\iDokladModelInterface;
  * @method null|string getName()
  * @method null|string getSwift()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class BankAccountApiModel extends iDokladAbstractModel
 {

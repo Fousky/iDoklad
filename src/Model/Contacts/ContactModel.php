@@ -30,7 +30,7 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  * @method string getVatIdentificationNumberSk()
  * @method string getWww()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class ContactModel extends iDokladAbstractModel
 {

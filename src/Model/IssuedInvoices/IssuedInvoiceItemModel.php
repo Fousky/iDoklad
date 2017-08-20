@@ -40,7 +40,7 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  * @method string|null getVariableSymbol()
  * @method string|null getVatOnPayStatus()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class IssuedInvoiceItemModel extends iDokladAbstractModel
 {

@@ -38,7 +38,7 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  * @method null|string getSwift()
  * @method null|string getVariableSymbol()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class ProformaInvoiceModel extends iDokladAbstractModel
 {

@@ -8,7 +8,7 @@ use Fousky\Component\iDoklad\Model\Contacts\ContactCollectionModel;
 /**
  * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-Contacts
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class GetContacts extends iDokladAbstractFunction
 {

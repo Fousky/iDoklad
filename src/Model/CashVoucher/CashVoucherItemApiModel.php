@@ -18,7 +18,7 @@ use Fousky\Component\iDoklad\LOV\VatRateTypeEnum;
  * @method null|float getVatRate()
  * @method null|VatRateTypeEnum getVatRateType()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class CashVoucherItemApiModel extends iDokladAbstractModel
 {

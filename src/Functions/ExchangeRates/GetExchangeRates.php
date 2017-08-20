@@ -6,7 +6,7 @@ use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
 use Fousky\Component\iDoklad\Model\ExchangeRates\ExchangeRateCollectionModel;
 
 /**
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class GetExchangeRates extends iDokladAbstractFunction
 {

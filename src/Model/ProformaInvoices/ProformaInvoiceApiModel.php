@@ -75,7 +75,7 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  * @method string|null getVatRateReduced1()
  * @method string|null getVatRateReduced2()
  *
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class ProformaInvoiceApiModel extends iDokladAbstractModel
 {

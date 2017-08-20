@@ -6,7 +6,7 @@ use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
 use Fousky\Component\iDoklad\Model\IssuedInvoices\IssuedInvoiceApiModel;
 
 /**
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class ChargeProformaInvoice extends iDokladAbstractFunction
 {

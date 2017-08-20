@@ -7,7 +7,7 @@ use Fousky\Component\iDoklad\Model\ProformaInvoices\ProformaInvoiceApiModel;
 use Fousky\Component\iDoklad\Model\ProformaInvoices\ProformaInvoiceModel;
 
 /**
- * @author Lukáš Brzák <lukas.brzak@aquadigital.cz>
+ * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class CreateProformaInvoice extends iDokladAbstractFunction
 {
