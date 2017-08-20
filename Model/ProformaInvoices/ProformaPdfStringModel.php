@@ -12,7 +12,7 @@ use Psr\Http\Message\ResponseInterface;
 class ProformaPdfStringModel extends iDokladAbstractModel
 {
     /**
-     * @var string $raw Base64 encoded PDF content.
+     * @var string Base64 encoded PDF content.
      */
     public $raw;
 

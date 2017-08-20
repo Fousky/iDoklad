@@ -69,36 +69,37 @@ class ContactModel extends iDokladAbstractModel
 
     /**
      * @param array $options
+     *
      * @return array
      */
     public function toArray(array $options = []): array
     {
         return [
 //            'Id' => $this->Id,
-            'AddressIdg' => $this->AddressIdg,
-            'CreditCheck' => $this->CreditCheck,
+            'AddressIdg'     => $this->AddressIdg,
+            'CreditCheck'    => $this->CreditCheck,
             'DateLastChange' => $this->getDateLastChange() instanceof \DateTime
                 ? $this->getDateLastChange()->format(\DateTime::ATOM)
                 : $this->getDateLastChange(),
             'DefaultBankAccount' => $this->DefaultBankAccount,
-            'CompanyName' => $this->CompanyName,
-            'CountryId' => $this->CountryId,
+            'CompanyName'        => $this->CompanyName,
+            'CountryId'          => $this->CountryId,
 //            'IsRegisteredForVatOnPay' => $this->IsRegisteredForVatOnPay,
-            'City' => $this->City,
-            'DiscountPercentage' => $this->DiscountPercentage,
-            'Email' => $this->Email,
-            'Fax' => $this->Fax,
-            'Www' => $this->Www,
-            'Title' => $this->Title,
-            'Firstname' => $this->Firstname,
-            'Surname' => $this->Surname,
-            'IdentificationNumber' => $this->IdentificationNumber,
-            'IsSendReminder' => $this->IsSendReminder,
-            'Mobile' => $this->Mobile,
-            'Phone' => $this->Phone,
-            'Street' => $this->Street,
-            'PostalCode' => $this->PostalCode,
-            'VatIdentificationNumber' => $this->VatIdentificationNumber,
+            'City'                      => $this->City,
+            'DiscountPercentage'        => $this->DiscountPercentage,
+            'Email'                     => $this->Email,
+            'Fax'                       => $this->Fax,
+            'Www'                       => $this->Www,
+            'Title'                     => $this->Title,
+            'Firstname'                 => $this->Firstname,
+            'Surname'                   => $this->Surname,
+            'IdentificationNumber'      => $this->IdentificationNumber,
+            'IsSendReminder'            => $this->IsSendReminder,
+            'Mobile'                    => $this->Mobile,
+            'Phone'                     => $this->Phone,
+            'Street'                    => $this->Street,
+            'PostalCode'                => $this->PostalCode,
+            'VatIdentificationNumber'   => $this->VatIdentificationNumber,
             'VatIdentificationNumberSk' => $this->VatIdentificationNumberSk,
         ];
     }

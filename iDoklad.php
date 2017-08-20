@@ -2,8 +2,8 @@
 
 namespace Fousky\Component\iDoklad;
 
-use Fousky\Component\iDoklad\Exception\TokenNotFoundException;
 use Fousky\Component\iDoklad\Exception\InvalidTokenException;
+use Fousky\Component\iDoklad\Exception\TokenNotFoundException;
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
 use Fousky\Component\iDoklad\Functions\iDokladFunctionInterface;
 use Fousky\Component\iDoklad\Model\Auth\AccessToken;
@@ -29,7 +29,7 @@ class iDoklad
     protected $client;
 
     /**
-     * @param array $config
+     * @param array               $config
      * @param iDokladTokenFactory $tokenFactory
      *
      * @throws ExceptionInterface
@@ -45,8 +45,10 @@ class iDoklad
 
     /**
      * @param iDokladFunctionInterface $function
-     * @return iDokladModelInterface
+     *
      * @throws \Exception
+     *
+     * @return iDokladModelInterface
      */
     public function execute(iDokladFunctionInterface $function): iDokladModelInterface
     {
@@ -58,8 +60,7 @@ class iDoklad
                     $this->resolveUri($function),
                     $this->resolveOptions($function)
                 )
-            )
-        ;
+            );
     }
 
     /**
@@ -103,9 +104,10 @@ class iDoklad
     /**
      * @param iDokladFunctionInterface $function
      *
-     * @return array
      * @throws InvalidTokenException
      * @throws TokenNotFoundException
+     *
+     * @return array
      */
     protected function resolveOptions(iDokladFunctionInterface $function): array
     {
@@ -136,11 +138,11 @@ class iDoklad
     }
 
     /**
-     * @return AccessToken
-     *
      * @throws \RuntimeException
      * @throws TokenNotFoundException
      * @throws InvalidTokenException
+     *
+     * @return AccessToken
      */
     public function getToken(): AccessToken
     {
@@ -157,8 +159,10 @@ class iDoklad
 
     /**
      * @param array $config
-     * @return array
+     *
      * @throws ExceptionInterface
+     *
+     * @return array
      */
     protected function assertConfiguration(array $config): array
     {

@@ -16,8 +16,9 @@ class iDokladSortable implements UrlExtensionInterface
      * @param string $property
      * @param string $order
      *
-     * @return iDokladSortable
      * @throws \InvalidArgumentException
+     *
+     * @return iDokladSortable
      */
     public function sort(string $property, string $order): iDokladSortable
     {
@@ -42,6 +43,7 @@ class iDokladSortable implements UrlExtensionInterface
      * Return key => value associative array of HTTP GET parameters.
      *
      * @return array
+     *
      * @internal
      */
     public function getHttpQuery(): array

@@ -23,8 +23,8 @@ class GetCashVoucherFiltered extends iDokladAbstractFunction
 
     /**
      * @param string $invoiceId
-     * @param int $movementType Constant from: MovementTypeEnum
-     * @param int $invoiceType Constant from: InvoiceTypeEnum
+     * @param int    $movementType Constant from: MovementTypeEnum
+     * @param int    $invoiceType  Constant from: InvoiceTypeEnum
      */
     public function __construct(
         string $invoiceId,
@@ -78,7 +78,7 @@ class GetCashVoucherFiltered extends iDokladAbstractFunction
     }
 
     /**
-     * Vrátí seznam parametrů, které se předají GuzzleHttp\Client
+     * Vrátí seznam parametrů, které se předají GuzzleHttp\Client.
      *
      * @see \GuzzleHttp\Client::request()
      * @see iDoklad::call()

@@ -58,14 +58,15 @@ class CreateContact extends iDokladAbstractFunction
     }
 
     /**
-     * Vrátí seznam parametrů, které se předají GuzzleHttp\Client
+     * Vrátí seznam parametrů, které se předají GuzzleHttp\Client.
      *
      * @see \GuzzleHttp\Client::request()
      * @see iDoklad::call()
      *
-     * @return array
      * @throws \ReflectionException
      * @throws \InvalidArgumentException
+     *
+     * @return array
      */
     public function getGuzzleOptions(): array
     {

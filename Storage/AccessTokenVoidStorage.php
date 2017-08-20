@@ -25,8 +25,9 @@ class AccessTokenVoidStorage implements AccessTokenStorageInterface
     /**
      * Get AccessToken from Storage or throw TokenNotFoundException if not found.
      *
-     * @return AccessToken
      * @throws TokenNotFoundException
+     *
+     * @return AccessToken
      */
     public function getToken(): AccessToken
     {
@@ -70,7 +71,6 @@ class AccessTokenVoidStorage implements AccessTokenStorageInterface
             }
 
             return $token->isExpired();
-
         } catch (\Throwable $e) {
             return true;
         }

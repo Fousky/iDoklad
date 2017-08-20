@@ -13,8 +13,9 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
     /**
      * @param ResponseInterface $response
      *
-     * @return iDokladModelInterface
      * @throws \RuntimeException
+     *
+     * @return iDokladModelInterface
      */
     public static function createFromResponse(ResponseInterface $response): iDokladModelInterface
     {
@@ -61,10 +62,10 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
     /**
      * @param array $options
      *
-     * @return array
-     *
      * @throws \ReflectionException
      * @throws \InvalidArgumentException
+     *
+     * @return array
      */
     public function toArray(array $options = []): array
     {
@@ -73,18 +74,18 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
 
         foreach ($reflection->getProperties() as $property) {
             $name = $property->getName();
-            $getter = 'get' . ucfirst($property->getName());
+            $getter = 'get'.ucfirst($property->getName());
             $value = $this->{$getter}();
 
             // convert \DateTime to string date representation.
             if ($value instanceof \DateTime) {
                 $value = $value->format(\DateTime::ATOM);
-            } else if (is_object($value)) {
+            } elseif (is_object($value)) {
                 if (method_exists($value, 'toArray')) {
                     $value = $value->toArray();
-                } else if (method_exists($value, 'createJson')) {
+                } elseif (method_exists($value, 'createJson')) {
                     $value = $value->createJson();
-                } else if (method_exists($value, '__toString')) {
+                } elseif (method_exists($value, '__toString')) {
                     $value = (string) $value;
                 }
             }
@@ -97,10 +98,11 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
 
     /**
      * @param string $name
-     * @param array $arguments
+     * @param array  $arguments
+     *
+     * @throws \InvalidArgumentException
      *
      * @return mixed
-     * @throws \InvalidArgumentException
      */
     public function __call($name, $arguments)
     {

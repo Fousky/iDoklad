@@ -40,8 +40,9 @@ class iDokladFilter implements UrlExtensionInterface
      * @param string $operator
      * @param string $value
      *
-     * @return $this
      * @throws \InvalidArgumentException
+     *
+     * @return $this
      */
     public function filter(string $property, string $operator, string $value): iDokladFilter
     {
@@ -66,8 +67,9 @@ class iDokladFilter implements UrlExtensionInterface
     /**
      * @param string $type
      *
-     * @return iDokladFilter
      * @throws \InvalidArgumentException
+     *
+     * @return iDokladFilter
      */
     public function filterType(string $type): iDokladFilter
     {
@@ -88,6 +90,7 @@ class iDokladFilter implements UrlExtensionInterface
      * Return key => value associative array of HTTP GET parameters.
      *
      * @return array
+     *
      * @internal
      */
     public function getHttpQuery(): array
@@ -99,7 +102,7 @@ class iDokladFilter implements UrlExtensionInterface
         $result = [];
 
         return [
-            'filter' => implode('|', $result),
+            'filter'     => implode('|', $result),
             'filtertype' => $this->type,
         ];
     }

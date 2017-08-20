@@ -61,7 +61,7 @@ class GetDefaultCashVoucher extends iDokladAbstractFunction
     }
 
     /**
-     * Vrátí seznam parametrů, které se předají GuzzleHttp\Client
+     * Vrátí seznam parametrů, které se předají GuzzleHttp\Client.
      *
      * @see \GuzzleHttp\Client::request()
      * @see iDoklad::call()

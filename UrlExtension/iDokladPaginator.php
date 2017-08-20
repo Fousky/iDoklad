@@ -41,6 +41,7 @@ class iDokladPaginator implements UrlExtensionInterface
      * Return key => value associative array of HTTP GET parameters.
      *
      * @return array
+     *
      * @internal
      */
     public function getHttpQuery(): array
