@@ -5,23 +5,12 @@ namespace Fousky\Component\iDoklad\LOV;
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class ExportedStateEnum
+class ExportedStateEnum extends iDokladAbstractEnum
 {
     const NOT_EXPORTED = 0;
     const EXPORTED = 1;
     const CHANGED = 2;
     const DELETED = 3;
-
-    /** @var int $value */
-    protected $value;
-
-    /**
-     * @param int $value
-     */
-    public function __construct(int $value)
-    {
-        $this->value = $value;
-    }
 
     /**
      * @return bool

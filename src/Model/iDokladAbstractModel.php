@@ -50,7 +50,7 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
 
         // convert DateTime properties from string to \DateTime object.
         foreach (static::getDateTimeProperties() as $property) {
-            if (false !== $value = new \DateTime($model->{$property})) {
+            if (false !== $value = new \DateTime($model->{$property}, new \DateTimeZone('UTC'))) {
                 $model->{$property} = $value;
             }
         }

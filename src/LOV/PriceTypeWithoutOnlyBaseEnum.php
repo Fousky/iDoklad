@@ -5,21 +5,10 @@ namespace Fousky\Component\iDoklad\LOV;
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class PriceTypeWithoutOnlyBaseEnum
+class PriceTypeWithoutOnlyBaseEnum extends iDokladAbstractEnum
 {
     const WITH_VAT = 0;
     const WITHOUT_VAT = 1;
-
-    /** @var int $value */
-    protected $value;
-
-    /**
-     * @param int $value
-     */
-    public function __construct(int $value)
-    {
-        $this->value = $value;
-    }
 
     /**
      * @return bool

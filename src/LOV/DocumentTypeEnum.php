@@ -5,7 +5,7 @@ namespace Fousky\Component\iDoklad\LOV;
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class DocumentTypeEnum
+class DocumentTypeEnum extends iDokladAbstractEnum
 {
     const ISSUED_INVOICE = 0;
     const PROFORMA_INVOICE = 1;
@@ -16,17 +16,6 @@ class DocumentTypeEnum
     const SALES_RECEIPT = 6;
     const SALES_ORDER = 7;
     const REGISTERED_SALE = 101;
-
-    /** @var int $value */
-    protected $value;
-
-    /**
-     * @param int $value
-     */
-    public function __construct(int $value)
-    {
-        $this->value = $value;
-    }
 
     /**
      * @return bool

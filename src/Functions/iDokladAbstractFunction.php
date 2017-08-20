@@ -126,6 +126,8 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
                 'url' => 'https://app.idoklad.cz/developer/api/v2/',
                 'token_endpoint' => 'https://app.idoklad.cz/identity/server/connect/token',
                 'scope' => 'idoklad_api',
+                // iDoklad sends DateTime in UTC, so we tranform to another PHP \DateTimeZone
+                'timezone' => 'Europe/Prague',
             ])
             ->setRequired([
                 'client_id',

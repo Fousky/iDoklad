@@ -86,8 +86,13 @@ class iDoklad
         }
 
         if (count($parts) > 0) {
+            // URI does not have "?"
             if (strpos($uri, '?') === false) {
                 $uri .= '?';
+            }
+            // URI has "?", but does not ends with "&"
+            if (strpos($uri, '?') !== false && substr($uri, -1) !== '&') {
+                $uri .= '&';
             }
             $uri .= http_build_query($parts);
         }

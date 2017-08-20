@@ -5,25 +5,12 @@ namespace Fousky\Component\iDoklad\LOV;
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class VatRateTypeEnum
+class VatRateTypeEnum extends iDokladAbstractEnum
 {
     const REDUCED1 = 0;
     const BASIC = 1;
     const ZERO = 2;
     const REDUCED2 = 3;
-
-    /**
-     * @var int
-     */
-    protected $value;
-
-    /**
-     * @param int $value
-     */
-    public function __construct(int $value)
-    {
-        $this->value = $value;
-    }
 
     /**
      * @return bool

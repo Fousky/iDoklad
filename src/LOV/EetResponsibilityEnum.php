@@ -5,21 +5,10 @@ namespace Fousky\Component\iDoklad\LOV;
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class EetResponsibilityEnum
+class EetResponsibilityEnum extends iDokladAbstractEnum
 {
     const IDOKLAD = 0;
     const EXTERNAL_APPLICATION = 1;
-
-    /** @var int $value */
-    protected $value;
-
-    /**
-     * @param int $value
-     */
-    public function __construct(int $value)
-    {
-        $this->value = $value;
-    }
 
     /**
      * @return bool

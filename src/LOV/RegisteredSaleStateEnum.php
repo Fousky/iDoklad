@@ -5,22 +5,11 @@ namespace Fousky\Component\iDoklad\LOV;
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class RegisteredSaleStateEnum
+class RegisteredSaleStateEnum extends iDokladAbstractEnum
 {
     const NEW = 0;
     const REGISTERED = 1;
     const ERROR = -1;
-
-    /** @var int $value */
-    protected $value;
-
-    /**
-     * @param int $value
-     */
-    public function __construct(int $value)
-    {
-        $this->value = $value;
-    }
 
     /**
      * @return bool
