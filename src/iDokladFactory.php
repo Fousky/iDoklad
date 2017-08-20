@@ -18,8 +18,6 @@ class iDokladFactory
      */
     public static function create(array $config, AccessTokenStorageInterface $storage = null): iDoklad
     {
-        dump('ahoj');
-
         return new iDoklad(
             $config,
             new iDokladTokenFactory($storage)
