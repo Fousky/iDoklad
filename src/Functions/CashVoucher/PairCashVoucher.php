@@ -3,54 +3,36 @@
 namespace Fousky\Component\iDoklad\Functions\CashVoucher;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\CashVoucher\CashVoucherApiModel;
+use Fousky\Component\iDoklad\LOV\InvoiceTypeEnum;
 use Fousky\Component\iDoklad\Model\CashVoucher\CashVoucherApiModelInsert;
-use Fousky\Component\iDoklad\Model\CashVoucher\CashVoucherItemApiModelInsert;
+use Fousky\Component\iDoklad\Model\Void\VoidModel;
 
 /**
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=POST-api-v2-CashVouchers-Pair-invoiceType-invoiceId
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class CreateCashVoucher extends iDokladAbstractFunction
+class PairCashVoucher extends iDokladAbstractFunction
 {
     /** @var CashVoucherApiModelInsert $data */
     protected $data;
 
+    /** @var InvoiceTypeEnum $invoiceType */
+    protected $invoiceType;
+
+    /** @var string $invoiceId */
+    protected $invoiceId;
+
     /**
-     * @param CashVoucherApiModelInsert $data
-     *
-     * @throws \InvalidArgumentException
+     * @param CashVoucherApiModelInsert $data Cash voucher identification (or create new)
+     * @param int $invoiceType Pair with invoice type (object InvoiceTypeEnum constant)
+     * @param string $invoiceId Pair with invoice ID of the $invoiceType
      */
-    public function __construct(CashVoucherApiModelInsert $data)
+    public function __construct(CashVoucherApiModelInsert $data, int $invoiceType, string $invoiceId)
     {
         $this->data = $data;
-
-        $this->validate($data);
-    }
-
-    /**
-     * @param CashVoucherApiModelInsert $data
-     *
-     * @throws \InvalidArgumentException
-     */
-    protected function validate(CashVoucherApiModelInsert $data)
-    {
-        if ($data->getItem() === null) {
-            return;
-        }
-
-        if (empty($data->getItem()->Name)) {
-            throw new \InvalidArgumentException(sprintf(
-                'Property $Name of class %s cannot be empty.',
-                CashVoucherItemApiModelInsert::class
-            ));
-        }
-
-        if (empty($data->getItem()->Price)) {
-            throw new \InvalidArgumentException(sprintf(
-                'Property $Price of class %s cannot be empty.',
-                CashVoucherItemApiModelInsert::class
-            ));
-        }
+        $this->invoiceType = new InvoiceTypeEnum($invoiceType);
+        $this->invoiceId = $invoiceId;
     }
 
     /**
@@ -62,7 +44,7 @@ class CreateCashVoucher extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return CashVoucherApiModel::class;
+        return VoidModel::class;
     }
 
     /**
@@ -86,7 +68,11 @@ class CreateCashVoucher extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return 'CashVouchers';
+        return sprintf(
+            'CashVouchers/Pair/%s/%s',
+            (string) $this->invoiceType,
+            (string) $this->invoiceId
+        );
     }
 
     /**
