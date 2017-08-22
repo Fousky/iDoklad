@@ -2,9 +2,9 @@
 
 namespace Fousky\Component\iDoklad\Model\CashVoucher;
 
-use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
-use Fousky\Component\iDoklad\LOV\VatRateTypeEnum;
 use Fousky\Component\iDoklad\LOV\PriceTypeWithoutOnlyBaseEnum;
+use Fousky\Component\iDoklad\LOV\VatRateTypeEnum;
+use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 
 /**
  * @method null|float getAmount()
@@ -32,8 +32,8 @@ class CashVoucherItemApiModelUpdate extends iDokladAbstractModel
 
     /**
      * @param string $Name
-     * @param float $Price
-     * @param array $properties Properties key=>value see getAvailableProperties()
+     * @param float  $Price
+     * @param array  $properties Properties key=>value see getAvailableProperties()
      */
     public function __construct(string $Name, float $Price, array $properties = [])
     {
