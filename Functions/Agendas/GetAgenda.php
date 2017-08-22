@@ -6,6 +6,8 @@ use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
 use Fousky\Component\iDoklad\Model\Agendas\AgendaModel;
 
 /**
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-Agendas-id
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class GetAgenda extends iDokladAbstractFunction

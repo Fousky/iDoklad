@@ -6,6 +6,8 @@ use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
 use Fousky\Component\iDoklad\Model\Banks\BankAccountApiCollectionModel;
 
 /**
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-Agendas-GetAgendaBankAccounts
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class GetAgendaBankAccounts extends iDokladAbstractFunction
