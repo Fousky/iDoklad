@@ -20,7 +20,7 @@ class UpdateCashVoucher extends iDokladAbstractFunction
     protected $data;
 
     /**
-     * @param string $voucherId
+     * @param string                    $voucherId
      * @param CashVoucherApiModelUpdate $data
      */
     public function __construct(string $voucherId, CashVoucherApiModelUpdate $data)
@@ -71,9 +71,10 @@ class UpdateCashVoucher extends iDokladAbstractFunction
      * @see \GuzzleHttp\Client::request()
      * @see iDoklad::call()
      *
-     * @return array
      * @throws \ReflectionException
      * @throws \InvalidArgumentException
+     *
+     * @return array
      */
     public function getGuzzleOptions(): array
     {

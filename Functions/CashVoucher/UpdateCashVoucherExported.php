@@ -21,7 +21,7 @@ class UpdateCashVoucherExported extends iDokladAbstractFunction
 
     /**
      * @param string $id
-     * @param int $exported
+     * @param int    $exported
      */
     public function __construct(string $id, int $exported)
     {
