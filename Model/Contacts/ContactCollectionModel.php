@@ -14,7 +14,7 @@ use Psr\Http\Message\ResponseInterface;
  */
 class ContactCollectionModel extends iDokladAbstractModel
 {
-    /** @var contactModel[]|ArrayCollection $Data */
+    /** @var ContactApiModel[]|ArrayCollection $Data */
     protected $Data;
 
     /** @var int $TotalItems */
@@ -48,7 +48,7 @@ class ContactCollectionModel extends iDokladAbstractModel
         $items = new ArrayCollection();
 
         foreach ($responseData['Data'] as $index => $contact) {
-            $items->add(ContactModel::createFromStd($contact));
+            $items->add(ContactApiModel::createFromStd($contact));
         }
 
         $model->Data = $items;

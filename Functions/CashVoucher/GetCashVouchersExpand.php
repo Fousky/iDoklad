@@ -3,14 +3,16 @@
 namespace Fousky\Component\iDoklad\Functions\CashVoucher;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\CashVoucher\CashVoucherApiCollectionModel;
+use Fousky\Component\iDoklad\Model\CashVoucher\CashVoucherApiCollectionModelExpand;
 
 /**
- * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-CashVouchers
+ * @TODO: report bug in iDoklad API documentation!
+ *
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-CashVouchers-Expand
  *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class GetCashVouchers extends iDokladAbstractFunction
+class GetCashVouchersExpand extends iDokladAbstractFunction
 {
     /**
      * Get iDokladModelInterface class.
@@ -21,7 +23,7 @@ class GetCashVouchers extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return CashVoucherApiCollectionModel::class;
+        return CashVoucherApiCollectionModelExpand::class;
     }
 
     /**
@@ -45,7 +47,7 @@ class GetCashVouchers extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return 'CashVouchers';
+        return 'CashVouchers/Expand';
     }
 
     /**

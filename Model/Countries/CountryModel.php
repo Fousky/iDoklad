@@ -2,7 +2,7 @@
 
 namespace Fousky\Component\iDoklad\Model\Countries;
 
-use Fousky\Component\iDoklad\Model\Currencies\CurrencyModel;
+use Fousky\Component\iDoklad\Model\Currencies\CurrencyApiModel;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
@@ -37,7 +37,7 @@ class CountryModel extends iDokladAbstractModel
         /** @var CountryModel $model */
         $model = parent::createFromStd($data);
 
-        $model->Currency = CurrencyModel::createFromStd($model->Currency);
+        $model->Currency = CurrencyApiModel::createFromStd($model->Currency);
 
         return $model;
     }

@@ -3,20 +3,20 @@
 namespace Fousky\Component\iDoklad\Functions\Contacts;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\Contacts\ContactModel;
+use Fousky\Component\iDoklad\Model\Contacts\ContactApiModel;
 
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class CreateContact extends iDokladAbstractFunction
 {
-    /** @var ContactModel $subject */
+    /** @var ContactApiModel $subject */
     protected $subject;
 
     /**
-     * @param ContactModel $subject
+     * @param ContactApiModel $subject
      */
-    public function __construct(ContactModel $subject)
+    public function __construct(ContactApiModel $subject)
     {
         $this->subject = $subject;
     }
@@ -30,7 +30,7 @@ class CreateContact extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return ContactModel::class;
+        return ContactApiModel::class;
     }
 
     /**

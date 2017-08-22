@@ -3,24 +3,35 @@
 namespace Fousky\Component\iDoklad\Functions\CashVoucher;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
+use Fousky\Component\iDoklad\LOV\InvoiceTypeEnum;
 use Fousky\Component\iDoklad\Model\Void\VoidModel;
 
 /**
- * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=DELETE-api-v2-CashVouchers-id
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=POST-api-v2-CashVouchers-Pair-cashVoucherId-invoiceType-invoiceId
  *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class DeleteCashVoucher extends iDokladAbstractFunction
+class PairCashVoucherByInvoice extends iDokladAbstractFunction
 {
-    /** @var string $id */
-    protected $id;
+    /** @var int $cashVoucherId */
+    protected $cashVoucherId;
+
+    /** @var InvoiceTypeEnum $invoiceType */
+    protected $invoiceType;
+
+    /** @var int $invoiceId */
+    protected $invoiceId;
 
     /**
-     * @param string $id
+     * @param int $cashVoucherId
+     * @param int $invoiceType
+     * @param int $invoiceId
      */
-    public function __construct(string $id)
+    public function __construct(int $cashVoucherId, int $invoiceType, int $invoiceId)
     {
-        $this->id = $id;
+        $this->cashVoucherId = $cashVoucherId;
+        $this->invoiceType = new InvoiceTypeEnum($invoiceType);
+        $this->invoiceId = $invoiceId;
     }
 
     /**
@@ -44,7 +55,7 @@ class DeleteCashVoucher extends iDokladAbstractFunction
      */
     public function getHttpMethod(): string
     {
-        return 'DELETE';
+        return 'POST';
     }
 
     /**
@@ -56,7 +67,12 @@ class DeleteCashVoucher extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return sprintf('CashVouchers/%d', $this->id);
+        return sprintf(
+            'CashVouchers/Pair/%s/%s/%s',
+            $this->cashVoucherId,
+            $this->invoiceType->getValue(),
+            $this->invoiceId
+        );
     }
 
     /**

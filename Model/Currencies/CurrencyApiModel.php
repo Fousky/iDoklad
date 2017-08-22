@@ -5,16 +5,16 @@ namespace Fousky\Component\iDoklad\Model\Currencies;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 
 /**
- * @method string getId()
- * @method string getCode()
- * @method string getCountry()
- * @method string getName()
- * @method string getPriority()
- * @method string getSymbol()
+ * @method null|string getId()
+ * @method null|string getCode()
+ * @method null|string getCountry()
+ * @method null|string getName()
+ * @method null|string getPriority()
+ * @method null|string getSymbol()
  *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class CurrencyModel extends iDokladAbstractModel
+class CurrencyApiModel extends iDokladAbstractModel
 {
     public $Id;
     public $Code;

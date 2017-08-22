@@ -2,7 +2,7 @@
 
 namespace Fousky\Component\iDoklad\Model\Banks;
 
-use Fousky\Component\iDoklad\Model\Currencies\CurrencyModel;
+use Fousky\Component\iDoklad\Model\Currencies\CurrencyApiModel;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
@@ -10,7 +10,7 @@ use Fousky\Component\iDoklad\Model\iDokladModelInterface;
  * @method null|string getAccountNumber()
  * @method null|BankApiModel getBank()
  * @method null|int getBankId()
- * @method null|CurrencyModel getCurrency()
+ * @method null|CurrencyApiModel getCurrency()
  * @method null|int getCurrencyId()
  * @method null|\DateTime getDateLastChange()
  * @method null|string getIban()
@@ -50,7 +50,7 @@ class BankAccountApiModel extends iDokladAbstractModel
         }
 
         if (null !== $model->Currency) {
-            $model->Currency = CurrencyModel::createFromStd($model->Currency);
+            $model->Currency = CurrencyApiModel::createFromStd($model->Currency);
         }
 
         return $model;

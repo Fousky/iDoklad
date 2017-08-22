@@ -2,14 +2,14 @@
 
 namespace Fousky\Component\iDoklad\Model\ExchangeRates;
 
-use Fousky\Component\iDoklad\Model\Currencies\CurrencyModel;
+use Fousky\Component\iDoklad\Model\Currencies\CurrencyApiModel;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
 /**
  * @method null|string getId()
  * @method null|float getAmount()
- * @method null|CurrencyModel getCurrency()
+ * @method null|CurrencyApiModel getCurrency()
  * @method null|int getCurrencyId()
  * @method null|\DateTime getDate()
  * @method null|\DateTime getDateLastChange()
@@ -39,7 +39,7 @@ class ExchangeRateModel extends iDokladAbstractModel
         /** @var ExchangeRateModel $model */
         $model = parent::createFromStd($data);
 
-        $model->Currency = CurrencyModel::createFromStd($model->Currency);
+        $model->Currency = CurrencyApiModel::createFromStd($model->Currency);
 
         return $model;
     }

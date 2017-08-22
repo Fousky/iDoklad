@@ -3,15 +3,30 @@
 namespace Fousky\Component\iDoklad\Functions\CashVoucher;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\CashVoucher\CashVoucherApiCollectionModel;
+use Fousky\Component\iDoklad\LOV\ExportedStateEnum;
+use Fousky\Component\iDoklad\Model\Void\BooleanModel;
 
 /**
- * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-CashVouchers
- *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class GetCashVouchers extends iDokladAbstractFunction
+class UpdateCashVoucherExported extends iDokladAbstractFunction
 {
+    /** @var string $id */
+    protected $id;
+
+    /** @var ExportedStateEnum $exported */
+    protected $exported;
+
+    /**
+     * @param string $id
+     * @param int $exported
+     */
+    public function __construct(string $id, int $exported)
+    {
+        $this->id = $id;
+        $this->exported = new ExportedStateEnum($exported);
+    }
+
     /**
      * Get iDokladModelInterface class.
      *
@@ -21,7 +36,7 @@ class GetCashVouchers extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return CashVoucherApiCollectionModel::class;
+        return BooleanModel::class;
     }
 
     /**
@@ -33,7 +48,7 @@ class GetCashVouchers extends iDokladAbstractFunction
      */
     public function getHttpMethod(): string
     {
-        return 'GET';
+        return 'PUT';
     }
 
     /**
@@ -45,7 +60,11 @@ class GetCashVouchers extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return 'CashVouchers';
+        return sprintf(
+            'CashVouchers/%s/Exported/%s',
+            $this->id,
+            $this->exported->getValue()
+        );
     }
 
     /**

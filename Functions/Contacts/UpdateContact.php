@@ -3,7 +3,7 @@
 namespace Fousky\Component\iDoklad\Functions\Contacts;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\Contacts\ContactModel;
+use Fousky\Component\iDoklad\Model\Contacts\ContactApiModel;
 
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
@@ -13,7 +13,7 @@ class UpdateContact extends iDokladAbstractFunction
     protected $id;
     protected $data;
 
-    public function __construct($id, ContactModel $data)
+    public function __construct($id, ContactApiModel $data)
     {
         $this->id = $id;
         $this->data = $data;
@@ -28,7 +28,7 @@ class UpdateContact extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return ContactModel::class;
+        return ContactApiModel::class;
     }
 
     /**

@@ -32,7 +32,7 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class ContactModel extends iDokladAbstractModel
+class ContactApiModel extends iDokladAbstractModel
 {
     public $Id;
     public $AddressIdg;

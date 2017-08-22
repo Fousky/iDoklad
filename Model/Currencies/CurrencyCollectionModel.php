@@ -38,7 +38,7 @@ class CurrencyCollectionModel extends iDokladAbstractModel
         $items = new ArrayCollection();
 
         foreach ($responseData['Data'] as $index => $contact) {
-            $items->add(CurrencyModel::createFromStd($contact));
+            $items->add(CurrencyApiModel::createFromStd($contact));
         }
 
         $model->Data = $items;

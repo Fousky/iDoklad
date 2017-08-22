@@ -3,7 +3,7 @@
 namespace Fousky\Component\iDoklad\Functions\Agendas;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\Contacts\ContactModel;
+use Fousky\Component\iDoklad\Model\Contacts\ContactApiModel;
 
 /**
  * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-Agendas-GetAgendaContact
@@ -21,7 +21,7 @@ class GetAgendaContact extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return ContactModel::class;
+        return ContactApiModel::class;
     }
 
     /**

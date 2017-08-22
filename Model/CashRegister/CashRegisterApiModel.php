@@ -2,12 +2,12 @@
 
 namespace Fousky\Component\iDoklad\Model\CashRegister;
 
-use Fousky\Component\iDoklad\Model\Currencies\CurrencyModel;
+use Fousky\Component\iDoklad\Model\Currencies\CurrencyApiModel;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
 /**
- * @method null|CurrencyModel getCurrency()
+ * @method null|CurrencyApiModel getCurrency()
  * @method null|int getCurrencyId()
  * @method null|\DateTime getDateInitialState()
  * @method null|int getId()
@@ -36,9 +36,9 @@ class CashRegisterApiModel extends iDokladAbstractModel
         $model = parent::createFromStd($data);
 
         if ($model->Currency instanceof \stdClass) {
-            $model->Currency = CurrencyModel::createFromStd($model->Currency);
+            $model->Currency = CurrencyApiModel::createFromStd($model->Currency);
 
-            if ($model->getCurrency() instanceof CurrencyModel) {
+            if ($model->getCurrency() instanceof CurrencyApiModel) {
                 $model->CurrencyId = $model->getCurrency()->getId();
             }
         }

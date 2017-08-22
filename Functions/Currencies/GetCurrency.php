@@ -3,7 +3,7 @@
 namespace Fousky\Component\iDoklad\Functions\Currencies;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\Currencies\CurrencyModel;
+use Fousky\Component\iDoklad\Model\Currencies\CurrencyApiModel;
 
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
@@ -26,7 +26,7 @@ class GetCurrency extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return CurrencyModel::class;
+        return CurrencyApiModel::class;
     }
 
     /**

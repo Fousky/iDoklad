@@ -3,15 +3,32 @@
 namespace Fousky\Component\iDoklad\Functions\CashVoucher;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\CashVoucher\CashVoucherApiCollectionModel;
+use Fousky\Component\iDoklad\Model\CashVoucher\CashVoucherApiModel;
+use Fousky\Component\iDoklad\Model\CashVoucher\CashVoucherApiModelUpdate;
 
 /**
- * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-CashVouchers
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=PUT-api-v2-CashVouchers-id
  *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class GetCashVouchers extends iDokladAbstractFunction
+class UpdateCashVoucher extends iDokladAbstractFunction
 {
+    /** @var string $id */
+    protected $id;
+
+    /** @var CashVoucherApiModelUpdate $data */
+    protected $data;
+
+    /**
+     * @param string $voucherId
+     * @param CashVoucherApiModelUpdate $data
+     */
+    public function __construct(string $voucherId, CashVoucherApiModelUpdate $data)
+    {
+        $this->id = $voucherId;
+        $this->data = $data;
+    }
+
     /**
      * Get iDokladModelInterface class.
      *
@@ -21,7 +38,7 @@ class GetCashVouchers extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return CashVoucherApiCollectionModel::class;
+        return CashVoucherApiModel::class;
     }
 
     /**
@@ -33,7 +50,7 @@ class GetCashVouchers extends iDokladAbstractFunction
      */
     public function getHttpMethod(): string
     {
-        return 'GET';
+        return 'PUT';
     }
 
     /**
@@ -45,7 +62,7 @@ class GetCashVouchers extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return 'CashVouchers';
+        return sprintf('CashVouchers/%s', $this->id);
     }
 
     /**
@@ -55,9 +72,13 @@ class GetCashVouchers extends iDokladAbstractFunction
      * @see iDoklad::call()
      *
      * @return array
+     * @throws \ReflectionException
+     * @throws \InvalidArgumentException
      */
     public function getGuzzleOptions(): array
     {
-        return [];
+        return [
+            'json' => $this->data->toArray(),
+        ];
     }
 }
