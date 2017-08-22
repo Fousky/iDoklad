@@ -8,6 +8,8 @@ use Fousky\Component\iDoklad\LOV\MovementTypeEnum;
 use Fousky\Component\iDoklad\Model\CashVoucher\CashVoucherApiModelInsert;
 
 /**
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-CashVouchers-Default-movementType-invoiceType-invoiceId
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class GetCashVoucherFiltered extends iDokladAbstractFunction

@@ -6,6 +6,8 @@ use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
 use Fousky\Component\iDoklad\Model\CashVoucher\CashVoucherPdfCompressedModel;
 
 /**
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-CashVouchers-id-GetCashVoucherPdfCompressed
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class GetCashVoucherPdfCompressed extends iDokladAbstractFunction

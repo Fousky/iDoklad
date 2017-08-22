@@ -7,6 +7,8 @@ use Fousky\Component\iDoklad\LOV\ExportedStateEnum;
 use Fousky\Component\iDoklad\Model\Void\BooleanModel;
 
 /**
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=PUT-api-v2-CashVouchers-id-Exported-exported
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class UpdateCashVoucherExported extends iDokladAbstractFunction

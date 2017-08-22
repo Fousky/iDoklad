@@ -8,6 +8,8 @@ use Fousky\Component\iDoklad\Model\CashVoucher\CashVoucherApiModelInsert;
 use Fousky\Component\iDoklad\Model\CashVoucher\CashVoucherItemApiModelInsert;
 
 /**
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=POST-api-v2-CashVouchers
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class CreateCashVoucher extends iDokladAbstractFunction
