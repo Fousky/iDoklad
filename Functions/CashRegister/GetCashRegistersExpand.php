@@ -6,6 +6,8 @@ use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
 use Fousky\Component\iDoklad\Model\CashRegister\CashRegisterApiCollectionModel;
 
 /**
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-CashRegisters-Expand
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class GetCashRegistersExpand extends iDokladAbstractFunction
