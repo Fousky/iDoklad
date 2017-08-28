@@ -113,8 +113,8 @@ class RegisteredSaleApiModel extends iDokladAbstractModel
     {
         return [
             'DocumentType' => DocumentTypeEnum::class,
-            'EetRegime' => EetRegimeEnum::class,
-            'Status' => RegisteredSaleStateEnum::class,
+            'EetRegime'    => EetRegimeEnum::class,
+            'Status'       => RegisteredSaleStateEnum::class,
         ];
     }
 }

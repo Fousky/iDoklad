@@ -38,7 +38,7 @@ class ElectronicRecordsOfSalesApiModel extends iDokladAbstractModel
     {
         return [
             'EetResponsibility' => EetResponsibilityEnum::class,
-            'EetStatus' => ElectronicRecordsOfSalesStatusEnum::class,
+            'EetStatus'         => ElectronicRecordsOfSalesStatusEnum::class,
         ];
     }
 }

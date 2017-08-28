@@ -5,7 +5,6 @@ namespace Fousky\Component\iDoklad\Functions\CashVoucher;
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
 use Fousky\Component\iDoklad\Model\CashVoucher\CashVoucherApiModel;
 use Fousky\Component\iDoklad\Model\CashVoucher\CashVoucherApiModelInsert;
-use Fousky\Component\iDoklad\Model\CashVoucher\CashVoucherItemApiModelInsert;
 
 /**
  * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=POST-api-v2-CashVouchers
