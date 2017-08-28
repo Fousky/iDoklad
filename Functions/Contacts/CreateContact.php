@@ -4,21 +4,26 @@ namespace Fousky\Component\iDoklad\Functions\Contacts;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
 use Fousky\Component\iDoklad\Model\Contacts\ContactApiModel;
+use Fousky\Component\iDoklad\Model\Contacts\ContactPostApiModel;
 
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class CreateContact extends iDokladAbstractFunction
 {
-    /** @var ContactApiModel $subject */
-    protected $subject;
+    /** @var ContactPostApiModel $data */
+    protected $data;
 
     /**
-     * @param ContactApiModel $subject
+     * @param ContactPostApiModel $data
+     *
+     * @throws \InvalidArgumentException
      */
-    public function __construct(ContactApiModel $subject)
+    public function __construct(ContactPostApiModel $data)
     {
-        $this->subject = $subject;
+        $this->data = $data;
+
+        $this->validate();
     }
 
     /**
@@ -70,10 +75,23 @@ class CreateContact extends iDokladAbstractFunction
      */
     public function getGuzzleOptions(): array
     {
-        $params = [
-            'json' => $this->subject->toArray(),
+        return [
+            'json' => $this->data->toArray(),
         ];
+    }
 
-        return $params;
+    /**
+     * @throws \InvalidArgumentException
+     */
+    protected function validate()
+    {
+        foreach ($this->data->getErrors() as $error) {
+            throw new \InvalidArgumentException(sprintf(
+                'Property %s of class %s is not valid - %s',
+                $error->getPropertyPath(),
+                get_class($this->data),
+                $error->getMessage()
+            ));
+        }
     }
 }

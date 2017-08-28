@@ -2,8 +2,13 @@
 
 namespace Fousky\Component\iDoklad\Model;
 
+use Doctrine\Common\Annotations\AnnotationReader;
+use Doctrine\Common\Annotations\AnnotationRegistry;
+use Fousky\Component\iDoklad\Util\AnnotationLoader;
 use Fousky\Component\iDoklad\Util\ResponseUtil;
 use Psr\Http\Message\ResponseInterface;
+use Symfony\Component\Validator\ConstraintViolationList;
+use Symfony\Component\Validator\Validation;
 
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
@@ -94,6 +99,24 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
         }
 
         return $result;
+    }
+
+    /**
+     * @return \Symfony\Component\Validator\ConstraintViolationInterface[]
+     */
+    public function getErrors()
+    {
+        AnnotationLoader::init();
+
+        $validator = Validation::createValidatorBuilder()
+            ->enableAnnotationMapping()
+            ->getValidator()
+        ;
+
+        /** @var ConstraintViolationList $list */
+        $list = $validator->validate($this);
+
+        return $list->getIterator();
     }
 
     /**

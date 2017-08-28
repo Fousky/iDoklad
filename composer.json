@@ -10,7 +10,10 @@
         "guzzlehttp/guzzle": "^6",
         "psr/http-message": "^1",
         "symfony/options-resolver": "~2|~3",
-        "symfony/filesystem": "~2|~3"
+        "symfony/filesystem": "~2|~3",
+        "symfony/validator": "^3.3",
+        "doctrine/annotations": "^1.4",
+        "doctrine/cache": "^1.6"
     },
     "suggest": {
         "symfony/filesystem": "Needs for AccessTokenFileStorage - save API token to the file.",

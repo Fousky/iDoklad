@@ -3,11 +3,8 @@
 namespace Fousky\Component\iDoklad\Model\Contacts;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Fousky\Component\iDoklad\Exception\InvalidResponseException;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\Model\iDokladModelInterface;
-use Fousky\Component\iDoklad\Util\ResponseUtil;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
@@ -23,37 +20,23 @@ class ContactCollectionModel extends iDokladAbstractModel
     /** @var int $TotalPages */
     protected $TotalPages = 0;
 
-    public function __construct()
-    {
-        $this->Data = new ArrayCollection();
-    }
-
     /**
-     * @param ResponseInterface $response
-     *
-     * @throws \RuntimeException
-     * @throws InvalidResponseException
+     * @param \stdClass $data
      *
      * @return iDokladModelInterface
      */
-    public static function createFromResponse(ResponseInterface $response): iDokladModelInterface
+    public static function createFromStd(\stdClass $data): iDokladModelInterface
     {
-        $responseData = (array) ResponseUtil::handle($response);
+        /** @var static $model */
+        $model = parent::createFromStd($data);
 
-        if (!array_key_exists('Data', $responseData)) {
-            throw new InvalidResponseException();
+        if (is_array($model->Data)) {
+            $collection = new ArrayCollection();
+            foreach ($model->Data as $index => $contact) {
+                $collection->add(ContactApiModel::createFromStd($contact));
+            }
+            $model->Data = $collection;
         }
-
-        $model = new static();
-        $items = new ArrayCollection();
-
-        foreach ($responseData['Data'] as $index => $contact) {
-            $items->add(ContactApiModel::createFromStd($contact));
-        }
-
-        $model->Data = $items;
-        $model->TotalPages = $responseData['TotalPages'];
-        $model->TotalItems = $responseData['TotalItems'];
 
         return $model;
     }
