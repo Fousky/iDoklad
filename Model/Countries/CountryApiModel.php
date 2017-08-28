@@ -17,7 +17,7 @@ use Fousky\Component\iDoklad\Model\iDokladModelInterface;
  *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class CountryModel extends iDokladAbstractModel
+class CountryApiModel extends iDokladAbstractModel
 {
     public $Id;
     public $Code;
@@ -28,24 +28,19 @@ class CountryModel extends iDokladAbstractModel
     public $NameEnglish;
 
     /**
-     * @param \stdClass $data
-     *
-     * @return iDokladModelInterface
+     * @return array
      */
-    public static function createFromStd(\stdClass $data): iDokladModelInterface
+    public static function getModelMap(): array
     {
-        /** @var CountryModel $model */
-        $model = parent::createFromStd($data);
-
-        $model->Currency = CurrencyApiModel::createFromStd($model->Currency);
-
-        return $model;
+        return [
+            'Currency' => CurrencyApiModel::class,
+        ];
     }
 
     /**
      * @return array
      */
-    public static function getDateTimeProperties(): array
+    public static function getDateMap(): array
     {
         return [
             'DateLastChange',

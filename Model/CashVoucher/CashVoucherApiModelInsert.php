@@ -5,8 +5,8 @@ namespace Fousky\Component\iDoklad\Model\CashVoucher;
 use Fousky\Component\iDoklad\LOV\ExportedStateEnum;
 use Fousky\Component\iDoklad\LOV\MovementTypeEnum;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
-use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 use Fousky\Component\iDoklad\Model\RegisteredSale\ElectronicRecordsOfSalesApiModel;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @method null|int getCashRegisterId()
@@ -34,7 +34,15 @@ class CashVoucherApiModelInsert extends iDokladAbstractModel
     public $ExchangeRate;
     public $ExchangeRateAmount;
     public $Exported;
+
+    /**
+     * @var CashVoucherItemApiModelInsert
+     *
+     * @Assert\NotBlank()
+     * @Assert\Valid()
+     */
     public $Item;
+
     public $MovementType;
     public $MyCompanyDocumentAddressId;
     public $PartnerContactId;
@@ -44,7 +52,7 @@ class CashVoucherApiModelInsert extends iDokladAbstractModel
     /**
      * @return array
      */
-    public static function getDateTimeProperties(): array
+    public static function getDateMap(): array
     {
         return [
             'DateOfTransaction',
@@ -52,33 +60,24 @@ class CashVoucherApiModelInsert extends iDokladAbstractModel
     }
 
     /**
-     * @param \stdClass $data
-     *
-     * @return iDokladModelInterface
+     * @return array
      */
-    public static function createFromStd(\stdClass $data): iDokladModelInterface
+    public static function getModelMap(): array
     {
-        /** @var CashVoucherApiModelInsert $model */
-        $model = parent::createFromStd($data);
+        return [
+            'ElectronicRecordsOfSales' => ElectronicRecordsOfSalesApiModel::class,
+            'Item' => CashVoucherItemApiModelInsert::class,
+        ];
+    }
 
-        if ($model->ElectronicRecordsOfSales instanceof \stdClass) {
-            $model->ElectronicRecordsOfSales = ElectronicRecordsOfSalesApiModel::createFromStd(
-                $model->ElectronicRecordsOfSales
-            );
-        }
-
-        if ($model->Exported !== null) {
-            $model->Exported = new ExportedStateEnum((int) $model->Exported);
-        }
-
-        if ($model->Item instanceof \stdClass) {
-            $model->Item = CashVoucherItemApiModelInsert::createFromStd($model->Item);
-        }
-
-        if ($model->MovementType !== null) {
-            $model->MovementType = new MovementTypeEnum((int) $model->MovementType);
-        }
-
-        return $model;
+    /**
+     * @return array
+     */
+    public static function getEnumMap(): array
+    {
+        return [
+            'Exported' => ExportedStateEnum::class,
+            'MovementType' => MovementTypeEnum::class,
+        ];
     }
 }

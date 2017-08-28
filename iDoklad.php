@@ -92,7 +92,8 @@ class iDoklad
                 $uri .= '?';
             }
             // URI has "?", but does not ends with "&"
-            if (strpos($uri, '?') !== false && substr($uri, -1) !== '&') {
+            $lastChar = substr($uri, -1);
+            if (strpos($uri, '?') !== false && !in_array($lastChar, ['&', '?'], true)) {
                 $uri .= '&';
             }
             $uri .= http_build_query($parts);

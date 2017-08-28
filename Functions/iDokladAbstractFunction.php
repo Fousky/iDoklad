@@ -2,6 +2,8 @@
 
 namespace Fousky\Component\iDoklad\Functions;
 
+use Fousky\Component\iDoklad\Exception\InvalidModelException;
+use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 use Fousky\Component\iDoklad\UrlExtension\iDokladFilter;
 use Fousky\Component\iDoklad\UrlExtension\iDokladPaginator;
@@ -113,6 +115,34 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
         }
 
         return $modelClass::createFromResponse($response);
+    }
+
+    /**
+     * @param iDokladAbstractModel $model
+     *
+     * @throws InvalidModelException
+     */
+    protected function validate(iDokladAbstractModel $model)
+    {
+        try {
+            $errorList = $model->validate();
+        } catch (\Throwable $e) {
+            throw new InvalidModelException([$e->getMessage()]);
+        }
+
+        if ($errorList->count() === 0) {
+            return;
+        }
+
+        $errors = [
+            sprintf('Model class %s has following errors:', get_class($model)),
+        ];
+
+        foreach ($errorList->getIterator() as $error) {
+            $errors[] = sprintf('- %s: %s', $error->getPropertyPath(), $error->getMessage());
+        }
+
+        throw new InvalidModelException($errors);
     }
 
     /**

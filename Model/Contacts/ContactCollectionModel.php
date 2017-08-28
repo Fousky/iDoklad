@@ -4,7 +4,6 @@ namespace Fousky\Component\iDoklad\Model\Contacts;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
-use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
@@ -21,23 +20,12 @@ class ContactCollectionModel extends iDokladAbstractModel
     protected $TotalPages = 0;
 
     /**
-     * @param \stdClass $data
-     *
-     * @return iDokladModelInterface
+     * @return array
      */
-    public static function createFromStd(\stdClass $data): iDokladModelInterface
+    public static function getModelMap(): array
     {
-        /** @var static $model */
-        $model = parent::createFromStd($data);
-
-        if (is_array($model->Data)) {
-            $collection = new ArrayCollection();
-            foreach ($model->Data as $index => $contact) {
-                $collection->add(ContactApiModel::createFromStd($contact));
-            }
-            $model->Data = $collection;
-        }
-
-        return $model;
+        return [
+            'Data' => ContactApiModel::class,
+        ];
     }
 }

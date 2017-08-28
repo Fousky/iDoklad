@@ -62,7 +62,7 @@ class DocumentAddressApiModel extends iDokladAbstractModel
     /**
      * @return array
      */
-    public static function getDateTimeProperties(): array
+    public static function getDateMap(): array
     {
         return [
             'DateLastChange',

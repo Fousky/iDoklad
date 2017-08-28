@@ -26,6 +26,26 @@ class CashRegisterApiModel extends iDokladAbstractModel
     public $Name;
 
     /**
+     * @return array
+     */
+    public static function getModelMap(): array
+    {
+        return [
+            'Currency' => CurrencyApiModel::class,
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public static function getDateMap(): array
+    {
+        return [
+            'DateInitialState',
+        ];
+    }
+
+    /**
      * @param \stdClass $data
      *
      * @return iDokladModelInterface
@@ -35,24 +55,10 @@ class CashRegisterApiModel extends iDokladAbstractModel
         /** @var CashRegisterApiModel $model */
         $model = parent::createFromStd($data);
 
-        if ($model->Currency instanceof \stdClass) {
-            $model->Currency = CurrencyApiModel::createFromStd($model->Currency);
-
-            if ($model->getCurrency() instanceof CurrencyApiModel) {
-                $model->CurrencyId = $model->getCurrency()->getId();
-            }
+        if ($model->Currency instanceof CurrencyApiModel) {
+            $model->CurrencyId = $model->getCurrency()->getId();
         }
 
         return $model;
-    }
-
-    /**
-     * @return array
-     */
-    public static function getDateTimeProperties(): array
-    {
-        return [
-            'DateInitialState',
-        ];
     }
 }

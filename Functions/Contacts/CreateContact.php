@@ -17,13 +17,13 @@ class CreateContact extends iDokladAbstractFunction
     /**
      * @param ContactPostApiModel $data
      *
-     * @throws \InvalidArgumentException
+     * @throws \Fousky\Component\iDoklad\Exception\InvalidModelException
      */
     public function __construct(ContactPostApiModel $data)
     {
         $this->data = $data;
 
-        $this->validate();
+        $this->validate($data);
     }
 
     /**
@@ -78,20 +78,5 @@ class CreateContact extends iDokladAbstractFunction
         return [
             'json' => $this->data->toArray(),
         ];
-    }
-
-    /**
-     * @throws \InvalidArgumentException
-     */
-    protected function validate()
-    {
-        foreach ($this->data->getErrors() as $error) {
-            throw new \InvalidArgumentException(sprintf(
-                'Property %s of class %s is not valid - %s',
-                $error->getPropertyPath(),
-                get_class($this->data),
-                $error->getMessage()
-            ));
-        }
     }
 }

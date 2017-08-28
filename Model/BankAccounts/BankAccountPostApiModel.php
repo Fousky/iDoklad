@@ -3,6 +3,7 @@
 namespace Fousky\Component\iDoklad\Model\BankAccounts;
 
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @method null|string getAccountNumber()
@@ -17,11 +18,35 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  */
 class BankAccountPostApiModel extends iDokladAbstractModel
 {
+    /**
+     * @Assert\Length(min="0", max="50")
+     */
     public $AccountNumber;
+
     public $BankId;
+
+    /**
+     * @Assert\NotBlank()
+     */
     public $CurrencyId;
+
+    /**
+     * @Assert\Length(min="0", max="50")
+     */
     public $Iban;
+
+    /**
+     * @Assert\IsNull()
+     */
     public $Id;
+
+    /**
+     * @Assert\Length(min="0", max="100")
+     */
     public $Name;
+
+    /**
+     * @Assert\Length(min="0", max="11")
+     */
     public $Swift;
 }

@@ -6,7 +6,6 @@ use Fousky\Component\iDoklad\LOV\DocumentTypeEnum;
 use Fousky\Component\iDoklad\LOV\EetRegimeEnum;
 use Fousky\Component\iDoklad\LOV\RegisteredSaleStateEnum;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
-use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
 /**
  * @method null|float getBaseTaxBasicRateHc()
@@ -98,7 +97,7 @@ class RegisteredSaleApiModel extends iDokladAbstractModel
     /**
      * @return array
      */
-    public static function getDateTimeProperties(): array
+    public static function getDateMap(): array
     {
         return [
             'DateOfAnswer',
@@ -108,27 +107,14 @@ class RegisteredSaleApiModel extends iDokladAbstractModel
     }
 
     /**
-     * @param \stdClass $data
-     *
-     * @return iDokladModelInterface
+     * @return array
      */
-    public static function createFromStd(\stdClass $data): iDokladModelInterface
+    public static function getEnumMap(): array
     {
-        /** @var RegisteredSaleApiModel $model */
-        $model = parent::createFromStd($data);
-
-        if ($model->DocumentType !== null) {
-            $model->DocumentType = new DocumentTypeEnum((int) $model->DocumentType);
-        }
-
-        if ($model->EetRegime !== null) {
-            $model->EetRegime = new EetRegimeEnum((int) $model->EetRegime);
-        }
-
-        if ($model->Status !== null) {
-            $model->Status = new RegisteredSaleStateEnum((int) $model->Status);
-        }
-
-        return $model;
+        return [
+            'DocumentType' => DocumentTypeEnum::class,
+            'EetRegime' => EetRegimeEnum::class,
+            'Status' => RegisteredSaleStateEnum::class,
+        ];
     }
 }

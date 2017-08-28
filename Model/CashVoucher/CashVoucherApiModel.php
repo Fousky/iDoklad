@@ -6,7 +6,6 @@ use Fousky\Component\iDoklad\LOV\EetResponsibilityEnum;
 use Fousky\Component\iDoklad\LOV\ExportedStateEnum;
 use Fousky\Component\iDoklad\LOV\MovementTypeEnum;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
-use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 use Fousky\Component\iDoklad\Model\RegisteredSale\RegisteredSaleApiModel;
 
 /**
@@ -73,7 +72,7 @@ class CashVoucherApiModel extends iDokladAbstractModel
     /**
      * @return array
      */
-    public static function getDateTimeProperties(): array
+    public static function getDateMap(): array
     {
         return [
             'DateLastChange',
@@ -83,35 +82,25 @@ class CashVoucherApiModel extends iDokladAbstractModel
     }
 
     /**
-     * @param \stdClass $data
-     *
-     * @return iDokladModelInterface
+     * @return array
      */
-    public static function createFromStd(\stdClass $data): iDokladModelInterface
+    public static function getModelMap(): array
     {
-        /** @var CashVoucherApiModel $model */
-        $model = parent::createFromStd($data);
+        return [
+            'Item' => CashVoucherItemApiModel::class,
+            'RegisteredSale' => RegisteredSaleApiModel::class,
+        ];
+    }
 
-        if ($model->EetResponsibility !== null) {
-            $model->EetResponsibility = new EetResponsibilityEnum((int) $model->EetResponsibility);
-        }
-
-        if ($model->Exported !== null) {
-            $model->Exported = new ExportedStateEnum((int) $model->Exported);
-        }
-
-        if ($model->Item instanceof \stdClass) {
-            $model->Item = CashVoucherItemApiModel::createFromStd($model->Item);
-        }
-
-        if ($model->MovementType !== null) {
-            $model->MovementType = new MovementTypeEnum((int) $model->MovementType);
-        }
-
-        if ($model->RegisteredSale instanceof \stdClass) {
-            $model->RegisteredSale = RegisteredSaleApiModel::createFromStd($model->RegisteredSale);
-        }
-
-        return $model;
+    /**
+     * @return array
+     */
+    public static function getEnumMap(): array
+    {
+        return [
+            'EetResponsibility' => EetResponsibilityEnum::class,
+            'Exported' => ExportedStateEnum::class,
+            'MovementType' => MovementTypeEnum::class,
+        ];
     }
 }

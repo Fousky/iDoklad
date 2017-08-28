@@ -4,7 +4,6 @@ namespace Fousky\Component\iDoklad\Model\CashVoucher;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
-use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
 /**
  * @method null|ArrayCollection|CashVoucherApiModel[] getData()
@@ -20,23 +19,12 @@ class CashVoucherApiCollectionModel extends iDokladAbstractModel
     public $TotalPages;
 
     /**
-     * @param \stdClass $data
-     *
-     * @return iDokladModelInterface
+     * @return array
      */
-    public static function createFromStd(\stdClass $data): iDokladModelInterface
+    public static function getModelMap(): array
     {
-        /** @var CashVoucherApiCollectionModel $model */
-        $model = parent::createFromStd($data);
-
-        if (is_array($model->Data)) {
-            $collection = new ArrayCollection();
-            foreach ($model->Data as $item) {
-                $collection->add(CashVoucherApiModel::createFromStd($item));
-            }
-            $model->Data = $collection;
-        }
-
-        return $model;
+        return [
+            'Data' => CashVoucherApiModel::class,
+        ];
     }
 }

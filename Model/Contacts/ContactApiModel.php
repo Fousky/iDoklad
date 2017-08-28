@@ -5,6 +5,9 @@ namespace Fousky\Component\iDoklad\Model\Contacts;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 
 /**
+ * @deprecated
+ * @TODO: refactor this model class!
+ *
  * @method string getAddressIdg()
  * @method string getCreditCheck()
  * @method null|string|\DateTime getDateLastChange()
@@ -107,7 +110,7 @@ class ContactApiModel extends iDokladAbstractModel
     /**
      * @return array
      */
-    public static function getDateTimeProperties(): array
+    public static function getDateMap(): array
     {
         return [
             'DateLastChange',

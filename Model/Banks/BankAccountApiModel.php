@@ -36,30 +36,20 @@ class BankAccountApiModel extends iDokladAbstractModel
     public $Swift;
 
     /**
-     * @param \stdClass $data
-     *
-     * @return iDokladModelInterface
+     * @return array
      */
-    public static function createFromStd(\stdClass $data): iDokladModelInterface
+    public static function getModelMap(): array
     {
-        /** @var BankAccountApiModel $model */
-        $model = parent::createFromStd($data);
-
-        if (null !== $model->Bank) {
-            $model->Bank = BankApiModel::createFromStd($model->Bank);
-        }
-
-        if (null !== $model->Currency) {
-            $model->Currency = CurrencyApiModel::createFromStd($model->Currency);
-        }
-
-        return $model;
+        return [
+            'Bank' => BankApiModel::class,
+            'Currency' => CurrencyApiModel::class,
+        ];
     }
 
     /**
      * @return array
      */
-    public static function getDateTimeProperties(): array
+    public static function getDateMap(): array
     {
         return [
             'DateLastChange',

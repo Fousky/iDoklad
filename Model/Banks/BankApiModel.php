@@ -2,6 +2,7 @@
 
 namespace Fousky\Component\iDoklad\Model\Banks;
 
+use Fousky\Component\iDoklad\Model\Countries\CountryApiModel;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 
 /**
@@ -32,7 +33,17 @@ class BankApiModel extends iDokladAbstractModel
     /**
      * @return array
      */
-    public static function getDateTimeProperties(): array
+    public static function getModelMap(): array
+    {
+        return [
+            'Country' => CountryApiModel::class,
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public static function getDateMap(): array
     {
         return [
             'DateLastChange',

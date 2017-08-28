@@ -10,7 +10,6 @@ use Fousky\Component\iDoklad\Model\Contacts\ContactApiModel;
 use Fousky\Component\iDoklad\Model\Currencies\CurrencyApiModel;
 use Fousky\Component\iDoklad\Model\Documents\DocumentAddressApiModel;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
-use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 use Fousky\Component\iDoklad\Model\RegisteredSale\RegisteredSaleApiModel;
 
 /**
@@ -87,7 +86,7 @@ class CashVoucherApiModelExpand extends iDokladAbstractModel
     /**
      * @return array
      */
-    public static function getDateTimeProperties(): array
+    public static function getDateMap(): array
     {
         return [
             'DateLastChange',
@@ -97,43 +96,29 @@ class CashVoucherApiModelExpand extends iDokladAbstractModel
     }
 
     /**
-     * @param \stdClass $data
-     *
-     * @return iDokladModelInterface
+     * @return array
      */
-    public static function createFromStd(\stdClass $data): iDokladModelInterface
+    public static function getModelMap(): array
     {
-        /** @var CashVoucherApiModelExpand $model */
-        $model = parent::createFromStd($data);
+        return [
+            'CashRegister' => CashRegisterApiModel::class,
+            'Currency' => CurrencyApiModel::class,
+            'Item' => CashVoucherItemApiModel::class,
+            'MyCompanyDocumentAddress' => DocumentAddressApiModel::class,
+            'PartnerContact' => ContactApiModel::class,
+            'RegisteredSale' => RegisteredSaleApiModel::class,
+        ];
+    }
 
-        if ($model->getCashRegister() instanceof \stdClass) {
-            $model->CashRegister = CashRegisterApiModel::createFromStd($model->CashRegister);
-        }
-        if ($model->getCurrency() instanceof \stdClass) {
-            $model->Currency = CurrencyApiModel::createFromStd($model->Currency);
-        }
-        if ($model->getEetResponsibility() !== null) {
-            $model->EetResponsibility = new EetResponsibilityEnum((int) $model->EetResponsibility);
-        }
-        if ($model->getExported() !== null) {
-            $model->Exported = new ExportedStateEnum((int) $model->Exported);
-        }
-        if ($model->getItem() instanceof \stdClass) {
-            $model->Item = CashVoucherItemApiModel::createFromStd($model->Item);
-        }
-        if ($model->getMovementType() !== null) {
-            $model->MovementType = new MovementTypeEnum((int) $model->MovementType);
-        }
-        if ($model->getMyCompanyDocumentAddress() instanceof \stdClass) {
-            $model->MyCompanyDocumentAddress = DocumentAddressApiModel::createFromStd($model->MyCompanyDocumentAddress);
-        }
-        if ($model->getPartnerContact() instanceof \stdClass) {
-            $model->PartnerContact = ContactApiModel::createFromStd($model->PartnerContact);
-        }
-        if ($model->getRegisteredSale() instanceof \stdClass) {
-            $model->RegisteredSale = RegisteredSaleApiModel::createFromStd($model->RegisteredSale);
-        }
-
-        return $model;
+    /**
+     * @return array
+     */
+    public static function getEnumMap(): array
+    {
+        return [
+            'EetResponsibility' => EetResponsibilityEnum::class,
+            'Exported' => ExportedStateEnum::class,
+            'MovementType' => MovementTypeEnum::class,
+        ];
     }
 }

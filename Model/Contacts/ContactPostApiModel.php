@@ -4,7 +4,6 @@ namespace Fousky\Component\iDoklad\Model\Contacts;
 
 use Fousky\Component\iDoklad\Model\BankAccounts\BankAccountPostApiModel;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
-use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -38,6 +37,7 @@ class ContactPostApiModel extends iDokladAbstractModel
 
     /**
      * @Assert\NotBlank()
+     * @Assert\Length(min="0", max="200")
      */
     public $CompanyName;
 
@@ -45,6 +45,12 @@ class ContactPostApiModel extends iDokladAbstractModel
      * @Assert\NotBlank()
      */
     public $CountryId;
+
+    /**
+     * @var BankAccountPostApiModel
+     *
+     * @Assert\Valid()
+     */
     public $DefaultBankAccount;
     public $DiscountPercentage;
     public $Email;
@@ -69,19 +75,12 @@ class ContactPostApiModel extends iDokladAbstractModel
     public $Www;
 
     /**
-     * @param \stdClass $data
-     *
-     * @return iDokladModelInterface
+     * @return array
      */
-    public static function createFromStd(\stdClass $data): iDokladModelInterface
+    public static function getModelMap(): array
     {
-        /** @var static $model */
-        $model = parent::createFromStd($data);
-
-        if ($model->getDefaultBankAccount() instanceof \stdClass) {
-            $model->DefaultBankAccount = BankAccountPostApiModel::createFromStd($model->DefaultBankAccount);
-        }
-
-        return $model;
+        return [
+            'DefaultBankAccount' => BankAccountPostApiModel::class,
+        ];
     }
 }

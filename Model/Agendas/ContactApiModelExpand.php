@@ -4,7 +4,7 @@ namespace Fousky\Component\iDoklad\Model\Agendas;
 
 use Fousky\Component\iDoklad\Model\Banks\BankAccountApiCollectionModel;
 use Fousky\Component\iDoklad\Model\Banks\BankAccountApiModel;
-use Fousky\Component\iDoklad\Model\Countries\CountryModel;
+use Fousky\Component\iDoklad\Model\Countries\CountryApiModel;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
@@ -13,7 +13,7 @@ use Fousky\Component\iDoklad\Model\iDokladModelInterface;
  * @method null|BankAccountApiCollectionModel getBankAccounts()
  * @method null|string getCity()
  * @method null|string getCompanyName()
- * @method null|CountryModel getCountry()
+ * @method null|CountryApiModel getCountry()
  * @method null|int getCountryId()
  * @method null getCreditCheck()
  * @method null|\DateTime getDateLastChange()
@@ -82,7 +82,7 @@ class ContactApiModelExpand extends iDokladAbstractModel
         }
 
         if ($model->Country instanceof \stdClass) {
-            $model->Country = CountryModel::createFromStd($model->Country);
+            $model->Country = CountryApiModel::createFromStd($model->Country);
         }
 
         if ($model->DefaultBankAccount instanceof \stdClass) {
@@ -95,7 +95,7 @@ class ContactApiModelExpand extends iDokladAbstractModel
     /**
      * @return array
      */
-    public static function getDateTimeProperties(): array
+    public static function getDateMap(): array
     {
         return [
             'DateLastChange',

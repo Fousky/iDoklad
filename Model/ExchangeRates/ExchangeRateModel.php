@@ -4,7 +4,6 @@ namespace Fousky\Component\iDoklad\Model\ExchangeRates;
 
 use Fousky\Component\iDoklad\Model\Currencies\CurrencyApiModel;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
-use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
 /**
  * @method null|string getId()
@@ -30,24 +29,19 @@ class ExchangeRateModel extends iDokladAbstractModel
     protected $ExchangeRateValue;
 
     /**
-     * @param \stdClass $data
-     *
-     * @return iDokladModelInterface
+     * @return array
      */
-    public static function createFromStd(\stdClass $data): iDokladModelInterface
+    public static function getModelMap(): array
     {
-        /** @var ExchangeRateModel $model */
-        $model = parent::createFromStd($data);
-
-        $model->Currency = CurrencyApiModel::createFromStd($model->Currency);
-
-        return $model;
+        return [
+            'Currency' => CurrencyApiModel::class,
+        ];
     }
 
     /**
      * @return array
      */
-    public static function getDateTimeProperties(): array
+    public static function getDateMap(): array
     {
         return [
             'Date',

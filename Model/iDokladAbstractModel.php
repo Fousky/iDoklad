@@ -2,6 +2,8 @@
 
 namespace Fousky\Component\iDoklad\Model;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Fousky\Component\iDoklad\LOV\iDokladAbstractEnum;
 use Fousky\Component\iDoklad\Util\AnnotationLoader;
 use Fousky\Component\iDoklad\Util\ResponseUtil;
 use Psr\Http\Message\ResponseInterface;
@@ -28,11 +30,31 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
     }
 
     /**
+     * Need convert some property to iDokladAbstractModel instance?
+     *
+     * @return array
+     */
+    public static function getModelMap(): array
+    {
+        return [];
+    }
+
+    /**
+     * Need convert some property to Enum object?
+     *
+     * @return array
+     */
+    public static function getEnumMap(): array
+    {
+        return [];
+    }
+
+    /**
      * Need convert some DateTime public properties of this model?
      *
      * @return array
      */
-    public static function getDateTimeProperties(): array
+    public static function getDateMap(): array
     {
         return [];
     }
@@ -46,16 +68,37 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
     {
         $model = new static();
 
+        $modelMap = static::getModelMap();
+        $enumMap = static::getEnumMap();
+        $dateMap = static::getDateMap();
+
         foreach ((array) $data as $key => $value) {
             if (property_exists($model, $key)) {
                 $model->{$key} = $value;
-            }
-        }
 
-        // convert DateTime properties from string to \DateTime object.
-        foreach (static::getDateTimeProperties() as $property) {
-            if (false !== $value = new \DateTime($model->{$property}, new \DateTimeZone('UTC'))) {
-                $model->{$property} = $value;
+                if (array_key_exists($key, $modelMap)) {
+                    /** @var iDokladAbstractModel $modelClass */
+                    $modelClass = $modelMap[$key];
+
+                    if ($value instanceof \stdClass) {
+                        $model->{$key} = $modelClass::createFromStd($value);
+                    }
+
+                    if (is_array($value)) {
+                        $collection = new ArrayCollection();
+                        foreach ($value as $valueItem) {
+                            $collection->add($modelClass::createFromStd($valueItem));
+                        }
+                        $model->{$key} = $collection;
+                    }
+
+                } else if (array_key_exists($key, $enumMap)) {
+                    /** @var iDokladAbstractEnum $enumClass */
+                    $enumClass = $enumMap[$key];
+                    $model->{$key} = new $enumClass((int) $value);
+                } else if (in_array($key, $dateMap, true) && false !== $val = new \DateTime($model->{$key}, new \DateTimeZone('UTC'))) {
+                    $model->{$key} = $val;
+                }
             }
         }
 
@@ -100,20 +143,19 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
     }
 
     /**
-     * @return \Symfony\Component\Validator\ConstraintViolationInterface[]
+     * @return \Symfony\Component\Validator\ConstraintViolationListInterface|\Symfony\Component\Validator\ConstraintViolationList
+     * @throws \RuntimeException
+     * @throws \InvalidArgumentException
+     * @throws \ReflectionException
      */
-    public function getErrors()
+    public function validate()
     {
         AnnotationLoader::init();
 
-        $validator = Validation::createValidatorBuilder()
+        return Validation::createValidatorBuilder()
             ->enableAnnotationMapping()
-            ->getValidator();
-
-        /** @var ConstraintViolationList $list */
-        $list = $validator->validate($this);
-
-        return $list->getIterator();
+            ->getValidator()
+            ->validate($this);
     }
 
     /**

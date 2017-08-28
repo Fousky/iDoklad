@@ -5,7 +5,6 @@ namespace Fousky\Component\iDoklad\Model\CashVoucher;
 use Fousky\Component\iDoklad\LOV\PriceTypeWithoutOnlyBaseEnum;
 use Fousky\Component\iDoklad\LOV\VatRateTypeEnum;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
-use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
 /**
  * @method null|float getAmount()
@@ -33,23 +32,13 @@ class CashVoucherItemApiModel extends iDokladAbstractModel
     public $VatRateType;
 
     /**
-     * @param \stdClass $data
-     *
-     * @return iDokladModelInterface
+     * @return array
      */
-    public static function createFromStd(\stdClass $data): iDokladModelInterface
+    public static function getEnumMap(): array
     {
-        /** @var CashVoucherItemApiModel $model */
-        $model = parent::createFromStd($data);
-
-        if ($model->PriceType !== null) {
-            $model->PriceType = new PriceTypeWithoutOnlyBaseEnum((int) $model->PriceType);
-        }
-
-        if ($model->VatRateType !== null) {
-            $model->VatRateType = new VatRateTypeEnum((int) $model->VatRateType);
-        }
-
-        return $model;
+        return [
+            'PriceType' => PriceTypeWithoutOnlyBaseEnum::class,
+            'VatRateType' => VatRateTypeEnum::class,
+        ];
     }
 }

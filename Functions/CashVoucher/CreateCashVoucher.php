@@ -20,39 +20,13 @@ class CreateCashVoucher extends iDokladAbstractFunction
     /**
      * @param CashVoucherApiModelInsert $data
      *
-     * @throws \InvalidArgumentException
+     * @throws \Fousky\Component\iDoklad\Exception\InvalidModelException
      */
     public function __construct(CashVoucherApiModelInsert $data)
     {
         $this->data = $data;
 
         $this->validate($data);
-    }
-
-    /**
-     * @param CashVoucherApiModelInsert $data
-     *
-     * @throws \InvalidArgumentException
-     */
-    protected function validate(CashVoucherApiModelInsert $data)
-    {
-        if ($data->getItem() === null) {
-            return;
-        }
-
-        if (empty($data->getItem()->Name)) {
-            throw new \InvalidArgumentException(sprintf(
-                'Property $Name of class %s cannot be empty.',
-                CashVoucherItemApiModelInsert::class
-            ));
-        }
-
-        if (empty($data->getItem()->Price)) {
-            throw new \InvalidArgumentException(sprintf(
-                'Property $Price of class %s cannot be empty.',
-                CashVoucherItemApiModelInsert::class
-            ));
-        }
     }
 
     /**
