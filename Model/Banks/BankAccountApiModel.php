@@ -4,7 +4,6 @@ namespace Fousky\Component\iDoklad\Model\Banks;
 
 use Fousky\Component\iDoklad\Model\Currencies\CurrencyApiModel;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
-use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
 /**
  * @method null|string getAccountNumber()
@@ -41,7 +40,7 @@ class BankAccountApiModel extends iDokladAbstractModel
     public static function getModelMap(): array
     {
         return [
-            'Bank' => BankApiModel::class,
+            'Bank'     => BankApiModel::class,
             'Currency' => CurrencyApiModel::class,
         ];
     }

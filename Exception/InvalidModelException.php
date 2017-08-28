@@ -12,8 +12,8 @@ class InvalidModelException extends \Exception implements iDokladExceptionInterf
     /**
      * InvalidModelException constructor.
      *
-     * @param array $errors
-     * @param int $code
+     * @param array          $errors
+     * @param int            $code
      * @param Throwable|null $previous
      */
     public function __construct(array $errors, $code = 0, Throwable $previous = null)

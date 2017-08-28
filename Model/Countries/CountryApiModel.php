@@ -4,7 +4,6 @@ namespace Fousky\Component\iDoklad\Model\Countries;
 
 use Fousky\Component\iDoklad\Model\Currencies\CurrencyApiModel;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
-use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
 /**
  * @method null|string getId()

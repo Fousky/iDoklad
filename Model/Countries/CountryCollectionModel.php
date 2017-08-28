@@ -2,8 +2,8 @@
 
 namespace Fousky\Component\iDoklad\Model\Countries;
 
-use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Doctrine\Common\Collections\ArrayCollection;
+use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 
 /**
  * @method null|ArrayCollection|CountryApiModel[] getData()

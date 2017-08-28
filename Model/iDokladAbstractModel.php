@@ -7,7 +7,6 @@ use Fousky\Component\iDoklad\LOV\iDokladAbstractEnum;
 use Fousky\Component\iDoklad\Util\AnnotationLoader;
 use Fousky\Component\iDoklad\Util\ResponseUtil;
 use Psr\Http\Message\ResponseInterface;
-use Symfony\Component\Validator\ConstraintViolationList;
 use Symfony\Component\Validator\Validation;
 
 /**
@@ -91,12 +90,11 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
                         }
                         $model->{$key} = $collection;
                     }
-
-                } else if (array_key_exists($key, $enumMap)) {
+                } elseif (array_key_exists($key, $enumMap)) {
                     /** @var iDokladAbstractEnum $enumClass */
                     $enumClass = $enumMap[$key];
                     $model->{$key} = new $enumClass((int) $value);
-                } else if (in_array($key, $dateMap, true) && false !== $val = new \DateTime($model->{$key}, new \DateTimeZone('UTC'))) {
+                } elseif (in_array($key, $dateMap, true) && false !== $val = new \DateTime($model->{$key}, new \DateTimeZone('UTC'))) {
                     $model->{$key} = $val;
                 }
             }
@@ -143,10 +141,11 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
     }
 
     /**
-     * @return \Symfony\Component\Validator\ConstraintViolationListInterface|\Symfony\Component\Validator\ConstraintViolationList
      * @throws \RuntimeException
      * @throws \InvalidArgumentException
      * @throws \ReflectionException
+     *
+     * @return \Symfony\Component\Validator\ConstraintViolationListInterface|\Symfony\Component\Validator\ConstraintViolationList
      */
     public function validate()
     {
