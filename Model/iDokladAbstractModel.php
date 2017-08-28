@@ -2,8 +2,6 @@
 
 namespace Fousky\Component\iDoklad\Model;
 
-use Doctrine\Common\Annotations\AnnotationReader;
-use Doctrine\Common\Annotations\AnnotationRegistry;
 use Fousky\Component\iDoklad\Util\AnnotationLoader;
 use Fousky\Component\iDoklad\Util\ResponseUtil;
 use Psr\Http\Message\ResponseInterface;
@@ -110,8 +108,7 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
 
         $validator = Validation::createValidatorBuilder()
             ->enableAnnotationMapping()
-            ->getValidator()
-        ;
+            ->getValidator();
 
         /** @var ConstraintViolationList $list */
         $list = $validator->validate($this);

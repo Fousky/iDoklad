@@ -6,7 +6,7 @@ use Composer\Autoload\ClassLoader;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 
 /**
- * Register Doctrine annotations for Validator
+ * Register Doctrine annotations for Validator.
  *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
@@ -16,10 +16,11 @@ class AnnotationLoader
     protected static $_init = false;
 
     /**
-     * @return void
      * @throws \RuntimeException
      * @throws \ReflectionException
      * @throws \InvalidArgumentException
+     *
+     * @return void
      */
     public static function init()
     {
@@ -35,14 +36,15 @@ class AnnotationLoader
     }
 
     /**
-     * @return string
      * @throws \ReflectionException
      * @throws \RuntimeException
+     *
+     * @return string
      */
     protected static function getVendorPath(): string
     {
         $reflector = new \ReflectionClass(ClassLoader::class);
-        $vendorPath = preg_replace('/^(.*)\/composer\/ClassLoader\.php$/', '$1', $reflector->getFileName() );
+        $vendorPath = preg_replace('/^(.*)\/composer\/ClassLoader\.php$/', '$1', $reflector->getFileName());
 
         if ($vendorPath && is_dir($vendorPath)) {
             return rtrim($vendorPath, '/');
