@@ -118,7 +118,7 @@ class ContactPatchApiModel extends iDokladAbstractModel
 
     /**
      * @param BankAccountPostApiModel|null $bankAccount
-     * @param array $properties
+     * @param array                        $properties
      *
      * @throws \InvalidArgumentException
      */

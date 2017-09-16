@@ -51,7 +51,7 @@ class CashVoucherApiModelInsert extends iDokladAbstractModel
 
     /**
      * @param CashVoucherItemApiModelInsert $Item
-     * @param array $properties
+     * @param array                         $properties
      *
      * @throws \InvalidArgumentException
      */

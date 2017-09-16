@@ -3,7 +3,6 @@
 namespace Fousky\Component\iDoklad\Model\Contacts;
 
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
-use Fousky\Component\iDoklad\Model\Contacts\ContactApiModelExpand;
 
 /**
  * @method null|ContactApiModelExpand[] getData()
