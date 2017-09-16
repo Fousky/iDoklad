@@ -2,8 +2,8 @@
 
 namespace Fousky\Component\iDoklad\Model\Contacts;
 
-use Fousky\Component\iDoklad\Model\BankAccounts\BankAccountPostApiModel;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
+use Fousky\Component\iDoklad\Model\BankAccounts\BankAccountPostApiModel;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -16,7 +16,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @method null|string getFax()
  * @method null|string getFirstname()
  * @method null|string getIdentificationNumber()
- * @method null|bool getIsRegisteredForVatOnPay()
  * @method null|bool getIsSendReminder()
  * @method null|string getMobile()
  * @method null|string getPhone()
@@ -30,43 +29,90 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class ContactPostApiModel extends iDokladAbstractModel
+class ContactPutModelV2 extends iDokladAbstractModel
 {
+    /**
+     * @Assert\Length(min="0", max="50")
+     */
     public $City;
 
     /**
-     * @Assert\NotBlank()
      * @Assert\Length(min="0", max="200")
      */
     public $CompanyName;
-
-    /**
-     * @Assert\NotBlank()
-     */
     public $CountryId;
 
     /**
      * @var BankAccountPostApiModel
-     *
      * @Assert\Valid()
      */
     public $DefaultBankAccount;
     public $DiscountPercentage;
+
+    /**
+     * @Assert\Length(min="0", max="50")
+     */
     public $Email;
+
+    /**
+     * @Assert\Length(min="0", max="20")
+     */
     public $Fax;
+
+    /**
+     * @Assert\Length(min="0", max="50")
+     */
     public $Firstname;
 
+    /**
+     * @Assert\Length(min="0", max="20")
+     */
     public $IdentificationNumber;
-    public $IsRegisteredForVatOnPay;
     public $IsSendReminder;
+
+    /**
+     * @Assert\Length(min="0", max="20")
+     */
     public $Mobile;
+
+    /**
+     * @Assert\Length(min="0", max="20")
+     */
     public $Phone;
+
+    /**
+     * @Assert\Length(min="0", max="11")
+     */
     public $PostalCode;
+
+    /**
+     * @Assert\Length(min="0", max="100")
+     */
     public $Street;
+
+    /**
+     * @Assert\Length(min="0", max="50")
+     */
     public $Surname;
+
+    /**
+     * @Assert\Length(min="0", max="50")
+     */
     public $Title;
+
+    /**
+     * @Assert\Length(min="0", max="20")
+     */
     public $VatIdentificationNumber;
+
+    /**
+     * @Assert\Length(min="0", max="20")
+     */
     public $VatIdentificationNumberSk;
+
+    /**
+     * @Assert\Length(min="0", max="50")
+     */
     public $Www;
 
     /**

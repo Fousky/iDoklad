@@ -1,21 +1,21 @@
 <?php
 
-namespace Fousky\Component\iDoklad\Model\Agendas;
+namespace Fousky\Component\iDoklad\Model\Contacts;
 
+use Fousky\Component\iDoklad\LOV\CreditCheckStatusDokladEnum;
 use Fousky\Component\iDoklad\Model\Banks\BankAccountApiCollectionModel;
 use Fousky\Component\iDoklad\Model\Banks\BankAccountApiModel;
 use Fousky\Component\iDoklad\Model\Countries\CountryApiModel;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
-use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 
 /**
- * @method null|int getAddressIdg()
+ * @method null|string getAddressIdg()
  * @method null|BankAccountApiCollectionModel getBankAccounts()
  * @method null|string getCity()
  * @method null|string getCompanyName()
  * @method null|CountryApiModel getCountry()
  * @method null|int getCountryId()
- * @method null getCreditCheck()
+ * @method null|CreditCheckStatusDokladEnum getCreditCheck()
  * @method null|\DateTime getDateLastChange()
  * @method null|BankAccountApiModel getDefaultBankAccount()
  * @method null|float getDiscountPercentage()
@@ -68,28 +68,25 @@ class ContactApiModelExpand extends iDokladAbstractModel
     public $Www;
 
     /**
-     * @param \stdClass $data
-     *
-     * @return iDokladModelInterface
+     * @return array
      */
-    public static function createFromStd(\stdClass $data): iDokladModelInterface
+    public static function getModelMap(): array
     {
-        /** @var ContactApiModelExpand $model */
-        $model = parent::createFromStd($data);
+        return [
+            'BankAccounts' => BankAccountApiCollectionModel::class,
+            'Country' => CountryApiModel::class,
+            'DefaultBankAccount' => BankAccountApiModel::class,
+        ];
+    }
 
-        if (!empty($model->BankAccounts) && is_array($model->BankAccounts)) {
-            $model->BankAccounts = BankAccountApiCollectionModel::createFromArray($model->BankAccounts);
-        }
-
-        if ($model->Country instanceof \stdClass) {
-            $model->Country = CountryApiModel::createFromStd($model->Country);
-        }
-
-        if ($model->DefaultBankAccount instanceof \stdClass) {
-            $model->DefaultBankAccount = BankAccountApiModel::createFromStd($model->DefaultBankAccount);
-        }
-
-        return $model;
+    /**
+     * @return array
+     */
+    public static function getEnumMap(): array
+    {
+        return [
+            'CreditCheck' => CreditCheckStatusDokladEnum::class,
+        ];
     }
 
     /**

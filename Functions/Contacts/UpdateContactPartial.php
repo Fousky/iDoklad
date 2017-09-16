@@ -4,19 +4,34 @@ namespace Fousky\Component\iDoklad\Functions\Contacts;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
 use Fousky\Component\iDoklad\Model\Contacts\ContactApiModel;
+use Fousky\Component\iDoklad\Model\Contacts\ContactPatchApiModel;
+use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 
 /**
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=PATCH-api-v2-Contacts-id
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class UpdateContact extends iDokladAbstractFunction
+class UpdateContactPartial extends iDokladAbstractFunction
 {
+    /** @var string $id */
     protected $id;
+
+    /** @var ContactPatchApiModel $data */
     protected $data;
 
-    public function __construct($id, ContactApiModel $data)
+    /**
+     * @param string $id
+     * @param ContactPatchApiModel $data
+     *
+     * @throws \Fousky\Component\iDoklad\Exception\InvalidModelException
+     */
+    public function __construct(string $id, ContactPatchApiModel $data)
     {
         $this->id = $id;
         $this->data = $data;
+
+        $this->validate($data);
     }
 
     /**
@@ -52,7 +67,7 @@ class UpdateContact extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return sprintf('Contacts/%d', $this->id);
+        return sprintf('Contacts/%s', $this->id);
     }
 
     /**
@@ -62,11 +77,15 @@ class UpdateContact extends iDokladAbstractFunction
      * @see iDoklad::call()
      *
      * @return array
+     * @throws \ReflectionException
+     * @throws \InvalidArgumentException
      */
     public function getGuzzleOptions(): array
     {
         return [
-            'json' => $this->data->toArray(),
+            'json' => $this->data->toArray([
+                iDokladAbstractModel::TOARRAY_REMOVE_NULLS => true,
+            ]),
         ];
     }
 }

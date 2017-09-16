@@ -42,6 +42,16 @@ class CashVoucherItemApiModelInsert extends iDokladAbstractModel
     public $VatRateType;
 
     /**
+     * @param array $properties
+     *
+     * @throws \InvalidArgumentException
+     */
+    public function __construct(array $properties = [])
+    {
+        $this->processProperties($properties);
+    }
+
+    /**
      * @return array
      */
     public static function getEnumMap(): array

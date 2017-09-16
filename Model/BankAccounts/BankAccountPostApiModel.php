@@ -10,7 +10,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @method null|int getBankId()
  * @method null|int getCurrencyId()
  * @method null|string getIban()
- * @method null|int getId()
  * @method null|string getName()
  * @method null|string getSwift()
  *
@@ -22,7 +21,6 @@ class BankAccountPostApiModel extends iDokladAbstractModel
      * @Assert\Length(min="0", max="50")
      */
     public $AccountNumber;
-
     public $BankId;
 
     /**
@@ -36,11 +34,6 @@ class BankAccountPostApiModel extends iDokladAbstractModel
     public $Iban;
 
     /**
-     * @Assert\IsNull()
-     */
-    public $Id;
-
-    /**
      * @Assert\Length(min="0", max="100")
      */
     public $Name;
@@ -49,4 +42,14 @@ class BankAccountPostApiModel extends iDokladAbstractModel
      * @Assert\Length(min="0", max="11")
      */
     public $Swift;
+
+    /**
+     * @param array $properties
+     *
+     * @throws \InvalidArgumentException
+     */
+    public function __construct(array $properties = [])
+    {
+        $this->processProperties($properties);
+    }
 }

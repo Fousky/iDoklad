@@ -20,13 +20,17 @@ class UpdateCashVoucher extends iDokladAbstractFunction
     protected $data;
 
     /**
-     * @param string                    $voucherId
+     * @param string $voucherId
      * @param CashVoucherApiModelUpdate $data
+     *
+     * @throws \Fousky\Component\iDoklad\Exception\InvalidModelException
      */
     public function __construct(string $voucherId, CashVoucherApiModelUpdate $data)
     {
         $this->id = $voucherId;
         $this->data = $data;
+
+        $this->validate($data);
     }
 
     /**

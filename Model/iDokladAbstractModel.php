@@ -14,6 +14,9 @@ use Symfony\Component\Validator\Validation;
  */
 abstract class iDokladAbstractModel implements iDokladModelInterface
 {
+    // remove nulls in toArray() calling.
+    const TOARRAY_REMOVE_NULLS = 'rnulls';
+
     /**
      * @param ResponseInterface $response
      *
@@ -126,7 +129,7 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
                 $value = $value->format(\DateTime::ATOM);
             } elseif (is_object($value)) {
                 if (method_exists($value, 'toArray')) {
-                    $value = $value->toArray();
+                    $value = $value->toArray($options);
                 } elseif (method_exists($value, 'createJson')) {
                     $value = $value->createJson();
                 } elseif (method_exists($value, '__toString')) {
@@ -137,7 +140,27 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
             $result[$name] = $value;
         }
 
-        return $result;
+        return $this->toArrayProcessOptions($options, $result);
+    }
+
+    /**
+     * @param array $options
+     * @param array $data
+     *
+     * @return array
+     */
+    protected function toArrayProcessOptions(array $options, array $data): array
+    {
+        // remove null keys.
+        if (array_key_exists(self::TOARRAY_REMOVE_NULLS, $options)) {
+            foreach ($data as $key => $value) {
+                if (null === $value) {
+                    unset($data[$key]);
+                }
+            }
+        }
+
+        return $data;
     }
 
     /**
@@ -184,5 +207,25 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
             $name,
             get_class($this)
         ));
+    }
+
+    /**
+     * @param array $properties
+     *
+     * @throws \InvalidArgumentException
+     */
+    protected function processProperties(array $properties)
+    {
+        foreach ($properties as $property => $value) {
+            if (!property_exists($this, $property)) {
+                throw new \InvalidArgumentException(sprintf(
+                    'Property %s of class %s does not exists.',
+                    $property,
+                    get_class($this)
+                ));
+            }
+
+            $this->{$property} = $value;
+        }
     }
 }

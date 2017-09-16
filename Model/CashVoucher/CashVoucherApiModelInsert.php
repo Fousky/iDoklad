@@ -50,6 +50,19 @@ class CashVoucherApiModelInsert extends iDokladAbstractModel
     public $Person;
 
     /**
+     * @param CashVoucherItemApiModelInsert $Item
+     * @param array $properties
+     *
+     * @throws \InvalidArgumentException
+     */
+    public function __construct(CashVoucherItemApiModelInsert $Item, array $properties = [])
+    {
+        $this->Item = $Item;
+
+        $this->processProperties($properties);
+    }
+
+    /**
      * @return array
      */
     public static function getDateMap(): array

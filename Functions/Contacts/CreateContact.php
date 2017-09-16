@@ -7,6 +7,8 @@ use Fousky\Component\iDoklad\Model\Contacts\ContactApiModel;
 use Fousky\Component\iDoklad\Model\Contacts\ContactPostApiModel;
 
 /**
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=POST-api-v2-Contacts
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class CreateContact extends iDokladAbstractFunction

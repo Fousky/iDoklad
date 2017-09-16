@@ -32,19 +32,17 @@ class CashVoucherItemApiModelUpdate extends iDokladAbstractModel
 
     /**
      * @param string $Name
-     * @param float  $Price
-     * @param array  $properties Properties key=>value see getAvailableProperties()
+     * @param float $Price
+     * @param array $properties Properties key=>value see getAvailableProperties()
+     *
+     * @throws \InvalidArgumentException
      */
     public function __construct(string $Name, float $Price, array $properties = [])
     {
         $this->Name = $Name;
         $this->Price = $Price;
 
-        foreach ($properties as $property => $value) {
-            if (property_exists($this, $property)) {
-                $this->{$property} = $value;
-            }
-        }
+        $this->processProperties($properties);
     }
 
     /**

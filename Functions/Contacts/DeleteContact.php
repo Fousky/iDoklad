@@ -6,6 +6,8 @@ use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
 use Fousky\Component\iDoklad\Model\Void\VoidModel;
 
 /**
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=DELETE-api-v2-Contacts-id
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class DeleteContact extends iDokladAbstractFunction

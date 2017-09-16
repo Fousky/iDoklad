@@ -1,17 +1,28 @@
 <?php
 
-namespace Fousky\Component\iDoklad\Functions\Agendas;
+namespace Fousky\Component\iDoklad\Functions\Contacts;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
 use Fousky\Component\iDoklad\Model\Contacts\ContactApiModelExpand;
 
 /**
- * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-Agendas-GetAgendaContactExpand
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-Contacts-id-Expand
  *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class GetAgendaContactExpand extends iDokladAbstractFunction
+class GetContactExpand extends iDokladAbstractFunction
 {
+    /** @var string $id */
+    protected $id;
+
+    /**
+     * @param string $id
+     */
+    public function __construct(string $id)
+    {
+        $this->id = $id;
+    }
+
     /**
      * Get iDokladModelInterface class.
      *
@@ -45,7 +56,7 @@ class GetAgendaContactExpand extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return 'Agendas/GetAgendaContactExpand';
+        return sprintf('Contacts/%s/Expand', $this->id);
     }
 
     /**
