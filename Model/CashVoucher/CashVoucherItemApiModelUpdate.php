@@ -32,8 +32,8 @@ class CashVoucherItemApiModelUpdate extends iDokladAbstractModel
 
     /**
      * @param string $Name
-     * @param float $Price
-     * @param array $properties Properties key=>value see getAvailableProperties()
+     * @param float  $Price
+     * @param array  $properties Properties key=>value see getAvailableProperties()
      *
      * @throws \InvalidArgumentException
      */

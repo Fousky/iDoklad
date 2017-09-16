@@ -20,7 +20,7 @@ class UpdateCashVoucher extends iDokladAbstractFunction
     protected $data;
 
     /**
-     * @param string $voucherId
+     * @param string                    $voucherId
      * @param CashVoucherApiModelUpdate $data
      *
      * @throws \Fousky\Component\iDoklad\Exception\InvalidModelException

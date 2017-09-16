@@ -2,8 +2,8 @@
 
 namespace Fousky\Component\iDoklad\Model\Contacts;
 
-use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\Model\BankAccounts\BankAccountPostApiModel;
+use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

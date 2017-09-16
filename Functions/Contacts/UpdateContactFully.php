@@ -21,7 +21,7 @@ class UpdateContactFully extends iDokladAbstractFunction
     protected $data;
 
     /**
-     * @param string $id
+     * @param string            $id
      * @param ContactPutModelV2 $data
      *
      * @throws \Fousky\Component\iDoklad\Exception\InvalidModelException
@@ -76,9 +76,10 @@ class UpdateContactFully extends iDokladAbstractFunction
      * @see \GuzzleHttp\Client::request()
      * @see iDoklad::call()
      *
-     * @return array
      * @throws \ReflectionException
      * @throws \InvalidArgumentException
+     *
+     * @return array
      */
     public function getGuzzleOptions(): array
     {
