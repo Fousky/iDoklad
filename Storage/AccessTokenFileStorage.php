@@ -38,6 +38,10 @@ class AccessTokenFileStorage implements AccessTokenStorageInterface
 
         $this->token = null;
 
+        if (!file_exists($this->file) || !is_readable($this->file)) {
+            return false;
+        }
+
         try {
             $token = unserialize(
                 file_get_contents($this->file),
@@ -78,13 +82,12 @@ class AccessTokenFileStorage implements AccessTokenStorageInterface
      * Set AccessToken to the Storage object.
      *
      * @param AccessToken $token
+     *
+     * @throws \Symfony\Component\Filesystem\Exception\IOException
      */
     public function setToken(AccessToken $token)
     {
-        file_put_contents(
-            $this->file,
-            serialize($token)
-        );
+        (new Filesystem())->dumpFile($this->file, serialize($token));
 
         $this->token = $token;
     }
