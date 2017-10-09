@@ -78,7 +78,9 @@ class CreateContact extends iDokladAbstractFunction
     public function getGuzzleOptions(): array
     {
         return [
-            'json' => $this->data->toArray(),
+            'json' => $this->data->toArray([
+                ContactApiModel::TOARRAY_REMOVE_NULLS => true,
+            ]),
         ];
     }
 }

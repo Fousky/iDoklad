@@ -57,7 +57,15 @@ class ContactPostApiModel extends iDokladAbstractModel
     public $Firstname;
 
     public $IdentificationNumber;
+
+    /**
+     * @Assert\Expression(expression="value == true or value == false", message="This value must be true or false.")
+     */
     public $IsRegisteredForVatOnPay;
+
+    /**
+     * @Assert\Expression(expression="value == true or value == false", message="This value must be true or false.")
+     */
     public $IsSendReminder;
     public $Mobile;
     public $Phone;
