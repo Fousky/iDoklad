@@ -27,7 +27,15 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class CashVoucherApiModelInsert extends iDokladAbstractModel
 {
+    /**
+     * @Assert\NotBlank()
+     * @Assert\GreaterThan(value="0")
+     */
     public $CashRegisterId;
+
+    /**
+     * @Assert\NotBlank()
+     */
     public $DateOfTransaction;
     public $DocumentSerialNumber;
     public $ElectronicRecordsOfSales;

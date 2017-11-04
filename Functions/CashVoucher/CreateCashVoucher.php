@@ -5,6 +5,7 @@ namespace Fousky\Component\iDoklad\Functions\CashVoucher;
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
 use Fousky\Component\iDoklad\Model\CashVoucher\CashVoucherApiModel;
 use Fousky\Component\iDoklad\Model\CashVoucher\CashVoucherApiModelInsert;
+use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 
 /**
  * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=POST-api-v2-CashVouchers
@@ -78,7 +79,9 @@ class CreateCashVoucher extends iDokladAbstractFunction
     public function getGuzzleOptions(): array
     {
         return [
-            'json' => $this->data->toArray(),
+            'json' => $this->data->toArray([
+                iDokladAbstractModel::TOARRAY_REMOVE_NULLS => true,
+            ]),
         ];
     }
 }
