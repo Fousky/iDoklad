@@ -117,7 +117,7 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
     public function toArray(array $options = []): array
     {
         $result = [];
-        $reflection = new \ReflectionClass(new static());
+        $reflection = new \ReflectionClass(__CLASS__);
 
         foreach ($reflection->getProperties() as $property) {
             $name = $property->getName();
