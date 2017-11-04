@@ -3,6 +3,7 @@
 namespace Fousky\Component\iDoklad\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Fousky\Component\iDoklad\LOV\iDokladAbstractEnum;
 use Fousky\Component\iDoklad\Util\AnnotationLoader;
 use Fousky\Component\iDoklad\Util\ResponseUtil;
@@ -124,23 +125,48 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
             $getter = 'get'.ucfirst($property->getName());
             $value = $this->{$getter}();
 
-            // convert \DateTime to string date representation.
-            if ($value instanceof \DateTime) {
-                $value = $value->format(\DateTime::ATOM);
-            } elseif (is_object($value)) {
-                if (method_exists($value, 'toArray')) {
-                    $value = $value->toArray($options);
-                } elseif (method_exists($value, 'createJson')) {
-                    $value = $value->createJson();
-                } elseif (method_exists($value, '__toString')) {
-                    $value = (string) $value;
-                }
-            }
-
-            $result[$name] = $value;
+            $result[$name] = $this->recursiveToArray($value, $options);
         }
 
         return $this->toArrayProcessOptions($options, $result);
+    }
+
+    /**
+     * @param mixed $value
+     * @param array $options
+     *
+     * @return array|string
+     */
+    public function recursiveToArray($value, array $options)
+    {
+        // convert \DateTime to string date representation.
+        if ($value instanceof \DateTime) {
+            return $value->format(\DateTime::ATOM);
+        }
+
+        if (is_array($value) || $value instanceof Collection) {
+            $subArray = [];
+
+            foreach ($value as $k => $v) {
+                $subArray[$k] = $this->recursiveToArray($v, $options);
+            }
+
+            return $subArray;
+        }
+
+        if (is_object($value)) {
+            if (method_exists($value, 'toArray')) {
+                return $value->toArray($options);
+            }
+            if (method_exists($value, 'createJson')) {
+                return $value->createJson();
+            }
+            if (method_exists($value, '__toString')) {
+                return (string) $value;
+            }
+        }
+
+        return $value;
     }
 
     /**
@@ -156,6 +182,9 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
             foreach ($data as $key => $value) {
                 if (null === $value) {
                     unset($data[$key]);
+                }
+                if (is_array($value)) {
+                    $data[$key] = $this->toArrayProcessOptions($options, $value);
                 }
             }
         }
