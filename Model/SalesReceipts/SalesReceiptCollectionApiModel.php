@@ -3,7 +3,6 @@
 namespace Fousky\Component\iDoklad\Model\SalesReceipts;
 
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
-use Fousky\Component\iDoklad\Model\SalesReceipts\SalesReceiptApiModel;
 
 /**
  * @method null|SalesReceiptApiModel[] getData()
