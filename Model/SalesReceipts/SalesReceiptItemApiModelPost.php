@@ -52,7 +52,7 @@ class SalesReceiptItemApiModelPost extends iDokladAbstractModel
     public static function getEnumMap(): array
     {
         return [
-            'PriceType' => PriceTypeEnum::class,
+            'PriceType'   => PriceTypeEnum::class,
             'VatRateType' => VatRateTypeEnum::class,
         ];
     }

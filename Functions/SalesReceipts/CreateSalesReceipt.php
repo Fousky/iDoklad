@@ -71,9 +71,10 @@ class CreateSalesReceipt extends iDokladAbstractFunction
      * @see \GuzzleHttp\Client::request()
      * @see iDoklad::call()
      *
-     * @return array
      * @throws \ReflectionException
      * @throws \InvalidArgumentException
+     *
+     * @return array
      */
     public function getGuzzleOptions(): array
     {

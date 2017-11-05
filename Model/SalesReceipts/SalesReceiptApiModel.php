@@ -71,8 +71,8 @@ class SalesReceiptApiModel extends iDokladAbstractModel
     public static function getModelMap(): array
     {
         return [
-            'RegisteredSale' => RegisteredSaleApiModel::class,
-            'SalesReceiptItems' => SalesReceiptItemApiModel::class,
+            'RegisteredSale'       => RegisteredSaleApiModel::class,
+            'SalesReceiptItems'    => SalesReceiptItemApiModel::class,
             'SalesReceiptPayments' => SalesReceiptPaymentApiModel::class,
         ];
     }
@@ -84,8 +84,8 @@ class SalesReceiptApiModel extends iDokladAbstractModel
     {
         return [
             'EetResponsibility' => EetResponsibilityEnum::class,
-            'Exported' => ExportedStateEnum::class,
-            'Imported' => ImportedStateEnum::class,
+            'Exported'          => ExportedStateEnum::class,
+            'Imported'          => ImportedStateEnum::class,
         ];
     }
 }

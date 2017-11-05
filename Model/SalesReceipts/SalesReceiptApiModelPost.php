@@ -2,11 +2,11 @@
 
 namespace Fousky\Component\iDoklad\Model\SalesReceipts;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Fousky\Component\iDoklad\LOV\ExportedStateEnum;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\Model\RegisteredSale\ElectronicRecordsOfSalesApiModel;
 use Symfony\Component\Validator\Constraints as Assert;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @method null|\DateTime getDateOfIssue()
@@ -19,6 +19,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @method null|int getSalesPosEquipmentId()
  * @method null|SalesReceiptItemApiModelPost[]|ArrayCollection getSalesReceiptItems()
  * @method null|SalesReceiptPaymentApiModelPost[]|ArrayCollection getSalesReceiptPayments()
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class SalesReceiptApiModelPost extends iDokladAbstractModel
@@ -78,8 +79,8 @@ class SalesReceiptApiModelPost extends iDokladAbstractModel
     {
         return [
             'ElectronicRecordsOfSales' => ElectronicRecordsOfSalesApiModel::class,
-            'SalesReceiptItems' => SalesReceiptItemApiModelPost::class,
-            'SalesReceiptPayments' => SalesReceiptPaymentApiModelPost::class,
+            'SalesReceiptItems'        => SalesReceiptItemApiModelPost::class,
+            'SalesReceiptPayments'     => SalesReceiptPaymentApiModelPost::class,
         ];
     }
 
