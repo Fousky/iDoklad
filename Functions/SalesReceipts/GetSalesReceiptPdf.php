@@ -1,14 +1,14 @@
 <?php
 
-namespace Fousky\Component\iDoklad\Functions\ProformaInvoices;
+namespace Fousky\Component\iDoklad\Functions\SalesReceipts;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\ProformaInvoices\ProformaPdfStringModel;
+use Fousky\Component\iDoklad\Model\SalesReceipts\SalesReceiptPdfStringModel;
 
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class GetProformaInvoicePdf extends iDokladAbstractFunction
+class GetSalesReceiptPdf extends iDokladAbstractFunction
 {
     /** @var string $id */
     protected $id;
@@ -30,7 +30,7 @@ class GetProformaInvoicePdf extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return ProformaPdfStringModel::class;
+        return SalesReceiptPdfStringModel::class;
     }
 
     /**
@@ -54,7 +54,7 @@ class GetProformaInvoicePdf extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return sprintf('ProformaInvoices/%s/GetPdf', $this->id);
+        return sprintf('SalesReceipts/%s/GetPdf', $this->id);
     }
 
     /**
