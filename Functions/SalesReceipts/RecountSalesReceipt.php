@@ -8,6 +8,8 @@ use Fousky\Component\iDoklad\Model\SalesReceipts\SalesReceiptApiModel;
 use Fousky\Component\iDoklad\Model\SalesReceipts\SalesReceiptApiModelPost;
 
 /**
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=POST-api-v2-SalesReceipts-Recount
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class RecountSalesReceipt extends iDokladAbstractFunction
