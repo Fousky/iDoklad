@@ -12,8 +12,8 @@
         "symfony/options-resolver": "~2|~3",
         "symfony/filesystem": "~2|~3",
         "symfony/validator": "~2|~3",
-        "doctrine/annotations": "^1.4",
-        "doctrine/cache": "^1.6"
+        "doctrine/annotations": "^1",
+        "doctrine/cache": "^1"
     },
     "suggest": {
         "symfony/filesystem": "Needs for AccessTokenFileStorage - save API token to the file.",
