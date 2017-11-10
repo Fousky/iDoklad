@@ -3,13 +3,26 @@
 namespace Fousky\Component\iDoklad\Functions\ProformaInvoices;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\ProformaInvoices\ProformaInvoiceModel;
+use Fousky\Component\iDoklad\Model\Documents\DocumentAddressApiModel;
 
 /**
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-ProformaInvoices-id-MyDocumentAddress
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class GetDefaultProformaInvoice extends iDokladAbstractFunction
+class GetProformaInvoiceMyDocumentAddress extends iDokladAbstractFunction
 {
+    /** @var string $id */
+    protected $id;
+
+    /**
+     * @param string $id
+     */
+    public function __construct(string $id)
+    {
+        $this->id = $id;
+    }
+
     /**
      * Get iDokladModelInterface class.
      *
@@ -19,7 +32,7 @@ class GetDefaultProformaInvoice extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return ProformaInvoiceModel::class;
+        return DocumentAddressApiModel::class;
     }
 
     /**
@@ -43,7 +56,7 @@ class GetDefaultProformaInvoice extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return 'ProformaInvoices/Default';
+        return sprintf('ProformaInvoices/%s/MyDocumentAddress', $this->id);
     }
 
     /**

@@ -6,8 +6,13 @@ use Fousky\Component\iDoklad\LOV\EetResponsibilityEnum;
 use Fousky\Component\iDoklad\LOV\ExportedStateEnum;
 use Fousky\Component\iDoklad\LOV\PaymentStatusEnum;
 use Fousky\Component\iDoklad\LOV\VatOnPayStatusEnum;
+use Fousky\Component\iDoklad\Model\ConstantSymbol\ConstantSymbolApiModel;
+use Fousky\Component\iDoklad\Model\Contacts\ContactApiModelExpand;
+use Fousky\Component\iDoklad\Model\Currencies\CurrencyApiModel;
+use Fousky\Component\iDoklad\Model\Documents\DocumentAddressApiModel;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\Model\IssuedInvoices\IssuedInvoiceItemApiModel;
+use Fousky\Component\iDoklad\Model\PaymentOptions\PaymentOptionApiModel;
 
 /**
  * @method null|string getAttachmentFileName()
@@ -19,7 +24,9 @@ use Fousky\Component\iDoklad\Model\IssuedInvoices\IssuedInvoiceItemApiModel;
  * @method null|float getBaseTaxReducedRate2Hc()
  * @method null|float getBaseTaxZeroRate()
  * @method null|float getBaseTaxZeroRateHc()
+ * @method null|ConstantSymbolApiModel getConstantSymbol()
  * @method null|int getConstantSymbolId()
+ * @method null|CurrencyApiModel getCurrency()
  * @method null|int getCurrencyId()
  * @method null|\DateTime getDateLastChange()
  * @method null|\DateTime getDateOfAccountingEvent()
@@ -29,7 +36,7 @@ use Fousky\Component\iDoklad\Model\IssuedInvoices\IssuedInvoiceItemApiModel;
  * @method null|\DateTime getDateOfPayment()
  * @method null|string getDescription()
  * @method null|string getDocumentNumber()
- * @method null|string getDocumentSerialNumber()
+ * @method null|int getDocumentSerialNumber()
  * @method null|EetResponsibilityEnum getEetResponsibility()
  * @method null|float getExchangeRate()
  * @method null|float getExchangeRateAmount()
@@ -43,12 +50,16 @@ use Fousky\Component\iDoklad\Model\IssuedInvoices\IssuedInvoiceItemApiModel;
  * @method null|string getItemsTextSuffix()
  * @method null|int getLanguageId()
  * @method null|int getMaturity()
+ * @method null|DocumentAddressApiModel getMyCompanyDocumentAddress()
  * @method null|int getMyCompanyDocumentAdrressId()
  * @method null|string getNote()
  * @method null|string getOrderNumber()
+ * @method null|PaymentOptionApiModel getPaymentOption()
  * @method null|int getPaymentOptionId()
  * @method null|PaymentStatusEnum getPaymentStatus()
  * @method null|IssuedInvoiceItemApiModel[] getProformaInvoiceItems()
+ * @method null|ContactApiModelExpand getPurchaser()
+ * @method null|DocumentAddressApiModel getPurchaserDocumentAddress()
  * @method null|int getPurchaserDocumentAddressId()
  * @method null|int getPurchaserId()
  * @method null|int getRemindersCount()
@@ -78,10 +89,10 @@ use Fousky\Component\iDoklad\Model\IssuedInvoices\IssuedInvoiceItemApiModel;
  * @method null|float getVatRateBasic()
  * @method null|float getVatRateReduced1()
  * @method null|float getVatRateReduced2()
-
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class ProformaInvoiceApiModel extends iDokladAbstractModel
+class ProformaInvoiceApiModelExpand extends iDokladAbstractModel
 {
     public $AttachmentFileName;
     public $BaseTaxBasicRate;
@@ -92,7 +103,9 @@ class ProformaInvoiceApiModel extends iDokladAbstractModel
     public $BaseTaxReducedRate2Hc;
     public $BaseTaxZeroRate;
     public $BaseTaxZeroRateHc;
+    public $ConstantSymbol;
     public $ConstantSymbolId;
+    public $Currency;
     public $CurrencyId;
     public $DateLastChange;
     public $DateOfAccountingEvent;
@@ -116,12 +129,16 @@ class ProformaInvoiceApiModel extends iDokladAbstractModel
     public $ItemsTextSuffix;
     public $LanguageId;
     public $Maturity;
+    public $MyCompanyDocumentAddress;
     public $MyCompanyDocumentAdrressId;
     public $Note;
     public $OrderNumber;
+    public $PaymentOption;
     public $PaymentOptionId;
     public $PaymentStatus;
     public $ProformaInvoiceItems;
+    public $Purchaser;
+    public $PurchaserDocumentAddress;
     public $PurchaserDocumentAddressId;
     public $PurchaserId;
     public $RemindersCount;
@@ -158,19 +175,22 @@ class ProformaInvoiceApiModel extends iDokladAbstractModel
     public static function getModelMap(): array
     {
         return [
+            'ConstantSymbol' => ConstantSymbolApiModel::class,
+            'Currency' => CurrencyApiModel::class,
+            'MyCompanyDocumentAddress' => DocumentAddressApiModel::class,
+            'PaymentOption' => PaymentOptionApiModel::class,
             'ProformaInvoiceItems' => IssuedInvoiceItemApiModel::class,
+            'Purchaser' => ContactApiModelExpand::class,
+            'PurchaserDocumentAddress' => DocumentAddressApiModel::class,
         ];
     }
 
-    /**
-     * @return array
-     */
     public static function getEnumMap(): array
     {
         return [
-            'EetResponsibility' => EetResponsibilityEnum::class,
-            'Exported' => ExportedStateEnum::class,
             'PaymentStatus' => PaymentStatusEnum::class,
+            'Exported' => ExportedStateEnum::class,
+            'EetResponsibility' => EetResponsibilityEnum::class,
             'VatOnPayStatus' => VatOnPayStatusEnum::class,
         ];
     }

@@ -6,21 +6,23 @@ use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
 use Fousky\Component\iDoklad\Model\Other\PdfBase64Model;
 
 /**
- * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-ProformaInvoices-id-GetPdf
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-ProformaInvoices-id-GetPdfWithPayments_onlyEetPayments
  *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class GetProformaInvoicePdf extends iDokladAbstractFunction
+class GetProformaInvoicePdfWithPayments extends iDokladAbstractFunction
 {
-    /** @var string $id */
     protected $id;
+    protected $onlyEetPayments;
 
     /**
      * @param string $id
+     * @param bool $onlyEetPayments
      */
-    public function __construct(string $id)
+    public function __construct(string $id, bool $onlyEetPayments = false)
     {
         $this->id = $id;
+        $this->onlyEetPayments = $onlyEetPayments;
     }
 
     /**
@@ -56,7 +58,11 @@ class GetProformaInvoicePdf extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return sprintf('ProformaInvoices/%s/GetPdf', $this->id);
+        return sprintf(
+            'ProformaInvoices/%s/GetPdfWithPayments?onlyEetPayments=%s',
+            $this->id,
+            $this->onlyEetPayments === true ? 1 : 0
+        );
     }
 
     /**

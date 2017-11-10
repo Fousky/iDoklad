@@ -3,24 +3,31 @@
 namespace Fousky\Component\iDoklad\Functions\ProformaInvoices;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\Other\PdfBase64Model;
+use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
+use Fousky\Component\iDoklad\Model\ProformaInvoices\ProformaInvoiceApiModel;
+use Fousky\Component\iDoklad\Model\ProformaInvoices\ProformaInvoicePutModelV2;
 
 /**
- * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-ProformaInvoices-id-GetPdf
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=PUT-api-v2-ProformaInvoices-id
  *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class GetProformaInvoicePdf extends iDokladAbstractFunction
+class UpdateProformaInvoice extends iDokladAbstractFunction
 {
     /** @var string $id */
     protected $id;
 
+    /** @var ProformaInvoicePutModelV2 $data */
+    protected $data;
+
     /**
      * @param string $id
+     * @param ProformaInvoicePutModelV2 $data
      */
-    public function __construct(string $id)
+    public function __construct(string $id, ProformaInvoicePutModelV2 $data)
     {
         $this->id = $id;
+        $this->data = $data;
     }
 
     /**
@@ -32,7 +39,7 @@ class GetProformaInvoicePdf extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return PdfBase64Model::class;
+        return ProformaInvoiceApiModel::class;
     }
 
     /**
@@ -44,7 +51,7 @@ class GetProformaInvoicePdf extends iDokladAbstractFunction
      */
     public function getHttpMethod(): string
     {
-        return 'GET';
+        return 'PUT';
     }
 
     /**
@@ -56,7 +63,7 @@ class GetProformaInvoicePdf extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return sprintf('ProformaInvoices/%s/GetPdf', $this->id);
+        return sprintf('ProformaInvoices/%s', $this->id);
     }
 
     /**
@@ -66,9 +73,15 @@ class GetProformaInvoicePdf extends iDokladAbstractFunction
      * @see iDoklad::call()
      *
      * @return array
+     * @throws \ReflectionException
+     * @throws \InvalidArgumentException
      */
     public function getGuzzleOptions(): array
     {
-        return [];
+        return [
+            'json' => $this->data->toArray([
+                iDokladAbstractModel::TOARRAY_REMOVE_NULLS => true,
+            ]),
+        ];
     }
 }

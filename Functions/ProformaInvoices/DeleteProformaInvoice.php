@@ -3,14 +3,14 @@
 namespace Fousky\Component\iDoklad\Functions\ProformaInvoices;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\Other\PdfBase64Model;
+use Fousky\Component\iDoklad\Model\Void\VoidModel;
 
 /**
- * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-ProformaInvoices-id-GetPdf
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=DELETE-api-v2-ProformaInvoices-id
  *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class GetProformaInvoicePdf extends iDokladAbstractFunction
+class DeleteProformaInvoice extends iDokladAbstractFunction
 {
     /** @var string $id */
     protected $id;
@@ -32,7 +32,7 @@ class GetProformaInvoicePdf extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return PdfBase64Model::class;
+        return VoidModel::class;
     }
 
     /**
@@ -44,7 +44,7 @@ class GetProformaInvoicePdf extends iDokladAbstractFunction
      */
     public function getHttpMethod(): string
     {
-        return 'GET';
+        return 'DELETE';
     }
 
     /**
@@ -56,7 +56,7 @@ class GetProformaInvoicePdf extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return sprintf('ProformaInvoices/%s/GetPdf', $this->id);
+        return sprintf('ProformaInvoices/%s', $this->id);
     }
 
     /**

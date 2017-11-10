@@ -3,20 +3,15 @@
 namespace Fousky\Component\iDoklad\Functions\ProformaInvoices;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\IssuedInvoices\IssuedInvoiceApiModel;
+use Fousky\Component\iDoklad\Model\ProformaInvoices\ProformaInvoiceApiModelInsert;
 
 /**
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-ProformaInvoices-Default
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class ChargeProformaInvoice extends iDokladAbstractFunction
+class GetProformaInvoiceDefault extends iDokladAbstractFunction
 {
-    protected $id;
-
-    public function __construct(string $id)
-    {
-        $this->id = $id;
-    }
-
     /**
      * Get iDokladModelInterface class.
      *
@@ -26,7 +21,7 @@ class ChargeProformaInvoice extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return IssuedInvoiceApiModel::class;
+        return ProformaInvoiceApiModelInsert::class;
     }
 
     /**
@@ -38,7 +33,7 @@ class ChargeProformaInvoice extends iDokladAbstractFunction
      */
     public function getHttpMethod(): string
     {
-        return 'PUT';
+        return 'GET';
     }
 
     /**
@@ -50,7 +45,7 @@ class ChargeProformaInvoice extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return sprintf('ProformaInvoices/%s/Account', $this->id);
+        return 'ProformaInvoices/Default';
     }
 
     /**

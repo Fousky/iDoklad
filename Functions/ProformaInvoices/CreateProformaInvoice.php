@@ -3,23 +3,30 @@
 namespace Fousky\Component\iDoklad\Functions\ProformaInvoices;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
+use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\Model\ProformaInvoices\ProformaInvoiceApiModel;
-use Fousky\Component\iDoklad\Model\ProformaInvoices\ProformaInvoiceModel;
+use Fousky\Component\iDoklad\Model\ProformaInvoices\ProformaInvoiceApiModelInsert;
 
 /**
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=POST-api-v2-ProformaInvoices
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class CreateProformaInvoice extends iDokladAbstractFunction
 {
-    /** @var ProformaInvoiceModel $data */
+    /** @var ProformaInvoiceApiModelInsert $data */
     protected $data;
 
     /**
-     * @param ProformaInvoiceModel $data
+     * @param ProformaInvoiceApiModelInsert $data
+     *
+     * @throws \Fousky\Component\iDoklad\Exception\InvalidModelException
      */
-    public function __construct(ProformaInvoiceModel $data)
+    public function __construct(ProformaInvoiceApiModelInsert $data)
     {
         $this->data = $data;
+
+        $this->validate($data);
     }
 
     /**
@@ -64,14 +71,16 @@ class CreateProformaInvoice extends iDokladAbstractFunction
      * @see \GuzzleHttp\Client::request()
      * @see iDoklad::call()
      *
-     * @throws \Exception
-     *
      * @return array
+     * @throws \ReflectionException
+     * @throws \InvalidArgumentException
      */
     public function getGuzzleOptions(): array
     {
         return [
-            'json' => $this->data->toArray(),
+            'json' => $this->data->toArray([
+                iDokladAbstractModel::TOARRAY_REMOVE_NULLS => true,
+            ]),
         ];
     }
 }

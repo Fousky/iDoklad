@@ -3,24 +3,39 @@
 namespace Fousky\Component\iDoklad\Functions\ProformaInvoices;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\Other\PdfBase64Model;
+use Fousky\Component\iDoklad\Model\Void\BooleanModel;
 
 /**
- * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-ProformaInvoices-id-GetPdf
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=PUT-api-v2-ProformaInvoices-id-FullyPay_dateOfPayment_salesPosEquipmentId
  *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class GetProformaInvoicePdf extends iDokladAbstractFunction
+class ProformaInvoiceFullyPay extends iDokladAbstractFunction
 {
     /** @var string $id */
     protected $id;
 
+    /** @var array $urlParts */
+    protected $urlParts = [];
+
     /**
      * @param string $id
+     * @param \DateTime|null $dateOfPayment
+     * @param int|null $salesPosEquipmentId
      */
-    public function __construct(string $id)
+    public function __construct(string $id, \DateTime $dateOfPayment = null, int $salesPosEquipmentId = null)
     {
         $this->id = $id;
+
+        $parts = [];
+        if ($dateOfPayment) {
+            $parts['dateOfPayment'] = $dateOfPayment->format('Y-m-d H:i:s');
+        }
+        if (null !== $salesPosEquipmentId) {
+            $parts['salesPosEquipmentId'] = $salesPosEquipmentId;
+        }
+
+        $this->urlParts = $parts;
     }
 
     /**
@@ -32,7 +47,7 @@ class GetProformaInvoicePdf extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return PdfBase64Model::class;
+        return BooleanModel::class;
     }
 
     /**
@@ -44,7 +59,7 @@ class GetProformaInvoicePdf extends iDokladAbstractFunction
      */
     public function getHttpMethod(): string
     {
-        return 'GET';
+        return 'PUT';
     }
 
     /**
@@ -56,7 +71,13 @@ class GetProformaInvoicePdf extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return sprintf('ProformaInvoices/%s/GetPdf', $this->id);
+        $uri = sprintf('ProformaInvoices/%s/FullyPay', $this->id);
+
+        if (count($this->urlParts) > 0) {
+            $uri .= '?' . http_build_query($this->urlParts);
+        }
+
+        return $uri;
     }
 
     /**
