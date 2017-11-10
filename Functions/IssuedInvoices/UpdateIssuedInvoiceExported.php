@@ -20,7 +20,7 @@ class UpdateIssuedInvoiceExported extends iDokladAbstractFunction
     protected $exported;
 
     /**
-     * @param string $id
+     * @param string            $id
      * @param ExportedStateEnum $exported
      */
     public function __construct(string $id, ExportedStateEnum $exported)

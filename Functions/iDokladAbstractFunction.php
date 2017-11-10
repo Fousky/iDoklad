@@ -37,7 +37,7 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
      *
      * @return iDokladAbstractFunction
      */
-    public function paginator(iDokladPaginator $paginator): iDokladAbstractFunction
+    public function paginator(iDokladPaginator $paginator): self
     {
         $this->setPaginator($paginator);
 
@@ -49,7 +49,7 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
      *
      * @return iDokladAbstractFunction
      */
-    public function sortable(iDokladSortable $sortable): iDokladAbstractFunction
+    public function sortable(iDokladSortable $sortable): self
     {
         $this->setSortable($sortable);
 

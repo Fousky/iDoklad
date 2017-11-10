@@ -76,7 +76,7 @@ class IssuedDocumentPaymentApiModel extends iDokladAbstractModel
     {
         return [
             'EetResponsibility' => EetResponsibilityEnum::class,
-            'Exported' => ExportedStateEnum::class,
+            'Exported'          => ExportedStateEnum::class,
         ];
     }
 }

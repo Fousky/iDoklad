@@ -20,7 +20,7 @@ class UpdateIssuedInvoicePurchaserDocumentAddress extends iDokladAbstractFunctio
     protected $data;
 
     /**
-     * @param string $id
+     * @param string                  $id
      * @param DocumentAddressApiModel $data
      *
      * @throws \Fousky\Component\iDoklad\Exception\InvalidModelException
@@ -75,9 +75,10 @@ class UpdateIssuedInvoicePurchaserDocumentAddress extends iDokladAbstractFunctio
      * @see \GuzzleHttp\Client::request()
      * @see iDoklad::call()
      *
-     * @return array
      * @throws \ReflectionException
      * @throws \InvalidArgumentException
+     *
+     * @return array
      */
     public function getGuzzleOptions(): array
     {

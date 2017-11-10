@@ -39,7 +39,7 @@ interface iDokladFunctionInterface
      *
      * @return iDokladFunctionInterface
      */
-    public function setConfig(array $config): iDokladFunctionInterface;
+    public function setConfig(array $config): self;
 
     /**
      * GET|POST|PUT|DELETE e.g.

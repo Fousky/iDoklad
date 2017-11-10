@@ -21,7 +21,7 @@ class UpdateDocumentAddress extends iDokladAbstractFunction
     protected $data;
 
     /**
-     * @param string $id
+     * @param string                    $id
      * @param DocumentAddressPutModelV2 $data
      */
     public function __construct(string $id, DocumentAddressPutModelV2 $data)
@@ -72,9 +72,10 @@ class UpdateDocumentAddress extends iDokladAbstractFunction
      * @see \GuzzleHttp\Client::request()
      * @see iDoklad::call()
      *
-     * @return array
      * @throws \ReflectionException
      * @throws \InvalidArgumentException
+     *
+     * @return array
      */
     public function getGuzzleOptions(): array
     {

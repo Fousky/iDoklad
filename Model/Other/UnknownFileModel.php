@@ -38,8 +38,9 @@ class UnknownFileModel extends iDokladAbstractModel
     /**
      * @param ResponseInterface $response
      *
-     * @return iDokladModelInterface
      * @throws \Exception
+     *
+     * @return iDokladModelInterface
      */
     public static function createFromResponse(ResponseInterface $response): iDokladModelInterface
     {
@@ -49,8 +50,9 @@ class UnknownFileModel extends iDokladAbstractModel
     /**
      * @param string $raw
      *
-     * @return iDokladModelInterface
      * @throws \Exception
+     *
+     * @return iDokladModelInterface
      */
     public function init(string $raw): iDokladModelInterface
     {

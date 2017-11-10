@@ -20,7 +20,7 @@ class iDokladSortable implements UrlExtensionInterface
      *
      * @return iDokladSortable
      */
-    public function sort(string $property, string $order): iDokladSortable
+    public function sort(string $property, string $order): self
     {
         if (!$this->isValidOrder($order)) {
             throw new \InvalidArgumentException(sprintf(

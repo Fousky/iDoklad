@@ -18,7 +18,7 @@ class iDokladPaginator implements UrlExtensionInterface
      *
      * @return iDokladPaginator
      */
-    public function page(int $page): iDokladPaginator
+    public function page(int $page): self
     {
         $this->page = $page;
 
@@ -30,7 +30,7 @@ class iDokladPaginator implements UrlExtensionInterface
      *
      * @return iDokladPaginator
      */
-    public function pageSize(int $pagesize): iDokladPaginator
+    public function pageSize(int $pagesize): self
     {
         $this->pagesize = $pagesize;
 
