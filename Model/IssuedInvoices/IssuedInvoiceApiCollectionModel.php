@@ -1,13 +1,17 @@
 <?php
 
-namespace Fousky\Component\iDoklad\Model\PaymentOptions;
+namespace Fousky\Component\iDoklad\Model\IssuedInvoices;
 
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 
 /**
+ * @method null|IssuedInvoiceApiModel[] getData()
+ * @method null|int getTotalItems()
+ * @method null|int getTotalPages()
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class PaymentOptionCollectionModel extends iDokladAbstractModel
+class IssuedInvoiceApiCollectionModel extends iDokladAbstractModel
 {
     public $Data;
     public $TotalItems;
@@ -19,7 +23,7 @@ class PaymentOptionCollectionModel extends iDokladAbstractModel
     public static function getModelMap(): array
     {
         return [
-            'Data' => PaymentOptionModel::class,
+            'Data' => IssuedInvoiceApiModel::class,
         ];
     }
 }

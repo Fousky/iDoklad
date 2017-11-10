@@ -1,15 +1,26 @@
 <?php
 
-namespace Fousky\Component\iDoklad\Functions\PaymentOptions;
+namespace Fousky\Component\iDoklad\Functions\IssuedInvoices;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\PaymentOptions\PaymentOptionApiCollectionModel;
+use Fousky\Component\iDoklad\Model\Documents\DocumentAddressApiModel;
 
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class GetPaymentOptions extends iDokladAbstractFunction
+class GetIssuedInvoicePurchaserDocumentAddress extends iDokladAbstractFunction
 {
+    /** @var string $id */
+    protected $id;
+
+    /**
+     * @param string $id
+     */
+    public function __construct(string $id)
+    {
+        $this->id = $id;
+    }
+
     /**
      * Get iDokladModelInterface class.
      *
@@ -19,7 +30,7 @@ class GetPaymentOptions extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return PaymentOptionApiCollectionModel::class;
+        return DocumentAddressApiModel::class;
     }
 
     /**
@@ -43,7 +54,7 @@ class GetPaymentOptions extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return 'PaymentOptions';
+        return sprintf('IssuedInvoices/%s/PurchaserDocumentAddress', $this->id);
     }
 
     /**

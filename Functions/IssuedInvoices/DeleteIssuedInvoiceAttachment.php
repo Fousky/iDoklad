@@ -1,15 +1,28 @@
 <?php
 
-namespace Fousky\Component\iDoklad\Functions\PaymentOptions;
+namespace Fousky\Component\iDoklad\Functions\IssuedInvoices;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\PaymentOptions\PaymentOptionApiCollectionModel;
+use Fousky\Component\iDoklad\Model\Void\VoidModel;
 
 /**
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=DELETE-api-v2-IssuedInvoices-DeleteAttachment-invoiceId
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class GetPaymentOptions extends iDokladAbstractFunction
+class DeleteIssuedInvoiceAttachment extends iDokladAbstractFunction
 {
+    /** @var string $invoiceId */
+    protected $invoiceId;
+
+    /**
+     * @param string $invoiceId
+     */
+    public function __construct(string $invoiceId)
+    {
+        $this->invoiceId = $invoiceId;
+    }
+
     /**
      * Get iDokladModelInterface class.
      *
@@ -19,7 +32,7 @@ class GetPaymentOptions extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return PaymentOptionApiCollectionModel::class;
+        return VoidModel::class;
     }
 
     /**
@@ -31,7 +44,7 @@ class GetPaymentOptions extends iDokladAbstractFunction
      */
     public function getHttpMethod(): string
     {
-        return 'GET';
+        return 'DELETE';
     }
 
     /**
@@ -43,7 +56,7 @@ class GetPaymentOptions extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return 'PaymentOptions';
+        return sprintf('IssuedInvoices/DeleteAttachment/%s', $this->invoiceId);
     }
 
     /**

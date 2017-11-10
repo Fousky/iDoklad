@@ -3,7 +3,7 @@
 namespace Fousky\Component\iDoklad\Functions\ProformaInvoices;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\ProformaInvoices\ProformaPdfStringModel;
+use Fousky\Component\iDoklad\Model\Other\PdfBase64Model;
 
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
@@ -30,7 +30,7 @@ class GetProformaInvoicePdf extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return ProformaPdfStringModel::class;
+        return PdfBase64Model::class;
     }
 
     /**

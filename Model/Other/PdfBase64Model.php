@@ -1,6 +1,6 @@
 <?php
 
-namespace Fousky\Component\iDoklad\Model\ProformaInvoices;
+namespace Fousky\Component\iDoklad\Model\Other;
 
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 use Fousky\Component\iDoklad\Model\iDokladModelInterface;
@@ -9,7 +9,7 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class ProformaPdfStringModel extends iDokladAbstractModel
+class PdfBase64Model extends iDokladAbstractModel
 {
     /**
      * @var string Base64 encoded PDF content.

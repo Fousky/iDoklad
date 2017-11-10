@@ -14,7 +14,7 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class PaymentOptionModel extends iDokladAbstractModel
+class PaymentOptionApiModel extends iDokladAbstractModel
 {
     public $Id;
     public $Code;

@@ -1,14 +1,16 @@
 <?php
 
-namespace Fousky\Component\iDoklad\Functions\PaymentOptions;
+namespace Fousky\Component\iDoklad\Functions\IssuedInvoices;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\PaymentOptions\PaymentOptionApiCollectionModel;
+use Fousky\Component\iDoklad\Model\IssuedInvoices\IssuedInvoiceApiCollectionModelExpand;
 
 /**
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-IssuedInvoices-Expand
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class GetPaymentOptions extends iDokladAbstractFunction
+class GetIssuedInvoicesExpand extends iDokladAbstractFunction
 {
     /**
      * Get iDokladModelInterface class.
@@ -19,7 +21,7 @@ class GetPaymentOptions extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return PaymentOptionApiCollectionModel::class;
+        return IssuedInvoiceApiCollectionModelExpand::class;
     }
 
     /**
@@ -43,7 +45,7 @@ class GetPaymentOptions extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return 'PaymentOptions';
+        return 'IssuedInvoices/Expand';
     }
 
     /**
