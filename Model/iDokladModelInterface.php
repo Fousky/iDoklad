@@ -28,5 +28,5 @@ interface iDokladModelInterface
      *
      * @return iDokladModelInterface
      */
-    public static function createFromResponse(ResponseInterface $response): iDokladModelInterface;
+    public static function createFromResponse(ResponseInterface $response): self;
 }

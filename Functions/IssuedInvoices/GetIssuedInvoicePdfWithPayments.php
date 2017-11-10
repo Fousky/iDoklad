@@ -20,7 +20,7 @@ class GetIssuedInvoicePdfWithPayments extends iDokladAbstractFunction
 
     /**
      * @param string $id
-     * @param bool $onlyEetPayments
+     * @param bool   $onlyEetPayments
      */
     public function __construct(string $id, bool $onlyEetPayments = false)
     {

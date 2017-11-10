@@ -38,7 +38,7 @@ class BankAccountApiCollectionModel extends iDokladAbstractModel
      *
      * @return BankAccountApiCollectionModel
      */
-    public static function createFromArray(array $items): BankAccountApiCollectionModel
+    public static function createFromArray(array $items): self
     {
         $model = new static();
         $model->BankAccounts = static::createCollection($items);

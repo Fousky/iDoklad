@@ -50,7 +50,7 @@ class AccessToken extends iDokladAbstractModel implements \Serializable
      *
      * @return AccessToken
      */
-    public static function create(array $data): AccessToken
+    public static function create(array $data): self
     {
         if (!array_key_exists('token', $data) ||
             !array_key_exists('expires', $data) ||

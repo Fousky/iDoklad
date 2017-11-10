@@ -44,7 +44,7 @@ class iDokladFilter implements UrlExtensionInterface
      *
      * @return $this
      */
-    public function filter(string $property, string $operator, string $value): iDokladFilter
+    public function filter(string $property, string $operator, string $value): self
     {
         if (!$this->isValidOperator($operator)) {
             throw new \InvalidArgumentException(sprintf(
@@ -71,7 +71,7 @@ class iDokladFilter implements UrlExtensionInterface
      *
      * @return iDokladFilter
      */
-    public function filterType(string $type): iDokladFilter
+    public function filterType(string $type): self
     {
         if ($type !== self::FILTER_TYPE_AND && $type !== self::FILTER_TYPE_OR) {
             throw new \InvalidArgumentException(sprintf(

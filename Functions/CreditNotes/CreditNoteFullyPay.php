@@ -19,9 +19,9 @@ class CreditNoteFullyPay extends iDokladAbstractFunction
     protected $urlParts = [];
 
     /**
-     * @param string $id
+     * @param string         $id
      * @param null|\DateTime $dateOfPayment
-     * @param null|int $salesPosEquipmentId
+     * @param null|int       $salesPosEquipmentId
      */
     public function __construct(string $id, \DateTime $dateOfPayment = null, int $salesPosEquipmentId = null)
     {
@@ -72,7 +72,7 @@ class CreditNoteFullyPay extends iDokladAbstractFunction
         $url = sprintf('CreditNotes/%s/FullyPay', $this->id);
 
         if (count($this->urlParts) > 0) {
-            $url .= '?' . http_build_query($this->urlParts);
+            $url .= '?'.http_build_query($this->urlParts);
         }
 
         return $url;

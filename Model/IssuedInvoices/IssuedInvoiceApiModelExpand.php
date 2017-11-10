@@ -91,7 +91,7 @@ use Fousky\Component\iDoklad\Model\PaymentOptions\PaymentOptionApiModel;
  * @method null|float getVatRateBasic()
  * @method null|float getVatRateReduced1()
  * @method null|float getVatRateReduced2()
-
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class IssuedInvoiceApiModelExpand extends iDokladAbstractModel
@@ -180,11 +180,11 @@ class IssuedInvoiceApiModelExpand extends iDokladAbstractModel
     public static function getModelMap(): array
     {
         return [
-            'ConstantSymbol' => ConstantSymbolApiModel::class,
-            'Currency' => CurrencyApiModel::class,
-            'IssuedInvoiceItems' => IssuedInvoiceItemApiModel::class,
-            'PaymentOption' => PaymentOptionApiModel::class,
-            'Purchaser' => ContactApiModelExpand::class,
+            'ConstantSymbol'           => ConstantSymbolApiModel::class,
+            'Currency'                 => CurrencyApiModel::class,
+            'IssuedInvoiceItems'       => IssuedInvoiceItemApiModel::class,
+            'PaymentOption'            => PaymentOptionApiModel::class,
+            'Purchaser'                => ContactApiModelExpand::class,
             'PurchaserDocumentAddress' => DocumentAddressApiModel::class,
         ];
     }
@@ -196,9 +196,9 @@ class IssuedInvoiceApiModelExpand extends iDokladAbstractModel
     {
         return [
             'EetResponsibility' => EetResponsibilityEnum::class,
-            'Exported' => ExportedStateEnum::class,
-            'PaymentStatus' => PaymentStatusEnum::class,
-            'VatOnPayStatus' => VatOnPayStatusEnum::class,
+            'Exported'          => ExportedStateEnum::class,
+            'PaymentStatus'     => PaymentStatusEnum::class,
+            'VatOnPayStatus'    => VatOnPayStatusEnum::class,
         ];
     }
 

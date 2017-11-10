@@ -176,7 +176,7 @@ class IssuedInvoicePatchModel extends iDokladAbstractModel
     {
         return [
             'EetResponsibility' => EetResponsibilityEnum::class,
-            'VatOnPayStatus' => VatOnPayStatusEnum::class,
+            'VatOnPayStatus'    => VatOnPayStatusEnum::class,
         ];
     }
 }

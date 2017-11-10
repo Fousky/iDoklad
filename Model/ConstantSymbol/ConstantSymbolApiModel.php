@@ -13,7 +13,7 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  * @method null|int getId()
  * @method null|bool getIsDefault()
  * @method null|string getName()
-
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class ConstantSymbolApiModel extends iDokladAbstractModel
