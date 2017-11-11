@@ -19,7 +19,7 @@ class PaymentStatusEnum extends iDokladAbstractEnum
      */
     public function isUnpaid(): bool
     {
-        return $this->getValue() === self::UNPAID;
+        return self::UNPAID === $this->getValue();
     }
 
     /**
@@ -27,7 +27,7 @@ class PaymentStatusEnum extends iDokladAbstractEnum
      */
     public function isPaid(): bool
     {
-        return $this->getValue() === self::PAID;
+        return self::PAID === $this->getValue();
     }
 
     /**
@@ -35,7 +35,7 @@ class PaymentStatusEnum extends iDokladAbstractEnum
      */
     public function isPartialPaid(): bool
     {
-        return $this->getValue() === self::PARTIAL_PAID;
+        return self::PARTIAL_PAID === $this->getValue();
     }
 
     /**
@@ -43,6 +43,6 @@ class PaymentStatusEnum extends iDokladAbstractEnum
      */
     public function isOverpaid(): bool
     {
-        return $this->getValue() === self::OVERPAID;
+        return self::OVERPAID === $this->getValue();
     }
 }

@@ -18,7 +18,7 @@ class PriceTypeEnum extends iDokladAbstractEnum
      */
     public function isWithVat(): bool
     {
-        return $this->getValue() === self::WITH_VAT;
+        return self::WITH_VAT === $this->getValue();
     }
 
     /**
@@ -26,7 +26,7 @@ class PriceTypeEnum extends iDokladAbstractEnum
      */
     public function isWithoutVat(): bool
     {
-        return $this->getValue() === self::WITHOUT_VAT;
+        return self::WITHOUT_VAT === $this->getValue();
     }
 
     /**
@@ -34,6 +34,6 @@ class PriceTypeEnum extends iDokladAbstractEnum
      */
     public function isOnlyBase(): bool
     {
-        return $this->getValue() === self::ONLY_BASE;
+        return self::ONLY_BASE === $this->getValue();
     }
 }

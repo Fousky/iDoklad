@@ -125,6 +125,7 @@ class ProformaInvoiceApiModelInsert extends iDokladAbstractModel
 
     /**
      * REQUIRED.
+     *
      * @var IssuedInvoiceItemApiModelWrite[]
      *
      * @Assert\NotBlank()
@@ -138,6 +139,7 @@ class ProformaInvoiceApiModelInsert extends iDokladAbstractModel
 
     /**
      * REQUIRED.
+     *
      * @Assert\NotBlank()
      * @Assert\Type(type="int")
      */

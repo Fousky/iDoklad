@@ -21,7 +21,7 @@ class PatchProformaInvoice extends iDokladAbstractFunction
     protected $data;
 
     /**
-     * @param string $id
+     * @param string                    $id
      * @param ProformaInvoicePatchModel $data
      *
      * @throws \Fousky\Component\iDoklad\Exception\InvalidModelException
@@ -77,6 +77,7 @@ class PatchProformaInvoice extends iDokladAbstractFunction
      * @see iDoklad::call()
      *
      * @return array
+     *
      * @throws \ReflectionException
      * @throws \InvalidArgumentException
      */

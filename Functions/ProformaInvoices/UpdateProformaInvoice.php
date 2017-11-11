@@ -21,7 +21,7 @@ class UpdateProformaInvoice extends iDokladAbstractFunction
     protected $data;
 
     /**
-     * @param string $id
+     * @param string                    $id
      * @param ProformaInvoicePutModelV2 $data
      */
     public function __construct(string $id, ProformaInvoicePutModelV2 $data)
@@ -73,6 +73,7 @@ class UpdateProformaInvoice extends iDokladAbstractFunction
      * @see iDoklad::call()
      *
      * @return array
+     *
      * @throws \ReflectionException
      * @throws \InvalidArgumentException
      */

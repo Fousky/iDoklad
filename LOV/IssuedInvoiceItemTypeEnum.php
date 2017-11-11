@@ -19,7 +19,7 @@ class IssuedInvoiceItemTypeEnum extends iDokladAbstractEnum
      */
     public function isTypeNormal(): bool
     {
-        return $this->getValue() === self::TYPE_NORMAL;
+        return self::TYPE_NORMAL === $this->getValue();
     }
 
     /**
@@ -27,7 +27,7 @@ class IssuedInvoiceItemTypeEnum extends iDokladAbstractEnum
      */
     public function isTypeRound(): bool
     {
-        return $this->getValue() === self::TYPE_ROUND;
+        return self::TYPE_ROUND === $this->getValue();
     }
 
     /**
@@ -35,7 +35,7 @@ class IssuedInvoiceItemTypeEnum extends iDokladAbstractEnum
      */
     public function isTypeReduced(): bool
     {
-        return $this->getValue() === self::TYPE_REDUCED;
+        return self::TYPE_REDUCED === $this->getValue();
     }
 
     /**
@@ -43,6 +43,6 @@ class IssuedInvoiceItemTypeEnum extends iDokladAbstractEnum
      */
     public function isTypeDiscount(): bool
     {
-        return $this->getValue() === self::TYPE_DISCOUNT;
+        return self::TYPE_DISCOUNT === $this->getValue();
     }
 }

@@ -79,8 +79,8 @@ class SalesReceiptApiModelPost extends iDokladAbstractModel
     {
         return [
             'ElectronicRecordsOfSales' => ElectronicRecordsOfSalesApiModel::class,
-            'SalesReceiptItems'        => SalesReceiptItemApiModelPost::class,
-            'SalesReceiptPayments'     => SalesReceiptPaymentApiModelPost::class,
+            'SalesReceiptItems' => SalesReceiptItemApiModelPost::class,
+            'SalesReceiptPayments' => SalesReceiptPaymentApiModelPost::class,
         ];
     }
 

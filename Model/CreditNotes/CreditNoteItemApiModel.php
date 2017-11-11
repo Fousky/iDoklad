@@ -78,8 +78,8 @@ class CreditNoteItemApiModel extends iDokladAbstractModel
     public static function getEnumMap(): array
     {
         return [
-            'ItemType'    => IssuedInvoiceItemTypeEnum::class,
-            'PriceType'   => PriceTypeEnum::class,
+            'ItemType' => IssuedInvoiceItemTypeEnum::class,
+            'PriceType' => PriceTypeEnum::class,
             'VatRateType' => VatRateTypeEnum::class,
         ];
     }

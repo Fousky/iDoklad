@@ -49,9 +49,9 @@ class GetAccessToken extends iDokladAbstractFunction
     {
         return [
             'form_params' => [
-                'scope'         => $this->config['scope'],
-                'grant_type'    => 'client_credentials',
-                'client_id'     => $this->config['client_id'],
+                'scope' => $this->config['scope'],
+                'grant_type' => 'client_credentials',
+                'client_id' => $this->config['client_id'],
                 'client_secret' => $this->config['client_secret'],
             ],
         ];

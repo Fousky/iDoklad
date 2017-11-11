@@ -87,7 +87,7 @@ class CashVoucherApiModelInsert extends iDokladAbstractModel
     {
         return [
             'ElectronicRecordsOfSales' => ElectronicRecordsOfSalesApiModel::class,
-            'Item'                     => CashVoucherItemApiModelInsert::class,
+            'Item' => CashVoucherItemApiModelInsert::class,
         ];
     }
 
@@ -97,7 +97,7 @@ class CashVoucherApiModelInsert extends iDokladAbstractModel
     public static function getEnumMap(): array
     {
         return [
-            'Exported'     => ExportedStateEnum::class,
+            'Exported' => ExportedStateEnum::class,
             'MovementType' => MovementTypeEnum::class,
         ];
     }

@@ -36,6 +36,6 @@ class CashVoucherPdfModel extends iDokladAbstractModel
      */
     public function save(string $fileName): bool
     {
-        return file_put_contents($fileName, $this->pdf) !== false;
+        return false !== file_put_contents($fileName, $this->pdf);
     }
 }

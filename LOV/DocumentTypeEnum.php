@@ -22,7 +22,7 @@ class DocumentTypeEnum extends iDokladAbstractEnum
      */
     public function isIssuedInvoice(): bool
     {
-        return $this->value === self::ISSUED_INVOICE;
+        return self::ISSUED_INVOICE === $this->value;
     }
 
     /**
@@ -30,7 +30,7 @@ class DocumentTypeEnum extends iDokladAbstractEnum
      */
     public function isProformaInvoice(): bool
     {
-        return $this->value === self::PROFORMA_INVOICE;
+        return self::PROFORMA_INVOICE === $this->value;
     }
 
     /**
@@ -38,7 +38,7 @@ class DocumentTypeEnum extends iDokladAbstractEnum
      */
     public function isCashVoucher(): bool
     {
-        return $this->value === self::CASH_VOUCHER;
+        return self::CASH_VOUCHER === $this->value;
     }
 
     /**
@@ -46,7 +46,7 @@ class DocumentTypeEnum extends iDokladAbstractEnum
      */
     public function isCreditNote(): bool
     {
-        return $this->value === self::CREDIT_NOTE;
+        return self::CREDIT_NOTE === $this->value;
     }
 
     /**
@@ -54,7 +54,7 @@ class DocumentTypeEnum extends iDokladAbstractEnum
      */
     public function isBankStatement(): bool
     {
-        return $this->value === self::BANK_STATEMENT;
+        return self::BANK_STATEMENT === $this->value;
     }
 
     /**
@@ -62,7 +62,7 @@ class DocumentTypeEnum extends iDokladAbstractEnum
      */
     public function isReceivedInvoice(): bool
     {
-        return $this->value === self::RECEIVED_INVOICE;
+        return self::RECEIVED_INVOICE === $this->value;
     }
 
     /**
@@ -70,7 +70,7 @@ class DocumentTypeEnum extends iDokladAbstractEnum
      */
     public function isSalesReceipt(): bool
     {
-        return $this->value === self::SALES_RECEIPT;
+        return self::SALES_RECEIPT === $this->value;
     }
 
     /**
@@ -78,7 +78,7 @@ class DocumentTypeEnum extends iDokladAbstractEnum
      */
     public function isSalesOrder(): bool
     {
-        return $this->value === self::SALES_ORDER;
+        return self::SALES_ORDER === $this->value;
     }
 
     /**
@@ -86,6 +86,6 @@ class DocumentTypeEnum extends iDokladAbstractEnum
      */
     public function isRegisteredSale(): bool
     {
-        return $this->value === self::REGISTERED_SALE;
+        return self::REGISTERED_SALE === $this->value;
     }
 }

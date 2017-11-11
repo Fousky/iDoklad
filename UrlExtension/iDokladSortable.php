@@ -48,7 +48,7 @@ class iDokladSortable implements UrlExtensionInterface
      */
     public function getHttpQuery(): array
     {
-        if (count($this->parts) === 0) {
+        if (0 === count($this->parts)) {
             return [];
         }
 
@@ -64,6 +64,6 @@ class iDokladSortable implements UrlExtensionInterface
      */
     protected function isValidOrder(string $order): bool
     {
-        return $order === self::ASCENDING || $order === self::DESCENDING;
+        return self::ASCENDING === $order || self::DESCENDING === $order;
     }
 }

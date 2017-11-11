@@ -73,7 +73,7 @@ class iDokladFilter implements UrlExtensionInterface
      */
     public function filterType(string $type): self
     {
-        if ($type !== self::FILTER_TYPE_AND && $type !== self::FILTER_TYPE_OR) {
+        if (self::FILTER_TYPE_AND !== $type && self::FILTER_TYPE_OR !== $type) {
             throw new \InvalidArgumentException(sprintf(
                 'Type %s is not valid. Available types: %s',
                 $type,
@@ -95,14 +95,14 @@ class iDokladFilter implements UrlExtensionInterface
      */
     public function getHttpQuery(): array
     {
-        if (count($this->parts) === 0) {
+        if (0 === count($this->parts)) {
             return [];
         }
 
         $result = [];
 
         return [
-            'filter'     => implode('|', $result),
+            'filter' => implode('|', $result),
             'filtertype' => $this->type,
         ];
     }

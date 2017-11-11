@@ -101,12 +101,12 @@ class CashVoucherApiModelExpand extends iDokladAbstractModel
     public static function getModelMap(): array
     {
         return [
-            'CashRegister'             => CashRegisterApiModel::class,
-            'Currency'                 => CurrencyApiModel::class,
-            'Item'                     => CashVoucherItemApiModel::class,
+            'CashRegister' => CashRegisterApiModel::class,
+            'Currency' => CurrencyApiModel::class,
+            'Item' => CashVoucherItemApiModel::class,
             'MyCompanyDocumentAddress' => DocumentAddressApiModel::class,
-            'PartnerContact'           => ContactApiModel::class,
-            'RegisteredSale'           => RegisteredSaleApiModel::class,
+            'PartnerContact' => ContactApiModel::class,
+            'RegisteredSale' => RegisteredSaleApiModel::class,
         ];
     }
 
@@ -117,8 +117,8 @@ class CashVoucherApiModelExpand extends iDokladAbstractModel
     {
         return [
             'EetResponsibility' => EetResponsibilityEnum::class,
-            'Exported'          => ExportedStateEnum::class,
-            'MovementType'      => MovementTypeEnum::class,
+            'Exported' => ExportedStateEnum::class,
+            'MovementType' => MovementTypeEnum::class,
         ];
     }
 }

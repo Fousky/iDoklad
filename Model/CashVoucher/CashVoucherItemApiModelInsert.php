@@ -57,7 +57,7 @@ class CashVoucherItemApiModelInsert extends iDokladAbstractModel
     public static function getEnumMap(): array
     {
         return [
-            'PriceType'   => PriceTypeWithoutOnlyBaseEnum::class,
+            'PriceType' => PriceTypeWithoutOnlyBaseEnum::class,
             'VatRateType' => VatRateTypeEnum::class,
         ];
     }

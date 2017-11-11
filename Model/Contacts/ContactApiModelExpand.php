@@ -73,8 +73,8 @@ class ContactApiModelExpand extends iDokladAbstractModel
     public static function getModelMap(): array
     {
         return [
-            'BankAccounts'       => BankAccountApiCollectionModel::class,
-            'Country'            => CountryApiModel::class,
+            'BankAccounts' => BankAccountApiCollectionModel::class,
+            'Country' => CountryApiModel::class,
             'DefaultBankAccount' => BankAccountApiModel::class,
         ];
     }

@@ -16,7 +16,7 @@ class RegisteredSaleStateEnum extends iDokladAbstractEnum
      */
     public function isNew(): bool
     {
-        return $this->value === self::NEW;
+        return self::NEW === $this->value;
     }
 
     /**
@@ -24,7 +24,7 @@ class RegisteredSaleStateEnum extends iDokladAbstractEnum
      */
     public function isRegistered(): bool
     {
-        return $this->value === self::REGISTERED;
+        return self::REGISTERED === $this->value;
     }
 
     /**
@@ -32,6 +32,6 @@ class RegisteredSaleStateEnum extends iDokladAbstractEnum
      */
     public function isError(): bool
     {
-        return $this->value === self::ERROR;
+        return self::ERROR === $this->value;
     }
 }

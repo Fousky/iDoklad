@@ -19,12 +19,10 @@ class AnnotationLoader
      * @throws \RuntimeException
      * @throws \ReflectionException
      * @throws \InvalidArgumentException
-     *
-     * @return void
      */
     public static function init()
     {
-        if (static::$_init === false) {
+        if (false === static::$_init) {
             // inject Composer autoloader inside Doctrine annotation reader.
             AnnotationRegistry::registerLoader([
                 require sprintf('%s/autoload.php', static::getVendorPath()),

@@ -17,7 +17,7 @@ class GetProformaInvoicePdfWithPayments extends iDokladAbstractFunction
 
     /**
      * @param string $id
-     * @param bool $onlyEetPayments
+     * @param bool   $onlyEetPayments
      */
     public function __construct(string $id, bool $onlyEetPayments = false)
     {
@@ -61,7 +61,7 @@ class GetProformaInvoicePdfWithPayments extends iDokladAbstractFunction
         return sprintf(
             'ProformaInvoices/%s/GetPdfWithPayments?onlyEetPayments=%s',
             $this->id,
-            $this->onlyEetPayments === true ? 1 : 0
+            true === $this->onlyEetPayments ? 1 : 0
         );
     }
 

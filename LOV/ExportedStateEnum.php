@@ -17,7 +17,7 @@ class ExportedStateEnum extends iDokladAbstractEnum
      */
     public function isNotExported(): bool
     {
-        return $this->value === self::NOT_EXPORTED;
+        return self::NOT_EXPORTED === $this->value;
     }
 
     /**
@@ -25,7 +25,7 @@ class ExportedStateEnum extends iDokladAbstractEnum
      */
     public function isExported(): bool
     {
-        return $this->value === self::EXPORTED;
+        return self::EXPORTED === $this->value;
     }
 
     /**
@@ -33,7 +33,7 @@ class ExportedStateEnum extends iDokladAbstractEnum
      */
     public function isChanged(): bool
     {
-        return $this->value === self::CHANGED;
+        return self::CHANGED === $this->value;
     }
 
     /**
@@ -41,6 +41,6 @@ class ExportedStateEnum extends iDokladAbstractEnum
      */
     public function isDeleted(): bool
     {
-        return $this->value === self::DELETED;
+        return self::DELETED === $this->value;
     }
 }
