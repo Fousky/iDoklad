@@ -130,7 +130,7 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
             throw new InvalidModelException([$e->getMessage()]);
         }
 
-        if ($errorList->count() === 0) {
+        if (0 === $errorList->count()) {
             return;
         }
 
@@ -156,10 +156,10 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
     {
         return (new OptionsResolver())
             ->setDefaults([
-                'debug'          => false,
-                'url'            => 'https://app.idoklad.cz/developer/api/v2/',
+                'debug' => false,
+                'url' => 'https://app.idoklad.cz/developer/api/v2/',
                 'token_endpoint' => 'https://app.idoklad.cz/identity/server/connect/token',
-                'scope'          => 'idoklad_api',
+                'scope' => 'idoklad_api',
                 // iDoklad sends DateTime in UTC, so we tranform to another PHP \DateTimeZone
                 'timezone' => 'Europe/Prague',
             ])
@@ -193,7 +193,7 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
      */
     public function hasSortable(): bool
     {
-        return $this->sortable !== null;
+        return null !== $this->sortable;
     }
 
     /**
@@ -226,7 +226,7 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
      */
     public function hasPaginator(): bool
     {
-        return $this->paginator !== null;
+        return null !== $this->paginator;
     }
 
     /**
@@ -259,7 +259,7 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
      */
     public function hasFilter(): bool
     {
-        return $this->filter !== null;
+        return null !== $this->filter;
     }
 
     /**

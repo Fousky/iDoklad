@@ -18,7 +18,7 @@ class VatOnPayStatusEnum extends iDokladAbstractEnum
      */
     public function isDisabled(): bool
     {
-        return $this->getValue() === self::DISABLED;
+        return self::DISABLED === $this->getValue();
     }
 
     /**
@@ -26,7 +26,7 @@ class VatOnPayStatusEnum extends iDokladAbstractEnum
      */
     public function isEnabled(): bool
     {
-        return $this->getValue() === self::ENABLED;
+        return self::ENABLED === $this->getValue();
     }
 
     /**
@@ -34,6 +34,6 @@ class VatOnPayStatusEnum extends iDokladAbstractEnum
      */
     public function isInvoiceNeedsTaxing(): bool
     {
-        return $this->getValue() === self::INVOICE_NEEDS_TAXING;
+        return self::INVOICE_NEEDS_TAXING === $this->getValue();
     }
 }

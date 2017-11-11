@@ -17,7 +17,7 @@ class MovementTypeEnum extends iDokladAbstractEnum
      */
     public function isEntry(): bool
     {
-        return $this->value === self::ENTRY;
+        return self::ENTRY === $this->value;
     }
 
     /**
@@ -27,6 +27,6 @@ class MovementTypeEnum extends iDokladAbstractEnum
      */
     public function isIssue(): bool
     {
-        return $this->value === self::ISSUE;
+        return self::ISSUE === $this->value;
     }
 }

@@ -15,7 +15,7 @@ class ElectronicRecordsOfSalesStatusEnum extends iDokladAbstractEnum
      */
     public function isNotRegistered(): bool
     {
-        return $this->value === self::NOT_REGISTERED;
+        return self::NOT_REGISTERED === $this->value;
     }
 
     /**
@@ -23,6 +23,6 @@ class ElectronicRecordsOfSalesStatusEnum extends iDokladAbstractEnum
      */
     public function isRegistered(): bool
     {
-        return $this->value === self::REGISTERED;
+        return self::REGISTERED === $this->value;
     }
 }

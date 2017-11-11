@@ -223,7 +223,7 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
             return call_user_func_array([$this, $name], $arguments);
         }
 
-        if (stripos($name, 'get') === 0) {
+        if (0 === stripos($name, 'get')) {
             $property = ucfirst(substr($name, 3));
 
             if (property_exists($this, $property)) {

@@ -26,10 +26,10 @@ class AccessToken extends iDokladAbstractModel implements \Serializable
     protected $requestedAt;
 
     /**
-     * @param string    $token       Access token string.
-     * @param int       $expires     Expires in seconds.
-     * @param string    $type        Access token type.
-     * @param \DateTime $requestedAt Token requested at some time.
+     * @param string    $token       access token string
+     * @param int       $expires     expires in seconds
+     * @param string    $type        access token type
+     * @param \DateTime $requestedAt token requested at some time
      */
     public function __construct(
         string $token,

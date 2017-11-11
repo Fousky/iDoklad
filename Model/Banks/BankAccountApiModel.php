@@ -40,7 +40,7 @@ class BankAccountApiModel extends iDokladAbstractModel
     public static function getModelMap(): array
     {
         return [
-            'Bank'     => BankApiModel::class,
+            'Bank' => BankApiModel::class,
             'Currency' => CurrencyApiModel::class,
         ];
     }

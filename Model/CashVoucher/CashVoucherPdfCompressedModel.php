@@ -30,12 +30,12 @@ class CashVoucherPdfCompressedModel extends iDokladAbstractModel
     }
 
     /**
-     * @param string $fileName Absolute path to ZIP file to be saved.
+     * @param string $fileName absolute path to ZIP file to be saved
      *
      * @return bool If saving was successfully
      */
     public function save(string $fileName): bool
     {
-        return file_put_contents($fileName, $this->zip) !== false;
+        return false !== file_put_contents($fileName, $this->zip);
     }
 }

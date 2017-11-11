@@ -17,7 +17,7 @@ class VatRateTypeEnum extends iDokladAbstractEnum
      */
     public function isReduced1(): bool
     {
-        return $this->value === self::REDUCED1;
+        return self::REDUCED1 === $this->value;
     }
 
     /**
@@ -25,7 +25,7 @@ class VatRateTypeEnum extends iDokladAbstractEnum
      */
     public function isBasic(): bool
     {
-        return $this->value === self::BASIC;
+        return self::BASIC === $this->value;
     }
 
     /**
@@ -33,7 +33,7 @@ class VatRateTypeEnum extends iDokladAbstractEnum
      */
     public function isZero(): bool
     {
-        return $this->value === self::ZERO;
+        return self::ZERO === $this->value;
     }
 
     /**
@@ -41,6 +41,6 @@ class VatRateTypeEnum extends iDokladAbstractEnum
      */
     public function isReduced2(): bool
     {
-        return $this->value === self::REDUCED2;
+        return self::REDUCED2 === $this->value;
     }
 }

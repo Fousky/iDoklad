@@ -29,7 +29,7 @@ trait iDokladIdTrait
      */
     public function hasIdokladId(): bool
     {
-        return $this->idokladId !== null;
+        return null !== $this->idokladId;
     }
 
     /**

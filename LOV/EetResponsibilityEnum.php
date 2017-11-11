@@ -15,7 +15,7 @@ class EetResponsibilityEnum extends iDokladAbstractEnum
      */
     public function isIDoklad(): bool
     {
-        return $this->value === self::IDOKLAD;
+        return self::IDOKLAD === $this->value;
     }
 
     /**
@@ -23,6 +23,6 @@ class EetResponsibilityEnum extends iDokladAbstractEnum
      */
     public function isExternalApplication(): bool
     {
-        return $this->value === self::EXTERNAL_APPLICATION;
+        return self::EXTERNAL_APPLICATION === $this->value;
     }
 }

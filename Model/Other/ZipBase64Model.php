@@ -12,7 +12,7 @@ use Psr\Http\Message\ResponseInterface;
 class ZipBase64Model extends iDokladAbstractModel
 {
     /**
-     * @var string Base64 encoded ZIP content.
+     * @var string base64 encoded ZIP content
      */
     public $raw;
 
@@ -32,10 +32,10 @@ class ZipBase64Model extends iDokladAbstractModel
     /**
      * @param string $file
      *
-     * @return bool If was successfully saved.
+     * @return bool if was successfully saved
      */
     public function save(string $file): bool
     {
-        return file_put_contents($file, base64_decode($this->raw)) !== false;
+        return false !== file_put_contents($file, base64_decode($this->raw));
     }
 }

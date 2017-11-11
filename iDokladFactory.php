@@ -34,11 +34,11 @@ class iDokladFactory
     {
         return [
             'client_id' => [
-                'info'  => 'Client ID from iDoklad admin.',
+                'info' => 'Client ID from iDoklad admin.',
                 'types' => ['string'],
             ],
             'client_secret' => [
-                'info'  => 'Client secret from iDoklad admin.',
+                'info' => 'Client secret from iDoklad admin.',
                 'types' => ['string'],
             ],
         ];
@@ -53,27 +53,27 @@ class iDokladFactory
     {
         return [
             'debug' => [
-                'info'  => 'If true, then GuzzleHttp will be in verbose mode.',
+                'info' => 'If true, then GuzzleHttp will be in verbose mode.',
                 'types' => ['boolean'],
             ],
             'url' => [
-                'info'  => 'iDoklad API base URL',
+                'info' => 'iDoklad API base URL',
                 'types' => ['string'],
             ],
             'token_endpoint' => [
-                'info'  => 'iDoklad Access Token URL',
+                'info' => 'iDoklad Access Token URL',
                 'types' => ['string'],
             ],
             'client_id' => [
-                'info'  => 'Client ID from iDoklad admin.',
+                'info' => 'Client ID from iDoklad admin.',
                 'types' => ['string'],
             ],
             'client_secret' => [
-                'info'  => 'Client secret from iDoklad admin.',
+                'info' => 'Client secret from iDoklad admin.',
                 'types' => ['string'],
             ],
             'scope' => [
-                'info'  => 'iDoklad scope configuration.',
+                'info' => 'iDoklad scope configuration.',
                 'types' => ['string'],
             ],
         ];

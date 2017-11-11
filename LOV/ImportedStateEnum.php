@@ -17,7 +17,7 @@ class ImportedStateEnum extends iDokladAbstractEnum
      */
     public function isNotImported(): bool
     {
-        return $this->getValue() === self::NOT_IMPORTED;
+        return self::NOT_IMPORTED === $this->getValue();
     }
 
     /**
@@ -25,6 +25,6 @@ class ImportedStateEnum extends iDokladAbstractEnum
      */
     public function isImported(): bool
     {
-        return $this->getValue() === self::IMPORTED;
+        return self::IMPORTED === $this->getValue();
     }
 }

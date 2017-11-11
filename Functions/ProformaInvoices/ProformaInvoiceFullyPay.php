@@ -19,9 +19,9 @@ class ProformaInvoiceFullyPay extends iDokladAbstractFunction
     protected $urlParts = [];
 
     /**
-     * @param string $id
+     * @param string         $id
      * @param \DateTime|null $dateOfPayment
-     * @param int|null $salesPosEquipmentId
+     * @param int|null       $salesPosEquipmentId
      */
     public function __construct(string $id, \DateTime $dateOfPayment = null, int $salesPosEquipmentId = null)
     {
@@ -74,7 +74,7 @@ class ProformaInvoiceFullyPay extends iDokladAbstractFunction
         $uri = sprintf('ProformaInvoices/%s/FullyPay', $this->id);
 
         if (count($this->urlParts) > 0) {
-            $uri .= '?' . http_build_query($this->urlParts);
+            $uri .= '?'.http_build_query($this->urlParts);
         }
 
         return $uri;

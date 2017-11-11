@@ -19,7 +19,7 @@ class AccessTokenVoidStorage implements AccessTokenStorageInterface
      */
     public function hasToken(): bool
     {
-        return $this->token !== null;
+        return null !== $this->token;
     }
 
     /**

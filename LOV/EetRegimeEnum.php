@@ -16,7 +16,7 @@ class EetRegimeEnum extends iDokladAbstractEnum
      */
     public function isNone(): bool
     {
-        return $this->value === self::NONE;
+        return self::NONE === $this->value;
     }
 
     /**
@@ -24,7 +24,7 @@ class EetRegimeEnum extends iDokladAbstractEnum
      */
     public function isOrdinary(): bool
     {
-        return $this->value === self::ORDINARY;
+        return self::ORDINARY === $this->value;
     }
 
     /**
@@ -32,6 +32,6 @@ class EetRegimeEnum extends iDokladAbstractEnum
      */
     public function isSimplified(): bool
     {
-        return $this->value === self::SIMPLIFIED;
+        return self::SIMPLIFIED === $this->value;
     }
 }

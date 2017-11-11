@@ -35,7 +35,7 @@ class GetProformaInvoicePdfWithPaymentsCompressed extends GetProformaInvoicePdfW
         return sprintf(
             'ProformaInvoices/%s/GetPdfWithPaymentsCompressed?onlyEetPayments=%s',
             $this->id,
-            $this->onlyEetPayments === true ? 1 : 0
+            true === $this->onlyEetPayments ? 1 : 0
         );
     }
 }

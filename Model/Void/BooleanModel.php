@@ -32,6 +32,6 @@ class BooleanModel extends iDokladAbstractModel
      */
     public function isSuccess(): bool
     {
-        return $this->result === true;
+        return true === $this->result;
     }
 }

@@ -16,7 +16,7 @@ class InvoiceTypeEnum extends iDokladAbstractEnum
      */
     public function isNone(): bool
     {
-        return $this->value === self::NONE;
+        return self::NONE === $this->value;
     }
 
     /**
@@ -24,7 +24,7 @@ class InvoiceTypeEnum extends iDokladAbstractEnum
      */
     public function isIssued(): bool
     {
-        return $this->value === self::ISSUED;
+        return self::ISSUED === $this->value;
     }
 
     /**
@@ -32,6 +32,6 @@ class InvoiceTypeEnum extends iDokladAbstractEnum
      */
     public function isReceived(): bool
     {
-        return $this->value === self::RECEIVED;
+        return self::RECEIVED === $this->value;
     }
 }

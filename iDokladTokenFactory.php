@@ -62,9 +62,9 @@ class iDokladTokenFactory
         return $this->extractToken(
             $client->request('POST', $config['token_endpoint'], [
                 'form_params' => [
-                    'scope'         => $config['scope'],
-                    'grant_type'    => 'client_credentials',
-                    'client_id'     => $config['client_id'],
+                    'scope' => $config['scope'],
+                    'grant_type' => 'client_credentials',
+                    'client_id' => $config['client_id'],
                     'client_secret' => $config['client_secret'],
                 ],
                 'debug' => (bool) $config['debug'],
@@ -84,7 +84,7 @@ class iDokladTokenFactory
      */
     protected function extractToken(ResponseInterface $response, \DateTime $requestedAt): AccessToken
     {
-        if ($response->getStatusCode() !== 200) {
+        if (200 !== $response->getStatusCode()) {
             throw new InvalidTokenException($response, 'ERR_IDOKLAD___INVALID_TOKEN_CALL');
         }
 

@@ -18,7 +18,7 @@ class CreditCheckStatusDokladEnum extends iDokladAbstractEnum
      */
     public function isNotFound(): bool
     {
-        return $this->value === self::NOT_FOUND;
+        return self::NOT_FOUND === $this->value;
     }
 
     /**
@@ -26,7 +26,7 @@ class CreditCheckStatusDokladEnum extends iDokladAbstractEnum
      */
     public function isOk(): bool
     {
-        return $this->value === self::OK;
+        return self::OK === $this->value;
     }
 
     /**
@@ -34,7 +34,7 @@ class CreditCheckStatusDokladEnum extends iDokladAbstractEnum
      */
     public function isOkWithWarnings(): bool
     {
-        return $this->value === self::OK_WITH_WARNINGS;
+        return self::OK_WITH_WARNINGS === $this->value;
     }
 
     /**
@@ -42,7 +42,7 @@ class CreditCheckStatusDokladEnum extends iDokladAbstractEnum
      */
     public function isRisk(): bool
     {
-        return $this->value === self::RISK;
+        return self::RISK === $this->value;
     }
 
     /**
@@ -50,6 +50,6 @@ class CreditCheckStatusDokladEnum extends iDokladAbstractEnum
      */
     public function isNotVerified(): bool
     {
-        return $this->value === self::NOT_VERIFIED;
+        return self::NOT_VERIFIED === $this->value;
     }
 }

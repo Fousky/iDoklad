@@ -88,12 +88,12 @@ class iDoklad
 
         if (count($parts) > 0) {
             // URI does not have "?"
-            if (strpos($uri, '?') === false) {
+            if (false === strpos($uri, '?')) {
                 $uri .= '?';
             }
             // URI has "?", but does not ends with "&"
             $lastChar = substr($uri, -1);
-            if (strpos($uri, '?') !== false && !in_array($lastChar, ['&', '?'], true)) {
+            if (false !== strpos($uri, '?') && !in_array($lastChar, ['&', '?'], true)) {
                 $uri .= '&';
             }
             $uri .= http_build_query($parts);

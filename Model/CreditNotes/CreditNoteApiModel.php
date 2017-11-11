@@ -192,9 +192,9 @@ class CreditNoteApiModel extends iDokladAbstractModel
     {
         return [
             'EetResponsibility' => EetResponsibilityEnum::class,
-            'Exported'          => ExportedStateEnum::class,
-            'PaymentStatus'     => PaymentStatusEnum::class,
-            'VatOnPayStatus'    => VatOnPayStatusEnum::class,
+            'Exported' => ExportedStateEnum::class,
+            'PaymentStatus' => PaymentStatusEnum::class,
+            'VatOnPayStatus' => VatOnPayStatusEnum::class,
         ];
     }
 

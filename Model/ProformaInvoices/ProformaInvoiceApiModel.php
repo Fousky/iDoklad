@@ -79,6 +79,7 @@ use Fousky\Component\iDoklad\Model\IssuedInvoices\IssuedInvoiceItemApiModel;
  * @method null|float getVatRateReduced1()
  * @method null|float getVatRateReduced2()
 
+ *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class ProformaInvoiceApiModel extends iDokladAbstractModel

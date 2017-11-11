@@ -2,8 +2,6 @@
 
 namespace Fousky\Component\iDoklad\Functions\ProformaInvoices;
 
-use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-
 /**
  * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-ProformaInvoices-id-GetCashVoucherPdf
  *
