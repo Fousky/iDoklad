@@ -5,12 +5,12 @@ namespace Fousky\Component\iDoklad\Model\PaymentOptions;
 use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 
 /**
- * @method string|null getId()
- * @method string|null getCode()
- * @method string|null getDateLastChange()
- * @method string|null getIsDefault()
- * @method string|null getIsRounded()
- * @method string|null getName()
+ * @method null|int getId()
+ * @method null|string getCode()
+ * @method null|\DateTime getDateLastChange()
+ * @method null|bool getIsDefault()
+ * @method null|bool getIsRounded()
+ * @method null|string getName()
  *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */

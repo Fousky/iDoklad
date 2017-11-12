@@ -3,15 +3,26 @@
 namespace Fousky\Component\iDoklad\Functions\PaymentOptions;
 
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
-use Fousky\Component\iDoklad\Model\PaymentOptions\PaymentOptionApiCollectionModel;
+use Fousky\Component\iDoklad\Model\PaymentOptions\PaymentOptionApiModel;
 
 /**
- * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-PaymentOptions
+ * @see https://app.idoklad.cz/developer/Help/v2/cs/Api?apiId=GET-api-v2-PaymentOptions-id
  *
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
-class GetPaymentOptions extends iDokladAbstractFunction
+class GetPaymentOption extends iDokladAbstractFunction
 {
+    /** @var string $id */
+    protected $id;
+
+    /**
+     * @param string $id
+     */
+    public function __construct(string $id)
+    {
+        $this->id = $id;
+    }
+
     /**
      * Get iDokladModelInterface class.
      *
@@ -21,7 +32,7 @@ class GetPaymentOptions extends iDokladAbstractFunction
      */
     public function getModelClass(): string
     {
-        return PaymentOptionApiCollectionModel::class;
+        return PaymentOptionApiModel::class;
     }
 
     /**
@@ -45,7 +56,7 @@ class GetPaymentOptions extends iDokladAbstractFunction
      */
     public function getUri(): string
     {
-        return 'PaymentOptions';
+        return sprintf('PaymentOptions/%s', $this->id);
     }
 
     /**
