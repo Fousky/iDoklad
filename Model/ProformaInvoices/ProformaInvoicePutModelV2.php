@@ -102,9 +102,9 @@ class ProformaInvoicePutModelV2 extends iDokladAbstractModel
     /**
      * @var IssuedInvoiceItemApiModelUpdate[]
      *
+     * @Assert\Valid(traverse=true)
      * @Assert\All(constraints={
      *     @Assert\Type(type="Fousky\Component\iDoklad\Model\IssuedInvoices\IssuedInvoiceItemApiModelUpdate"),
-     *     @Assert\Valid(),
      * })
      */
     public $ProformaInvoiceItems;

@@ -34,7 +34,6 @@ class iDokladTokenFactory
      * @param array  $config
      *
      * @throws \RuntimeException
-     * @throws Exception\TokenNotFoundException
      * @throws InvalidTokenException
      *
      * @return AccessToken
@@ -91,7 +90,7 @@ class iDokladTokenFactory
         $content = \GuzzleHttp\json_decode($response->getBody()->getContents());
         $content = (array) $content;
 
-        if (!is_array($content) ||
+        if (!\is_array($content) ||
             !array_key_exists('access_token', $content) ||
             !array_key_exists('expires_in', $content) ||
             !array_key_exists('token_type', $content)

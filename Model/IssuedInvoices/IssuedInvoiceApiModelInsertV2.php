@@ -113,8 +113,9 @@ class IssuedInvoiceApiModelInsertV2 extends iDokladAbstractModel
      * @Assert\NotBlank()
      * @Assert\Count(min="1")
      * @Assert\All(constraints={
-     *     @Assert\Valid()
+     *     @Assert\Type(type="Fousky\Component\iDoklad\Model\IssuedInvoices\IssuedInvoiceItemApiModelWrite")
      * })
+     * @Assert\Valid(traverse=true)
      */
     public $IssuedInvoiceItems;
 

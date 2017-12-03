@@ -30,7 +30,7 @@ class SalesReceiptApiModelPost extends iDokladAbstractModel
     /**
      * @var ElectronicRecordsOfSalesApiModel[]
      *
-     * @Assert\Valid()
+     * @Assert\Valid(traverse=true)
      */
     public $ElectronicRecordsOfSales;
     public $Exported;
@@ -47,7 +47,7 @@ class SalesReceiptApiModelPost extends iDokladAbstractModel
     /**
      * @var SalesReceiptItemApiModelPost[]
      *
-     * @Assert\Valid()
+     * @Assert\Valid(traverse=true)
      * @Assert\NotBlank()
      * @Assert\Count(min="1")
      */
@@ -56,7 +56,7 @@ class SalesReceiptApiModelPost extends iDokladAbstractModel
     /**
      * @var SalesReceiptPaymentApiModelPost[]
      *
-     * @Assert\Valid()
+     * @Assert\Valid(traverse=true)
      * @Assert\NotBlank()
      * @Assert\Count(min="1")
      */

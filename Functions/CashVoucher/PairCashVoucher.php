@@ -71,7 +71,7 @@ class PairCashVoucher extends iDokladAbstractFunction
         return sprintf(
             'CashVouchers/Pair/%s/%s',
             (string) $this->invoiceType,
-            (string) $this->invoiceId
+            $this->invoiceId
         );
     }
 

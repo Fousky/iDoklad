@@ -132,8 +132,8 @@ class ProformaInvoiceApiModelInsert extends iDokladAbstractModel
      * @Assert\Count(min="1")
      * @Assert\All(constraints={
      *     @Assert\Type(type="Fousky\Component\iDoklad\Model\IssuedInvoices\IssuedInvoiceItemApiModelWrite"),
-     *     @Assert\Valid(),
      * })
+     * @Assert\Valid(traverse=true)
      */
     public $ProformaInvoiceItems;
 

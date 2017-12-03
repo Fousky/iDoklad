@@ -57,7 +57,7 @@ class IssuedDocumentPaymentApiModelInsert extends iDokladAbstractModel
     public $SalesPosEquipmentId;
 
     /**
-     * @param mixed $ElectronicRecordsOfSales
+     * @param ElectronicRecordsOfSalesApiModel $ElectronicRecordsOfSales
      *
      * @return $this
      */

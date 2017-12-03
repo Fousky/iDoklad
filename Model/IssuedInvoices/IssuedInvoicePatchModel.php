@@ -106,8 +106,9 @@ class IssuedInvoicePatchModel extends iDokladAbstractModel
     public $IsEet;
 
     /**
+     * @Assert\Valid(traverse=true)
      * @Assert\All(constraints={
-     *     @Assert\Valid()
+     *     @Assert\Type(type="Fousky\Component\iDoklad\Model\IssuedInvoices\IssuedInvoiceItemApiModelUpdate")
      * })
      */
     public $IssuedInvoiceItems = [];

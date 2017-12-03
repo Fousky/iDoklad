@@ -23,13 +23,13 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
     /** @var array $config */
     protected $config;
 
-    /** @var iDokladFilter $filter */
+    /** @var null|iDokladFilter $filter */
     protected $filter;
 
-    /** @var iDokladPaginator $paginator */
+    /** @var null|iDokladPaginator $paginator */
     protected $paginator;
 
-    /** @var iDokladSortable $sortable */
+    /** @var null|iDokladSortable $sortable */
     protected $sortable;
 
     /**
@@ -135,10 +135,10 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
         }
 
         $errors = [
-            sprintf('Model class %s has following errors:', get_class($model)),
+            sprintf('Model class %s has following errors:', \get_class($model)),
         ];
 
-        foreach ($errorList->getIterator() as $error) {
+        foreach ($errorList as $error) {
             $errors[] = sprintf('- %s: %s', $error->getPropertyPath(), $error->getMessage());
         }
 
@@ -203,7 +203,7 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
      */
     public function getSortable(): iDokladSortable
     {
-        if (!$this->hasSortable()) {
+        if ($this->sortable === null) {
             throw new \RuntimeException(sprintf(
                 'Function %s does not have iDokladSortable instance.',
                 __CLASS__
@@ -236,7 +236,7 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
      */
     public function getPaginator(): iDokladPaginator
     {
-        if (!$this->hasPaginator()) {
+        if ($this->paginator === null) {
             throw new \RuntimeException(sprintf(
                 'Function %s does not have iDokladPaginator instance.',
                 __CLASS__
@@ -269,7 +269,7 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
      */
     public function getFilter(): iDokladFilter
     {
-        if (!$this->hasFilter()) {
+        if ($this->filter === null) {
             throw new \RuntimeException(sprintf(
                 'Function %s does not have iDokladFilter instance.',
                 __CLASS__

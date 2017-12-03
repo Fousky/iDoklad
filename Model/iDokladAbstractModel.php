@@ -8,6 +8,7 @@ use Fousky\Component\iDoklad\LOV\iDokladAbstractEnum;
 use Fousky\Component\iDoklad\Util\AnnotationLoader;
 use Fousky\Component\iDoklad\Util\ResponseUtil;
 use Psr\Http\Message\ResponseInterface;
+use Symfony\Component\Validator\ConstraintViolationListInterface;
 use Symfony\Component\Validator\Validation;
 
 /**
@@ -87,9 +88,9 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
                         $model->{$key} = $modelClass::createFromStd($value);
                     }
 
-                    if (is_array($value)) {
+                    if (\is_array($value)) {
                         $collection = new ArrayCollection();
-                        foreach ($value as $valueItem) {
+                        foreach ((array) $value as $valueItem) {
                             $collection->add($modelClass::createFromStd($valueItem));
                         }
                         $model->{$key} = $collection;
@@ -154,7 +155,7 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
             return $subArray;
         }
 
-        if (is_object($value)) {
+        if (\is_object($value)) {
             if (method_exists($value, 'toArray')) {
                 return $value->toArray($options);
             }
@@ -193,13 +194,13 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
     }
 
     /**
+     * @return ConstraintViolationListInterface
+     *
      * @throws \RuntimeException
      * @throws \InvalidArgumentException
      * @throws \ReflectionException
-     *
-     * @return \Symfony\Component\Validator\ConstraintViolationListInterface|\Symfony\Component\Validator\ConstraintViolationList
      */
-    public function validate()
+    public function validate(): ConstraintViolationListInterface
     {
         AnnotationLoader::init();
 

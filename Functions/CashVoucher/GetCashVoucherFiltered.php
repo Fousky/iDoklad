@@ -75,7 +75,7 @@ class GetCashVoucherFiltered extends iDokladAbstractFunction
             'CashVouchers/Default/%s/%s/%s',
             (string) $this->movementType,
             (string) $this->invoiceType,
-            (string) $this->invoiceId
+            $this->invoiceId
         );
     }
 
