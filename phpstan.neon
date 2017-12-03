@@ -1,0 +1,4 @@
+parameters:
+    excludes_analyse:
+        - /var/www/fousky/iDoklad/bin/*
+        - /var/www/fousky/iDoklad/vendor/*
