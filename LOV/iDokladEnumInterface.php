@@ -16,4 +16,14 @@ interface iDokladEnumInterface
      * @return int
      */
     public function getValue(): int;
+
+    /**
+     * @return int
+     */
+    public function createJson(): int;
+
+    /**
+     * @return string
+     */
+    public function __toString(): string;
 }

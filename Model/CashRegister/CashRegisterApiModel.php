@@ -55,8 +55,10 @@ class CashRegisterApiModel extends iDokladAbstractModel
         /** @var CashRegisterApiModel $model */
         $model = parent::createFromStd($data);
 
-        if ($model->Currency instanceof CurrencyApiModel) {
-            $model->CurrencyId = $model->getCurrency()->getId();
+        $currency = $model->Currency;
+
+        if ($currency instanceof CurrencyApiModel) {
+            $model->CurrencyId = $currency->getId();
         }
 
         return $model;

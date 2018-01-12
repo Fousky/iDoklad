@@ -5,6 +5,7 @@ namespace Fousky\Component\iDoklad\Model;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Fousky\Component\iDoklad\LOV\iDokladAbstractEnum;
+use Fousky\Component\iDoklad\LOV\iDokladEnumInterface;
 use Fousky\Component\iDoklad\Util\AnnotationLoader;
 use Fousky\Component\iDoklad\Util\ResponseUtil;
 use Psr\Http\Message\ResponseInterface;
@@ -90,7 +91,7 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
 
                     if (\is_array($value)) {
                         $collection = new ArrayCollection();
-                        foreach ((array) $value as $valueItem) {
+                        foreach ($value as $valueItem) {
                             $collection->add($modelClass::createFromStd($valueItem));
                         }
                         $model->{$key} = $collection;
@@ -99,7 +100,9 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
                     /** @var iDokladAbstractEnum $enumClass */
                     $enumClass = $enumMap[$key];
                     $model->{$key} = new $enumClass((int) $value);
-                } elseif (in_array($key, $dateMap, true) && false !== $val = new \DateTime($model->{$key}, new \DateTimeZone('UTC'))) {
+                } elseif (\in_array($key, $dateMap, true) &&
+                          $val = new \DateTime($model->{$key}, new \DateTimeZone('UTC'))
+                ) {
                     $model->{$key} = $val;
                 }
             }
@@ -111,7 +114,6 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
     /**
      * @param array $options
      *
-     * @throws \ReflectionException
      * @throws \InvalidArgumentException
      *
      * @return array
@@ -145,7 +147,7 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
             return $value->format(\DateTime::ATOM);
         }
 
-        if (is_array($value) || $value instanceof Collection) {
+        if (\is_array($value) || $value instanceof Collection) {
             $subArray = [];
 
             foreach ($value as $k => $v) {
@@ -155,16 +157,16 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
             return $subArray;
         }
 
-        if (\is_object($value)) {
-            if (method_exists($value, 'toArray')) {
-                return $value->toArray($options);
-            }
-            if (method_exists($value, 'createJson')) {
-                return $value->createJson();
-            }
-            if (method_exists($value, '__toString')) {
-                return (string) $value;
-            }
+        if ($value instanceof iDokladModelInterface || method_exists($value, 'toArray')) {
+            return $value->toArray($options);
+        }
+
+        if ($value instanceof iDokladEnumInterface || method_exists($value, 'createJson')) {
+            return $value->createJson();
+        }
+
+        if (\is_object($value) && method_exists($value, '__toString')) {
+            return (string) $value;
         }
 
         return $value;

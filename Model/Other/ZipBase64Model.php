@@ -20,11 +20,12 @@ class ZipBase64Model extends iDokladAbstractModel
      * @param ResponseInterface $response
      *
      * @return iDokladModelInterface
+     * @throws \RuntimeException
      */
     public static function createFromResponse(ResponseInterface $response): iDokladModelInterface
     {
         $model = new static();
-        $model->raw = (string) $response->getBody()->getContents();
+        $model->raw = $response->getBody()->getContents();
 
         return $model;
     }

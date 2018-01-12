@@ -1,9 +1,10 @@
 # iDoklad API v2 integration
 
-PHP7 library for calling iDoklad API (v2)
+PHP7 library for calling iDoklad API (v2). Library is **not stable** yet.
 
 [![StyleCI](https://styleci.io/repos/94907919/shield?branch=master)](https://styleci.io/repos/94907919)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Fousky/iDoklad/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Fousky/iDoklad/?branch=master)
+[![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat)](https://github.com/phpstan/phpstan)
 
 # Install with Composer
 
@@ -42,3 +43,12 @@ $responseModel = $idoklad->execute(
  */
 var_dump($responseModel);
 ```
+
+# CI code quality check
+
+Try to run `composer ci` where you can find this commands:
+
+* `composer validate --no-check-all`
+* `composer install --no-progress --no-interaction --no-suggest --no-scripts`
+* `php vendor/bin/phpstan analyze ./ -c phpstan.neon --level=7`
+* `parallel-lint -j 10 --exclude vendor ./`

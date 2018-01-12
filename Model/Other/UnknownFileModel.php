@@ -30,7 +30,7 @@ class UnknownFileModel extends iDokladAbstractModel
      */
     public function __construct()
     {
-        if (!function_exists('mime_content_type')) {
+        if (!\function_exists('mime_content_type')) {
             throw new \RuntimeException('Function `mime_content_type` does not exists, please install PHP extension `fileinfo` (php_fileinfo.so or php_fileinfo.dll).');
         }
     }
@@ -44,7 +44,7 @@ class UnknownFileModel extends iDokladAbstractModel
      */
     public static function createFromResponse(ResponseInterface $response): iDokladModelInterface
     {
-        return (new static())->init((string) $response->getBody()->getContents());
+        return (new static())->init($response->getBody()->getContents());
     }
 
     /**

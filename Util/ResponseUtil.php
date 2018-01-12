@@ -14,9 +14,9 @@ class ResponseUtil
      *
      * @throws \RuntimeException
      *
-     * @return \stdClass|array
+     * @return \stdClass
      */
-    public static function handle(ResponseInterface $response)
+    public static function handle(ResponseInterface $response): \stdClass
     {
         return \GuzzleHttp\json_decode(
             $response

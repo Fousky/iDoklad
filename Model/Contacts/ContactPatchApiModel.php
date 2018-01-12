@@ -43,7 +43,7 @@ class ContactPatchApiModel extends iDokladAbstractModel
     public $CountryId;
 
     /**
-     * @var BankAccountPostApiModel
+     * @var null|BankAccountPostApiModel
      *
      * @Assert\Valid()
      */
