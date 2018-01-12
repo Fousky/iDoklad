@@ -21,13 +21,21 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class BankApiModel extends iDokladAbstractModel
 {
     public $Id;
+
     public $Code;
+
     public $Country;
+
     public $CountryId;
+
     public $DateLastChange;
+
     public $IsOutOfDate;
+
     public $Name;
+
     public $NumberCode;
+
     public $Swift;
 
     /**

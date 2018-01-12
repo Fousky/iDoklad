@@ -15,7 +15,9 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class CashVoucherApiCollectionModelExpand extends iDokladAbstractModel
 {
     public $Data;
+
     public $TotalItems;
+
     public $TotalPages;
 
     /**

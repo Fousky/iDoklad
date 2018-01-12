@@ -10,7 +10,9 @@ namespace Fousky\Component\iDoklad\LOV;
 class VatOnPayStatusEnum extends iDokladAbstractEnum
 {
     const DISABLED = 0;
+
     const ENABLED = 1;
+
     const INVOICE_NEEDS_TAXING = 2;
 
     /**

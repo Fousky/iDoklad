@@ -25,17 +25,29 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class ReceivedDocumentPaymentApiModel extends iDokladAbstractModel
 {
     public $CurrencyId;
+
     public $DateCreated;
+
     public $DateLastChange;
+
     public $DateOfPayment;
+
     public $DateOfVatApplication;
+
     public $ExchangeRate;
+
     public $ExchangeRateAmount;
+
     public $Exported;
+
     public $Id;
+
     public $InvoiceId;
+
     public $PaymentAmount;
+
     public $PaymentAmountHc;
+
     public $PaymentOptionId;
 
     /**

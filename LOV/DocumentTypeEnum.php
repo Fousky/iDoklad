@@ -8,13 +8,21 @@ namespace Fousky\Component\iDoklad\LOV;
 class DocumentTypeEnum extends iDokladAbstractEnum
 {
     const ISSUED_INVOICE = 0;
+
     const PROFORMA_INVOICE = 1;
+
     const CASH_VOUCHER = 2;
+
     const CREDIT_NOTE = 3;
+
     const BANK_STATEMENT = 4;
+
     const RECEIVED_INVOICE = 5;
+
     const SALES_RECEIPT = 6;
+
     const SALES_ORDER = 7;
+
     const REGISTERED_SALE = 101;
 
     /**

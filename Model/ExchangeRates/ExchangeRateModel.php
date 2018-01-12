@@ -20,12 +20,19 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class ExchangeRateModel extends iDokladAbstractModel
 {
     protected $Id;
+
     protected $Amount;
+
     protected $Currency;
+
     protected $CurrencyId;
+
     protected $Date;
+
     protected $DateLastChange;
+
     protected $ExchangeListId;
+
     protected $ExchangeRateValue;
 
     /**

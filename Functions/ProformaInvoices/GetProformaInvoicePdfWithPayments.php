@@ -13,6 +13,7 @@ use Fousky\Component\iDoklad\Model\Other\PdfBase64Model;
 class GetProformaInvoicePdfWithPayments extends iDokladAbstractFunction
 {
     protected $id;
+
     protected $onlyEetPayments;
 
     /**

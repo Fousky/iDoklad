@@ -10,6 +10,7 @@ namespace Fousky\Component\iDoklad\LOV;
 class ImportedStateEnum extends iDokladAbstractEnum
 {
     const NOT_IMPORTED = 0;
+
     const IMPORTED = 1;
 
     /**

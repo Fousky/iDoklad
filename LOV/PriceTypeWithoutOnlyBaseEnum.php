@@ -8,6 +8,7 @@ namespace Fousky\Component\iDoklad\LOV;
 class PriceTypeWithoutOnlyBaseEnum extends iDokladAbstractEnum
 {
     const WITH_VAT = 0;
+
     const WITHOUT_VAT = 1;
 
     /**

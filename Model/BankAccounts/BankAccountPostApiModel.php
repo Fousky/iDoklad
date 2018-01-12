@@ -21,6 +21,7 @@ class BankAccountPostApiModel extends iDokladAbstractModel
      * @Assert\Length(min="0", max="50")
      */
     public $AccountNumber;
+
     public $BankId;
 
     /**

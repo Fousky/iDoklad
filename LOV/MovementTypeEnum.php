@@ -8,6 +8,7 @@ namespace Fousky\Component\iDoklad\LOV;
 class MovementTypeEnum extends iDokladAbstractEnum
 {
     const ENTRY = 1;    // příjem
+
     const ISSUE = -1;   // výdaj
 
     /**

@@ -71,7 +71,7 @@ class AccessTokenFileStorage implements AccessTokenStorageInterface
      */
     public function getToken(): AccessToken
     {
-        if ($this->token === null || !$this->hasToken()) {
+        if (null === $this->token || !$this->hasToken()) {
             throw new TokenNotFoundException();
         }
 

@@ -10,7 +10,9 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class ExchangeRateCollectionModel extends iDokladAbstractModel
 {
     protected $Data;
+
     protected $TotalItems = 0;
+
     protected $TotalPages = 0;
 
     /**

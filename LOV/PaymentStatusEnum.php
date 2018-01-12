@@ -10,8 +10,11 @@ namespace Fousky\Component\iDoklad\LOV;
 class PaymentStatusEnum extends iDokladAbstractEnum
 {
     const UNPAID = 0;
+
     const PAID = 1;
+
     const PARTIAL_PAID = 2;
+
     const OVERPAID = 3;
 
     /**

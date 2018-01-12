@@ -14,7 +14,9 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class PriceListApiCollectionModel extends iDokladAbstractModel
 {
     public $Data;
+
     public $TotalItems;
+
     public $TotalPages;
 
     /**

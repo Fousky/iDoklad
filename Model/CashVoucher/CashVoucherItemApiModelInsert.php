@@ -35,10 +35,15 @@ class CashVoucherItemApiModelInsert extends iDokladAbstractModel
      * @Assert\NotBlank()
      */
     public $Price;
+
     public $PriceType;
+
     public $Status;
+
     public $VariableSymbol;
+
     public $VatRate;
+
     public $VatRateType;
 
     /**

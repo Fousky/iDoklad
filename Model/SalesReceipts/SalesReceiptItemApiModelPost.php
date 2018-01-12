@@ -28,14 +28,18 @@ class SalesReceiptItemApiModelPost extends iDokladAbstractModel
      * @Assert\NotBlank()
      */
     public $Name;
+
     public $Price;
+
     public $PriceListItemId;
+
     public $PriceType;
 
     /**
      * @Assert\NotBlank()
      */
     public $Unit;
+
     public $VatRateType;
 
     /**

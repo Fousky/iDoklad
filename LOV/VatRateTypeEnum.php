@@ -8,8 +8,11 @@ namespace Fousky\Component\iDoklad\LOV;
 class VatRateTypeEnum extends iDokladAbstractEnum
 {
     const REDUCED1 = 0;
+
     const BASIC = 1;
+
     const ZERO = 2;
+
     const REDUCED2 = 3;
 
     /**

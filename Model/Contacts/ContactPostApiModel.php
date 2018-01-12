@@ -51,9 +51,13 @@ class ContactPostApiModel extends iDokladAbstractModel
      * @Assert\Valid()
      */
     public $DefaultBankAccount;
+
     public $DiscountPercentage;
+
     public $Email;
+
     public $Fax;
+
     public $Firstname;
 
     public $IdentificationNumber;
@@ -67,14 +71,23 @@ class ContactPostApiModel extends iDokladAbstractModel
      * @Assert\Expression(expression="value == true or value == false", message="This value must be true or false.")
      */
     public $IsSendReminder;
+
     public $Mobile;
+
     public $Phone;
+
     public $PostalCode;
+
     public $Street;
+
     public $Surname;
+
     public $Title;
+
     public $VatIdentificationNumber;
+
     public $VatIdentificationNumberSk;
+
     public $Www;
 
     /**

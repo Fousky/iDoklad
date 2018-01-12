@@ -17,8 +17,11 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class ElectronicRecordsOfSalesApiModel extends iDokladAbstractModel
 {
     public $EetResponsibility;
+
     public $EetStatus;
+
     public $IsEet;
+
     public $RegisteredSale;
 
     /**

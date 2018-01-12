@@ -72,6 +72,7 @@ class CreateReceivedDocumentPayment extends iDokladAbstractFunction
      * @see iDoklad::call()
      *
      * @return array
+     *
      * @throws \ReflectionException
      * @throws \InvalidArgumentException
      */

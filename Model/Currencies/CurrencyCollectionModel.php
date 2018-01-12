@@ -10,7 +10,9 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class CurrencyCollectionModel extends iDokladAbstractModel
 {
     protected $Data;
+
     protected $TotalItems;
+
     protected $TotalPages;
 
     /**

@@ -203,7 +203,7 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
      */
     public function getSortable(): iDokladSortable
     {
-        if ($this->sortable === null) {
+        if (null === $this->sortable) {
             throw new \RuntimeException(sprintf(
                 'Function %s does not have iDokladSortable instance.',
                 __CLASS__
@@ -236,7 +236,7 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
      */
     public function getPaginator(): iDokladPaginator
     {
-        if ($this->paginator === null) {
+        if (null === $this->paginator) {
             throw new \RuntimeException(sprintf(
                 'Function %s does not have iDokladPaginator instance.',
                 __CLASS__
@@ -269,7 +269,7 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
      */
     public function getFilter(): iDokladFilter
     {
-        if ($this->filter === null) {
+        if (null === $this->filter) {
             throw new \RuntimeException(sprintf(
                 'Function %s does not have iDokladFilter instance.',
                 __CLASS__

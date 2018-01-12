@@ -19,11 +19,17 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class CountryApiModel extends iDokladAbstractModel
 {
     public $Id;
+
     public $Code;
+
     public $Currency;
+
     public $CurrencyId;
+
     public $DateLastChange;
+
     public $Name;
+
     public $NameEnglish;
 
     /**

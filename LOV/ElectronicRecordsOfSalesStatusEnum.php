@@ -8,6 +8,7 @@ namespace Fousky\Component\iDoklad\LOV;
 class ElectronicRecordsOfSalesStatusEnum extends iDokladAbstractEnum
 {
     const NOT_REGISTERED = 1;
+
     const REGISTERED = 2;
 
     /**

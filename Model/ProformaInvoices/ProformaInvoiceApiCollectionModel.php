@@ -14,7 +14,9 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class ProformaInvoiceApiCollectionModel extends iDokladAbstractModel
 {
     public $Data;
+
     public $TotalItems;
+
     public $TotalPages;
 
     /**

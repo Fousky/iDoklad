@@ -8,8 +8,11 @@ namespace Fousky\Component\iDoklad\LOV;
 class ExportedStateEnum extends iDokladAbstractEnum
 {
     const NOT_EXPORTED = 0;
+
     const EXPORTED = 1;
+
     const CHANGED = 2;
+
     const DELETED = 3;
 
     /**

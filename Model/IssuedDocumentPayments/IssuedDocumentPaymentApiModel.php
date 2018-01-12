@@ -30,20 +30,35 @@ use Fousky\Component\iDoklad\Model\RegisteredSale\RegisteredSaleApiModel;
 class IssuedDocumentPaymentApiModel extends iDokladAbstractModel
 {
     public $CurrencyId;
+
     public $DateCreated;
+
     public $DateLastChange;
+
     public $DateOfPayment;
+
     public $DateOfVatApplication;
+
     public $EetResponsibility;
+
     public $ExchangeRate;
+
     public $ExchangeRateAmount;
+
     public $Exported;
+
     public $Id;
+
     public $InvoiceId;
+
     public $IsEet;
+
     public $PaymentAmount;
+
     public $PaymentAmountHc;
+
     public $PaymentOptionId;
+
     public $RegisteredSale;
 
     /**

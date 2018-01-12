@@ -21,10 +21,15 @@ use Fousky\Component\iDoklad\Model\SalesReceipts\SalesReceiptApiModel;
 class RegisteredSaleApiModelExpand extends RegisteredSaleApiModel
 {
     public $CancelledRegisteredSale;
+
     public $CashVoucher;
+
     public $IssuedInvoice;
+
     public $IssuedInvoicePayment;
+
     public $SalesPosEquipment;
+
     public $SalesReceipt;
 
     /**

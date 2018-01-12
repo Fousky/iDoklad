@@ -43,33 +43,61 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class IssuedInvoiceItemApiModel extends iDokladAbstractModel
 {
     public $Amount;
+
     public $Code;
+
     public $DateLastChange;
+
     public $Id;
+
     public $InvoiceId;
+
     public $IsRoundedItem;
+
     public $IsTaxMovement;
+
     public $ItemType;
+
     public $Name;
+
     public $Price;
+
     public $PriceListItemId;
+
     public $PriceTotalWithoutVat;
+
     public $PriceTotalWithoutVatHc;
+
     public $PriceTotalWithVat;
+
     public $PriceTotalWithVatHc;
+
     public $PriceType;
+
     public $PriceUnitVat;
+
     public $PriceUnitVatHc;
+
     public $PriceUnitWithoutVat;
+
     public $PriceUnitWithoutVatHc;
+
     public $PriceUnitWithVat;
+
     public $PriceUnitWithVatHc;
+
     public $TotalPrice;
+
     public $Unit;
+
     public $UnitPrice;
+
     public $VatRate;
+
     public $VatRateType;
+
     public $VatTotal;
+
     public $VatTotalHc;
 
     /**

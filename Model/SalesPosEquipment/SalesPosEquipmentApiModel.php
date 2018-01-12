@@ -19,11 +19,17 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class SalesPosEquipmentApiModel extends iDokladAbstractModel
 {
     public $CashRegisterId;
+
     public $Designation;
+
     public $Id;
+
     public $IsRegisteredEet;
+
     public $Name;
+
     public $SalesOfficeId;
+
     public $SalesPosEquipmentType;
 
     /**

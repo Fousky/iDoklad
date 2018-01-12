@@ -36,26 +36,47 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class ReceivedInvoiceItemApiModel extends iDokladAbstractModel
 {
     public $Amount;
+
     public $CustomVatRate;
+
     public $DateCreated;
+
     public $DateLastChange;
+
     public $Id;
+
     public $IsCustomVat;
+
     public $ItemType;
+
     public $Name;
+
     public $Price;
+
     public $PriceListItemId;
+
     public $PriceTotalWithoutVat;
+
     public $PriceTotalWithoutVatHc;
+
     public $PriceTotalWithVat;
+
     public $PriceTotalWithVatHc;
+
     public $PriceType;
+
     public $PriceUnitHc;
+
     public $Unit;
+
     public $UnitPrice;
+
     public $VatRate;
+
     public $VatRateType;
+
     public $VatTotal;
+
     public $VatTotalHc;
 
     /**

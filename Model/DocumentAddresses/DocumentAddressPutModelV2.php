@@ -35,27 +35,50 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class DocumentAddressPutModelV2 extends iDokladAbstractModel
 {
     public $AccountNumber;
+
     public $Bank;
+
     public $BankNumberCode;
+
     public $City;
+
     public $Country;
+
     public $CountryId;
+
     public $DateLastChange;
+
     public $Email;
+
     public $Fax;
+
     public $Firstname;
+
     public $Iban;
+
     public $Id;
+
     public $IdentificationNumber;
+
     public $Mobile;
+
     public $NickName;
+
     public $Phone;
+
     public $PostalCode;
+
     public $Street;
+
     public $Surname;
+
     public $Swift;
+
     public $Title;
+
     public $VatIdentificationNumber;
+
     public $VatIdentificationNumberSk;
+
     public $Www;
 }

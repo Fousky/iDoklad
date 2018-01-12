@@ -17,9 +17,13 @@ use Fousky\Component\iDoklad\Model\NumericSequences\NumericSequenceApiModel;
 class SalesPosEquipmentInfoModel extends iDokladAbstractModel
 {
     public $Designation;
+
     public $Id;
+
     public $Name;
+
     public $NumericSequence;
+
     public $SalesOfficeId;
 
     /**

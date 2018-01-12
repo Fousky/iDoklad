@@ -8,16 +8,25 @@ namespace Fousky\Component\iDoklad\UrlExtension;
 class iDokladFilter implements UrlExtensionInterface
 {
     const LESS_THEN = 'lt';
+
     const LESS_THEN_OR_EQUAL = 'lte';
+
     const GREATER_THEN = 'gt';
+
     const GREATER_THEN_OR_EQUAL = 'gte';
+
     const EQUAL = 'eq';
+
     const NOT_EQUAL = '!eq';
+
     const CONTAINS = 'ct';
+
     const NOT_CONTAINS = '!ct';
+
     const BETWEEN = 'between';
 
     const FILTER_TYPE_AND = 'and';
+
     const FILTER_TYPE_OR = 'or';
 
     public static $operators = [
@@ -33,6 +42,7 @@ class iDokladFilter implements UrlExtensionInterface
     ];
 
     protected $parts = [];
+
     protected $type = self::FILTER_TYPE_AND;
 
     /**

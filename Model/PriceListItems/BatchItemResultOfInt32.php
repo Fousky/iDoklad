@@ -15,7 +15,10 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class BatchItemResultOfInt32 extends iDokladAbstractModel
 {
     public $Data;
+
     public $IsSuccess;
+
     public $Message;
+
     public $StatusCode;
 }

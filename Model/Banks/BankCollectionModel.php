@@ -16,7 +16,9 @@ class BankCollectionModel extends iDokladAbstractModel
 {
     /** @var BankApiModel[] */
     public $Data;
+
     public $TotalItems;
+
     public $TotalPages;
 
     /**

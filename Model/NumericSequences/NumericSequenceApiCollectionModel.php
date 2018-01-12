@@ -14,7 +14,9 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class NumericSequenceApiCollectionModel extends iDokladAbstractModel
 {
     public $Data;
+
     public $TotalItems;
+
     public $TotalPages;
 
     /**

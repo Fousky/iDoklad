@@ -41,30 +41,55 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class ContactApiModelExpand extends iDokladAbstractModel
 {
     public $AddressIdg;
+
     public $BankAccounts;
+
     public $City;
+
     public $CompanyName;
+
     public $Country;
+
     public $CountryId;
+
     public $CreditCheck;
+
     public $DateLastChange;
+
     public $DefaultBankAccount;
+
     public $DiscountPercentage;
+
     public $Email;
+
     public $Fax;
+
     public $Firstname;
+
     public $Id;
+
     public $IdentificationNumber;
+
     public $IsRegisteredForVatOnPay;
+
     public $IsSendReminder;
+
     public $Mobile;
+
     public $Phone;
+
     public $PostalCode;
+
     public $Street;
+
     public $Surname;
+
     public $Title;
+
     public $VatIdentificationNumber;
+
     public $VatIdentificationNumberSk;
+
     public $Www;
 
     /**

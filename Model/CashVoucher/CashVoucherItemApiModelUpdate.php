@@ -22,12 +22,19 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class CashVoucherItemApiModelUpdate extends iDokladAbstractModel
 {
     public $Amount;
+
     public $Name;
+
     public $Price;
+
     public $PriceType;
+
     public $Status;
+
     public $VariableSymbol;
+
     public $VatRate;
+
     public $VatRateType;
 
     /**

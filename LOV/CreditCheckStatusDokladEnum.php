@@ -8,9 +8,13 @@ namespace Fousky\Component\iDoklad\LOV;
 class CreditCheckStatusDokladEnum extends iDokladAbstractEnum
 {
     const NOT_FOUND = 0;
+
     const OK = 1;
+
     const OK_WITH_WARNINGS = 2;
+
     const RISK = 3;
+
     const NOT_VERIFIED = 4;
 
     /**

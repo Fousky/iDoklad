@@ -37,10 +37,15 @@ class CashVoucherApiModelInsert extends iDokladAbstractModel
      * @Assert\NotBlank()
      */
     public $DateOfTransaction;
+
     public $DocumentSerialNumber;
+
     public $ElectronicRecordsOfSales;
+
     public $ExchangeRate;
+
     public $ExchangeRateAmount;
+
     public $Exported;
 
     /**
@@ -52,9 +57,13 @@ class CashVoucherApiModelInsert extends iDokladAbstractModel
     public $Item;
 
     public $MovementType;
+
     public $MyCompanyDocumentAddressId;
+
     public $PartnerContactId;
+
     public $PartnerDocumentAddressId;
+
     public $Person;
 
     /**

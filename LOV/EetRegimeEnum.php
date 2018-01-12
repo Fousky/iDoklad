@@ -8,7 +8,9 @@ namespace Fousky\Component\iDoklad\LOV;
 class EetRegimeEnum extends iDokladAbstractEnum
 {
     const NONE = 0;
+
     const ORDINARY = 1;
+
     const SIMPLIFIED = 2;
 
     /**

@@ -23,15 +23,25 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class BankAccountApiModel extends iDokladAbstractModel
 {
     public $AccountNumber;
+
     public $Bank;
+
     public $BankId;
+
     public $Currency;
+
     public $CurrencyId;
+
     public $DateLastChange;
+
     public $Iban;
+
     public $Id;
+
     public $IsDefault;
+
     public $Name;
+
     public $Swift;
 
     /**

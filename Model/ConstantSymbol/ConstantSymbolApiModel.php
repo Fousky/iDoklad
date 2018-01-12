@@ -19,11 +19,17 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class ConstantSymbolApiModel extends iDokladAbstractModel
 {
     public $Code;
+
     public $Country;
+
     public $CountryId;
+
     public $DateLastChange;
+
     public $Id;
+
     public $IsDefault;
+
     public $Name;
 
     /**

@@ -8,7 +8,9 @@ namespace Fousky\Component\iDoklad\LOV;
 class InvoiceTypeEnum extends iDokladAbstractEnum
 {
     const NONE = -1;
+
     const ISSUED = 0;
+
     const RECEIVED = 1;
 
     /**

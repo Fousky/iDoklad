@@ -8,7 +8,9 @@ namespace Fousky\Component\iDoklad\LOV;
 class BatchResultTypeEnum extends iDokladAbstractEnum
 {
     const SUCCESS = 0;
+
     const PARTIAL_SUCCESS = 1;
+
     const FAILURE = 2;
 
     /**

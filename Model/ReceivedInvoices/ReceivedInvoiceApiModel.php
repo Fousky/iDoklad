@@ -52,42 +52,79 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class ReceivedInvoiceApiModel extends iDokladAbstractModel
 {
     public $AttachmentFileName;
+
     public $CurrencyId;
+
     public $DateCreated;
+
     public $DateLastChange;
+
     public $DateOfAccountingEvent;
+
     public $DateOfIssue;
+
     public $DateOfMaturity;
+
     public $DateOfPayment;
+
     public $DateOfReceiving;
+
     public $DateOfTaxing;
+
     public $DateOfVatApplication;
+
     public $Description;
+
     public $DocumentNumber;
+
     public $DocumentSerialNumber;
+
     public $ExchangeRate;
+
     public $ExchangeRateAmount;
+
     public $Exported;
+
     public $Id;
+
     public $IsSentToAccountant;
+
     public $Items;
+
     public $MyCompanyDocumentAddressId;
+
     public $Note;
+
     public $OrderNumber;
+
     public $PaymentOptionId;
+
     public $PaymentStatus;
+
     public $ReceivedDocumentNumber;
+
     public $SupplierDocumentAddressId;
+
     public $SupplierId;
+
     public $TotalPaid;
+
     public $TotalPaidHc;
+
     public $TotalVat;
+
     public $TotalVatHc;
+
     public $TotalWithoutVat;
+
     public $TotalWithoutVatHc;
+
     public $TotalWithVat;
+
     public $TotalWithVatHc;
+
     public $VariableSymbol;
+
     public $VatOnPayStatus;
 
     /**
