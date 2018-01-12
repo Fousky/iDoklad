@@ -47,8 +47,6 @@ class ContactPostApiModel extends iDokladAbstractModel
 
     /**
      * @var BankAccountPostApiModel
-     *
-     * @Assert\Valid()
      */
     public $DefaultBankAccount;
 
