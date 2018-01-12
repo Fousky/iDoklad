@@ -20,6 +20,7 @@ class PdfBase64Model extends iDokladAbstractModel
      * @param ResponseInterface $response
      *
      * @return iDokladModelInterface
+     *
      * @throws \RuntimeException
      */
     public static function createFromResponse(ResponseInterface $response): iDokladModelInterface

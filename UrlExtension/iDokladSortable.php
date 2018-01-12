@@ -8,6 +8,7 @@ namespace Fousky\Component\iDoklad\UrlExtension;
 class iDokladSortable implements UrlExtensionInterface
 {
     const ASCENDING = 'asc'; // 123
+
     const DESCENDING = 'desc'; // 321
 
     protected $parts = [];

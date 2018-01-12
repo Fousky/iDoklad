@@ -10,11 +10,17 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class CodeBooksChangesApiModel extends iDokladAbstractModel
 {
     public $Bank = false;
+
     public $ConstantSymbols = false;
+
     public $Country = false;
+
     public $Currencies = false;
+
     public $ExchangeRates = false;
+
     public $PaymentOptions = false;
+
     public $VatRates = false;
 
     /**

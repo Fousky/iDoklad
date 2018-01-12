@@ -10,11 +10,18 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class ProformaInvoiceItemModel extends iDokladAbstractModel
 {
     public $Id;
+
     public $Amount;
+
     public $Name;
+
     public $PriceListItemId;
+
     public $PriceType;
+
     public $Unit;
+
     public $UnitPrice;
+
     public $VatRateType;
 }

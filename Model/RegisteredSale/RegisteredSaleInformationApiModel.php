@@ -36,29 +36,53 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class RegisteredSaleInformationApiModel extends iDokladAbstractModel
 {
     public $BaseTaxBasicRateHc;
+
     public $BaseTaxReducedRate1Hc;
+
     public $BaseTaxReducedRate2Hc;
+
     public $BaseTaxZeroRateHc;
+
     public $Bkp;
+
     public $DateOfAnswer;
+
     public $DateOfSale;
+
     public $DateOfSend;
+
     public $Fik;
+
     public $Pkp;
+
     public $ReceiptNumber;
+
     public $SalesOfficeDesignation;
+
     public $SalesPosEquipmentId;
+
     public $TaxBasicRateHc;
+
     public $TaxReducedRate1Hc;
+
     public $TaxReducedRate2Hc;
+
     public $TotalAdvancePayment;
+
     public $TotalFromAdvancePayment;
+
     public $TotalTravelServiceHc;
+
     public $TotalUsedGoodsBasicRateHc;
+
     public $TotalUsedGoodsReducedRate1Hc;
+
     public $TotalUsedGoodsReducedRate2Hc;
+
     public $TotalWithVatHc;
+
     public $Uuid;
+
     public $VatIdentificationNumber;
 
     /**

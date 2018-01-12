@@ -25,8 +25,8 @@ class CreateRegisteredSale extends iDokladAbstractFunction
     protected $data;
 
     /**
-     * @param SalesTypeEnum              $type SALES TYPE.
-     * @param string                     $id   ID of sales type.
+     * @param SalesTypeEnum              $type SALES TYPE
+     * @param string                     $id   ID of sales type
      * @param RegisteredSaleApiModelPost $data
      *
      * @throws \Fousky\Component\iDoklad\Exception\InvalidModelException
@@ -87,6 +87,7 @@ class CreateRegisteredSale extends iDokladAbstractFunction
      * @see iDoklad::call()
      *
      * @return array
+     *
      * @throws \ReflectionException
      * @throws \InvalidArgumentException
      */

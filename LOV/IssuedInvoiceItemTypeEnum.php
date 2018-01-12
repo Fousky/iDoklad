@@ -10,8 +10,11 @@ namespace Fousky\Component\iDoklad\LOV;
 class IssuedInvoiceItemTypeEnum extends iDokladAbstractEnum
 {
     const TYPE_NORMAL = 0;
+
     const TYPE_ROUND = 1;
+
     const TYPE_REDUCED = 2;
+
     const TYPE_DISCOUNT = 3;
 
     /**

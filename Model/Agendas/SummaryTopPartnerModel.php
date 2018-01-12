@@ -14,6 +14,8 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class SummaryTopPartnerModel extends iDokladAbstractModel
 {
     public $ContactId;
+
     public $Name;
+
     public $TotalWithVatHc;
 }

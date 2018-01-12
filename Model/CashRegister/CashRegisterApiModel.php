@@ -19,10 +19,15 @@ use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 class CashRegisterApiModel extends iDokladAbstractModel
 {
     public $Currency;
+
     public $CurrencyId;
+
     public $DateInitialState;
+
     public $Id;
+
     public $InitialState;
+
     public $Name;
 
     /**

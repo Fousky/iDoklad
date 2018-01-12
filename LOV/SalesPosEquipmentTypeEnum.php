@@ -8,5 +8,6 @@ namespace Fousky\Component\iDoklad\LOV;
 class SalesPosEquipmentTypeEnum extends iDokladAbstractEnum
 {
     const CASH_REGISTER = 0;
+
     const EXTERNAL = 1;
 }

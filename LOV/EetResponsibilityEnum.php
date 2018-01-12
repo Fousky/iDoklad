@@ -8,6 +8,7 @@ namespace Fousky\Component\iDoklad\LOV;
 class EetResponsibilityEnum extends iDokladAbstractEnum
 {
     const IDOKLAD = 0;
+
     const EXTERNAL_APPLICATION = 1;
 
     /**

@@ -31,22 +31,39 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class SalesReceiptItemApiModel extends iDokladAbstractModel
 {
     public $Amount;
+
     public $CashVoucherItemId;
+
     public $Id;
+
     public $Name;
+
     public $Price;
+
     public $PriceListItemId;
+
     public $PriceTotalWithoutVat;
+
     public $PriceTotalWithoutVatHc;
+
     public $PriceTotalWithVat;
+
     public $PriceTotalWithVatHc;
+
     public $PriceType;
+
     public $Rank;
+
     public $SalesReceiptId;
+
     public $Unit;
+
     public $VatRate;
+
     public $VatRateType;
+
     public $VatTotal;
+
     public $VatTotalHc;
 
     /**

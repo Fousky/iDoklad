@@ -24,16 +24,28 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class AgendaModel extends iDokladAbstractModel
 {
     protected $Id;
+
     protected $ContactId;
+
     protected $CountOfDecimalsForAmount;
+
     protected $CountOfDecimalsForPrice;
+
     protected $DefaultCurrencyId;
+
     protected $EetRegime;
+
     protected $IsRegisteredForVat;
+
     protected $IsRegisteredForVatOnPay;
+
     protected $Name;
+
     protected $PrefferedPrice;
+
     protected $PrefferedVatRate;
+
     protected $RoundingDifference;
+
     protected $VatRegistrationType;
 }

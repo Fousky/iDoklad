@@ -19,11 +19,18 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class SalesOfficeApiModel extends iDokladAbstractModel
 {
     public $City;
+
     public $CountryId;
+
     public $Designation;
+
     public $Id;
+
     public $IsRegisteredEet;
+
     public $Name;
+
     public $PostalCode;
+
     public $Street;
 }

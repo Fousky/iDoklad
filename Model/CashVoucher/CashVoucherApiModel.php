@@ -42,31 +42,57 @@ use Fousky\Component\iDoklad\Model\RegisteredSale\RegisteredSaleApiModel;
 class CashVoucherApiModel extends iDokladAbstractModel
 {
     public $CashRegisterId;
+
     public $CurrencyId;
+
     public $DateLastChange;
+
     public $DateOfTransaction;
+
     public $DocumentNumber;
+
     public $DocumentSerialNumber;
+
     public $EetResponsibility;
+
     public $ExchangeRate;
+
     public $ExchangeRateAmount;
+
     public $Exported;
+
     public $Id;
+
     public $IsEet;
+
     public $IsSummarySalesReceipt;
+
     public $Item;
+
     public $MovementType;
+
     public $MyCompanyDocumentAddressId;
+
     public $PartnerContactId;
+
     public $PartnerDocumentAddressId;
+
     public $Person;
+
     public $RegisteredSale;
+
     public $SummarySalesReceiptDate;
+
     public $TotalVat;
+
     public $TotalVatHc;
+
     public $TotalWithoutVat;
+
     public $TotalWithoutVatHc;
+
     public $TotalWithVat;
+
     public $TotalWithVatHc;
 
     /**

@@ -17,9 +17,14 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class CurrencyApiModel extends iDokladAbstractModel
 {
     public $Id;
+
     public $Code;
+
     public $Country;
+
     public $Name;
+
     public $Priority;
+
     public $Symbol;
 }

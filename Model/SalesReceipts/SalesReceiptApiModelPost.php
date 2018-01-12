@@ -25,6 +25,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class SalesReceiptApiModelPost extends iDokladAbstractModel
 {
     public $DateOfIssue;
+
     public $DocumentSerialNumber;
 
     /**
@@ -33,6 +34,7 @@ class SalesReceiptApiModelPost extends iDokladAbstractModel
      * @Assert\Valid(traverse=true)
      */
     public $ElectronicRecordsOfSales;
+
     public $Exported;
 
     /**
@@ -40,8 +42,11 @@ class SalesReceiptApiModelPost extends iDokladAbstractModel
      * @Assert\Length(min="0", max="20")
      */
     public $ExternalDocumentNumber;
+
     public $IsCumulative;
+
     public $Name;
+
     public $SalesPosEquipmentId;
 
     /**

@@ -19,11 +19,17 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class NumericSequenceApiModel extends iDokladAbstractModel
 {
     public $DocumentType;
+
     public $Id;
+
     public $IsDefault;
+
     public $LastInvoiceNumber;
+
     public $Name;
+
     public $NumberFormat;
+
     public $Year;
 
     /**

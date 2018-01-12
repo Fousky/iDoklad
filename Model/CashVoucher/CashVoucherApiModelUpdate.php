@@ -20,13 +20,21 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class CashVoucherApiModelUpdate extends iDokladAbstractModel
 {
     public $CashRegisterId;
+
     public $DateOfTransaction;
+
     public $ExchangeRate;
+
     public $ExchangeRateAmount;
+
     public $Item;
+
     public $MyCompanyDocumentAddressId;
+
     public $PartnerContactId;
+
     public $PartnerDocumentAddressId;
+
     public $Person;
 
     /**

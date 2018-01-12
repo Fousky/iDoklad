@@ -17,9 +17,14 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class SummaryQuarterModel extends iDokladAbstractModel
 {
     public $Billed;
+
     public $Rank;
+
     public $Title;
+
     public $TotalPaid;
+
     public $TotalProforma;
+
     public $TotalUnPaid;
 }

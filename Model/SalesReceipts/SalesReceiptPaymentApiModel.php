@@ -16,8 +16,12 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class SalesReceiptPaymentApiModel extends iDokladAbstractModel
 {
     public $Id;
+
     public $PaymentAmount;
+
     public $PaymentOptionId;
+
     public $PaymentTransactionCode;
+
     public $SalesReceiptId;
 }

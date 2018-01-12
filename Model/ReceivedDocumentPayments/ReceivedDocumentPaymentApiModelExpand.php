@@ -16,7 +16,9 @@ use Fousky\Component\iDoklad\Model\ReceivedInvoices\ReceivedInvoiceApiModel;
 class ReceivedDocumentPaymentApiModelExpand extends ReceivedDocumentPaymentApiModel
 {
     public $Currency;
+
     public $PaymentOption;
+
     public $ReceivedInvoice;
 
     /**

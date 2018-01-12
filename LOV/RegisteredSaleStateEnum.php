@@ -8,7 +8,9 @@ namespace Fousky\Component\iDoklad\LOV;
 class RegisteredSaleStateEnum extends iDokladAbstractEnum
 {
     const NEW = 0;
+
     const REGISTERED = 1;
+
     const ERROR = -1;
 
     /**

@@ -22,13 +22,21 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class VatRateApiModel extends iDokladAbstractModel
 {
     public $Country;
+
     public $CountryId;
+
     public $DateLastChange;
+
     public $DateValidityFrom;
+
     public $DateValidityTo;
+
     public $Id;
+
     public $Name;
+
     public $Rate;
+
     public $RateType;
 
     /**

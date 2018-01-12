@@ -84,72 +84,139 @@ use Fousky\Component\iDoklad\Model\IssuedInvoices\IssuedInvoiceItemApiModel;
 class ProformaInvoiceApiModel extends iDokladAbstractModel
 {
     public $AttachmentFileName;
+
     public $BaseTaxBasicRate;
+
     public $BaseTaxBasicRateHc;
+
     public $BaseTaxReducedRate1;
+
     public $BaseTaxReducedRate1Hc;
+
     public $BaseTaxReducedRate2;
+
     public $BaseTaxReducedRate2Hc;
+
     public $BaseTaxZeroRate;
+
     public $BaseTaxZeroRateHc;
+
     public $ConstantSymbolId;
+
     public $CurrencyId;
+
     public $DateLastChange;
+
     public $DateOfAccountingEvent;
+
     public $DateOfIssue;
+
     public $DateOfLastReminder;
+
     public $DateOfMaturity;
+
     public $DateOfPayment;
+
     public $Description;
+
     public $DocumentNumber;
+
     public $DocumentSerialNumber;
+
     public $EetResponsibility;
+
     public $ExchangeRate;
+
     public $ExchangeRateAmount;
+
     public $Exported;
+
     public $Id;
+
     public $IsEet;
+
     public $IsProformaTaxed;
+
     public $IsSentToAccountant;
+
     public $IsSentToPurchaser;
+
     public $ItemsTextPrefix;
+
     public $ItemsTextSuffix;
+
     public $LanguageId;
+
     public $Maturity;
+
     public $MyCompanyDocumentAdrressId;
+
     public $Note;
+
     public $OrderNumber;
+
     public $PaymentOptionId;
+
     public $PaymentStatus;
+
     public $ProformaInvoiceItems;
+
     public $PurchaserDocumentAddressId;
+
     public $PurchaserId;
+
     public $RemindersCount;
+
     public $ReportColorValue;
+
     public $ReportId;
+
     public $RoundingDifference;
+
     public $TaxBasicRate;
+
     public $TaxBasicRateHc;
+
     public $TaxReducedRate1;
+
     public $TaxReducedRate1Hc;
+
     public $TaxReducedRate2;
+
     public $TaxReducedRate2Hc;
+
     public $TotalBasicRate;
+
     public $TotalBasicRateHc;
+
     public $TotalReducedRate1;
+
     public $TotalReducedRate1Hc;
+
     public $TotalReducedRate2;
+
     public $TotalReducedRate2Hc;
+
     public $TotalVat;
+
     public $TotalVatHc;
+
     public $TotalWithoutVat;
+
     public $TotalWithoutVatHc;
+
     public $TotalWithVat;
+
     public $TotalWithVatHc;
+
     public $VariableSymbol;
+
     public $VatOnPayStatus;
+
     public $VatRateBasic;
+
     public $VatRateReduced1;
+
     public $VatRateReduced2;
 
     /**

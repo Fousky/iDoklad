@@ -40,29 +40,53 @@ use Fousky\Component\iDoklad\Model\RegisteredSale\RegisteredSaleApiModel;
 class SalesReceiptApiModel extends iDokladAbstractModel
 {
     public $CurrencyId;
+
     public $DateOfIssue;
+
     public $DocumentNumber;
+
     public $DocumentSerialNumber;
+
     public $EetResponsibility;
+
     public $ExchangeRate;
+
     public $ExchangeRateAmount;
+
     public $Exported;
+
     public $ExternalDocumentNumber;
+
     public $Id;
+
     public $Imported;
+
     public $IsAccounted;
+
     public $IsCumulative;
+
     public $IsEet;
+
     public $Name;
+
     public $RegisteredSale;
+
     public $SalesPosEquipmentId;
+
     public $SalesReceiptItems;
+
     public $SalesReceiptPayments;
+
     public $TotalVat;
+
     public $TotalVatHc;
+
     public $TotalWithoutVat;
+
     public $TotalWithoutVatHc;
+
     public $TotalWithVat;
+
     public $TotalWithVatHc;
 
     /**

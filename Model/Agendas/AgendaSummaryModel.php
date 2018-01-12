@@ -14,6 +14,8 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class AgendaSummaryModel extends iDokladAbstractModel
 {
     public $Contacts;
+
     public $IssuedInvoices;
+
     public $PriceListItems;
 }

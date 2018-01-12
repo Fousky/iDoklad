@@ -97,81 +97,157 @@ use Fousky\Component\iDoklad\Model\PaymentOptions\PaymentOptionApiModel;
 class IssuedInvoiceApiModelExpand extends iDokladAbstractModel
 {
     public $AttachmentFileName;
+
     public $BaseTaxBasicRate;
+
     public $BaseTaxBasicRateHc;
+
     public $BaseTaxReducedRate1;
+
     public $BaseTaxReducedRate1Hc;
+
     public $BaseTaxReducedRate2;
+
     public $BaseTaxReducedRate2Hc;
+
     public $BaseTaxZeroRate;
+
     public $BaseTaxZeroRateHc;
+
     public $ConstantSymbol;
+
     public $ConstantSymbolId;
+
     public $Currency;
+
     public $CurrencyId;
+
     public $DateLastChange;
+
     public $DateOfAccountingEvent;
+
     public $DateOfIssue;
+
     public $DateOfLastReminder;
+
     public $DateOfMaturity;
+
     public $DateOfPayment;
+
     public $DateOfTaxing;
+
     public $DateOfVatApplication;
+
     public $Description;
+
     public $Discount;
+
     public $DocumentNumber;
+
     public $DocumentSerialNumber;
+
     public $EetResponsibility;
+
     public $ExchangeRate;
+
     public $ExchangeRateAmount;
+
     public $Exported;
+
     public $Id;
+
     public $IsEet;
+
     public $IsSentToAccountant;
+
     public $IsSentToPurchaser;
+
     public $IssuedInvoiceItems;
+
     public $ItemsTextPrefix;
+
     public $ItemsTextSuffix;
+
     public $LanguageId;
+
     public $Maturity;
+
     public $MyCompanyDocumentAddress;
+
     public $MyCompanyDocumentAdrressId;
+
     public $Note;
+
     public $NumericSequenceId;
+
     public $OrderNumber;
+
     public $PaymentOption;
+
     public $PaymentOptionId;
+
     public $PaymentStatus;
+
     public $Purchaser;
+
     public $PurchaserDocumentAddress;
+
     public $PurchaserDocumentAddressId;
+
     public $PurchaserId;
+
     public $RemindersCount;
+
     public $ReportColorValue;
+
     public $ReportId;
+
     public $RoundingDifference;
+
     public $TaxBasicRate;
+
     public $TaxBasicRateHc;
+
     public $TaxReducedRate1;
+
     public $TaxReducedRate1Hc;
+
     public $TaxReducedRate2;
+
     public $TaxReducedRate2Hc;
+
     public $TotalBasicRate;
+
     public $TotalBasicRateHc;
+
     public $TotalReducedRate1;
+
     public $TotalReducedRate1Hc;
+
     public $TotalReducedRate2;
+
     public $TotalReducedRate2Hc;
+
     public $TotalVat;
+
     public $TotalVatHc;
+
     public $TotalWithoutVat;
+
     public $TotalWithoutVatHc;
+
     public $TotalWithVat;
+
     public $TotalWithVatHc;
+
     public $VariableSymbol;
+
     public $VatOnPayStatus;
+
     public $VatRateBasic;
+
     public $VatRateReduced1;
+
     public $VatRateReduced2;
 
     /**

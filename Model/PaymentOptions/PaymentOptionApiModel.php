@@ -17,10 +17,15 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class PaymentOptionApiModel extends iDokladAbstractModel
 {
     public $Id;
+
     public $Code;
+
     public $DateLastChange;
+
     public $IsDefault;
+
     public $IsRounded;
+
     public $Name;
 
     /**

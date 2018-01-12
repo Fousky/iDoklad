@@ -15,7 +15,9 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
 class CountryCollectionModel extends iDokladAbstractModel
 {
     protected $Data;
+
     protected $TotalItems = 0;
+
     protected $TotalPages = 0;
 
     /**

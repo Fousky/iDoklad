@@ -40,6 +40,7 @@ class ContactPutModelV2 extends iDokladAbstractModel
      * @Assert\Length(min="0", max="200")
      */
     public $CompanyName;
+
     public $CountryId;
 
     /**
@@ -47,6 +48,7 @@ class ContactPutModelV2 extends iDokladAbstractModel
      * @Assert\Valid()
      */
     public $DefaultBankAccount;
+
     public $DiscountPercentage;
 
     /**
@@ -68,6 +70,7 @@ class ContactPutModelV2 extends iDokladAbstractModel
      * @Assert\Length(min="0", max="20")
      */
     public $IdentificationNumber;
+
     public $IsSendReminder;
 
     /**
