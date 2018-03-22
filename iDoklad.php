@@ -2,38 +2,30 @@
 
 namespace Fousky\Component\iDoklad;
 
-use Fousky\Component\iDoklad\Exception\InvalidTokenException;
-use Fousky\Component\iDoklad\Exception\TokenNotFoundException;
 use Fousky\Component\iDoklad\Functions\iDokladAbstractFunction;
 use Fousky\Component\iDoklad\Functions\iDokladFunctionInterface;
 use Fousky\Component\iDoklad\Model\Auth\AccessToken;
 use Fousky\Component\iDoklad\Model\iDokladModelInterface;
 use GuzzleHttp\Client;
-use Symfony\Component\OptionsResolver\Exception\ExceptionInterface;
+use GuzzleHttp\RequestOptions;
 
 /**
  * @author Lukáš Brzák <brzak@fousky.cz>
  */
 class iDoklad
 {
-    /** @var array $config */
+    /** @var array */
     protected $config;
 
-    /** @var iDokladTokenFactory $helper */
+    /** @var iDokladTokenFactory */
     protected $helper;
 
-    /** @var iDokladTokenFactory $tokenFactory */
+    /** @var iDokladTokenFactory */
     protected $tokenFactory;
 
-    /** @var Client $client */
+    /** @var Client */
     protected $client;
 
-    /**
-     * @param array               $config
-     * @param iDokladTokenFactory $tokenFactory
-     *
-     * @throws ExceptionInterface
-     */
     public function __construct(array $config, iDokladTokenFactory $tokenFactory)
     {
         $this->config = $this->assertConfiguration($config);
@@ -43,13 +35,6 @@ class iDoklad
         ]);
     }
 
-    /**
-     * @param iDokladFunctionInterface $function
-     *
-     * @throws \Exception
-     *
-     * @return iDokladModelInterface
-     */
     public function execute(iDokladFunctionInterface $function): iDokladModelInterface
     {
         return $function
@@ -63,11 +48,6 @@ class iDoklad
             );
     }
 
-    /**
-     * @param iDokladFunctionInterface $function
-     *
-     * @return string
-     */
     protected function resolveUri(iDokladFunctionInterface $function): string
     {
         $uri = $function->getUri();
@@ -102,19 +82,12 @@ class iDoklad
         return $uri;
     }
 
-    /**
-     * @param iDokladFunctionInterface $function
-     *
-     * @throws InvalidTokenException
-     * @throws TokenNotFoundException
-     *
-     * @return array
-     */
     protected function resolveOptions(iDokladFunctionInterface $function): array
     {
         $defaults = [
-            'headers' => [
+            RequestOptions::HEADERS => [
                 'Accept' => 'application/json',
+                'Accept-Language' => $this->config['language'],
             ],
         ];
 
@@ -138,33 +111,16 @@ class iDoklad
         return array_merge_recursive($function->getGuzzleOptions(), $defaults);
     }
 
-    /**
-     * @throws \RuntimeException
-     * @throws TokenNotFoundException
-     * @throws InvalidTokenException
-     *
-     * @return AccessToken
-     */
     public function getToken(): AccessToken
     {
         return $this->tokenFactory->getToken($this->client, $this->config);
     }
 
-    /**
-     * @return array
-     */
     public function getConfig(): array
     {
         return $this->config;
     }
 
-    /**
-     * @param array $config
-     *
-     * @throws ExceptionInterface
-     *
-     * @return array
-     */
     protected function assertConfiguration(array $config): array
     {
         return iDokladAbstractFunction::assertConfiguration($config);

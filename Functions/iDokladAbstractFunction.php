@@ -162,6 +162,8 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
                 'scope' => 'idoklad_api',
                 // iDoklad sends DateTime in UTC, so we tranform to another PHP \DateTimeZone
                 'timezone' => 'Europe/Prague',
+                // iDoklad generates invoices in available locales: ['cs-CZ', 'sk-SK', 'de-DE', 'en-US']
+                'language' => 'cs-CZ',
             ])
             ->setRequired([
                 'client_id',
@@ -173,6 +175,8 @@ abstract class iDokladAbstractFunction implements iDokladFunctionInterface
             ->setAllowedTypes('client_secret', ['string'])
             ->setAllowedTypes('token_endpoint', ['string'])
             ->setAllowedTypes('scope', ['string'])
+            ->setAllowedTypes('language', ['string'])
+            ->setAllowedValues('language', ['cs-CZ', 'sk-SK', 'de-DE', 'en-US'])
             ->resolve($config);
     }
 
