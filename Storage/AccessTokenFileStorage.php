@@ -46,7 +46,9 @@ class AccessTokenFileStorage implements AccessTokenStorageInterface
             $token = unserialize(
                 file_get_contents($this->file),
                 [
-                    'allowed_classes' => AccessToken::class,
+                    'allowed_classes' => [
+                        AccessToken::class,
+                    ],
                 ]
             );
 
