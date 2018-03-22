@@ -123,7 +123,7 @@ class AccessToken extends iDokladAbstractModel implements \Serializable
             $this->expires,
             $this->type,
             $this->requestedAt
-        ) = unserialize($serialized, ['allowed_classes' => self::class]);
+        ) = unserialize($serialized, ['allowed_classes' => [self::class]]);
     }
 
     /**
