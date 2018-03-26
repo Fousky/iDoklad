@@ -18,10 +18,14 @@ class ResponseUtil
      */
     public static function handle(ResponseInterface $response): \stdClass
     {
-        return \GuzzleHttp\json_decode(
-            $response
-                ->getBody()
-                ->getContents()
-        );
+        $content = $response
+            ->getBody()
+            ->getContents();
+
+        if (empty($content)) {
+            return new \stdClass();
+        }
+
+        return \GuzzleHttp\json_decode($content);
     }
 }
