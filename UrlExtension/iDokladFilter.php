@@ -124,6 +124,6 @@ class iDokladFilter implements UrlExtensionInterface
      */
     protected function isValidOperator(string $operator): bool
     {
-        return defined(sprintf('self::%s', $operator));
+        return in_array($operator, self::$operators, true);
     }
 }
