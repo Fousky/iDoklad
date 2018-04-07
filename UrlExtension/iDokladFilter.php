@@ -109,10 +109,8 @@ class iDokladFilter implements UrlExtensionInterface
             return [];
         }
 
-        $result = [];
-
         return [
-            'filter' => implode('|', $result),
+            'filter' => implode('|', $this->parts),
             'filtertype' => $this->type,
         ];
     }
