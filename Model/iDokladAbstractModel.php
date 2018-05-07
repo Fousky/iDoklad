@@ -144,7 +144,8 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
     {
         // convert \DateTime to string date representation.
         if ($value instanceof \DateTime) {
-            return $value->format(\DateTime::ATOM);
+            // DateTime string without TimeZone definition - time zone recalculation causes unexpected problems.
+            return $value->format('Y-m-d\TH:i:s');
         }
 
         if (\is_array($value) || $value instanceof Collection) {
