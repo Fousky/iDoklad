@@ -14,9 +14,9 @@ class ResponseUtil
      *
      * @throws \RuntimeException
      *
-     * @return \stdClass
+     * @return \stdClass|bool
      */
-    public static function handle(ResponseInterface $response): \stdClass
+    public static function handle(ResponseInterface $response)
     {
         $content = $response
             ->getBody()

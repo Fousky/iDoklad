@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Fousky\Component\iDoklad\LOV\iDokladAbstractEnum;
 use Fousky\Component\iDoklad\LOV\iDokladEnumInterface;
+use Fousky\Component\iDoklad\Model\Void\BooleanModel;
 use Fousky\Component\iDoklad\Util\AnnotationLoader;
 use Fousky\Component\iDoklad\Util\ResponseUtil;
 use Psr\Http\Message\ResponseInterface;
@@ -29,9 +30,13 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
      */
     public static function createFromResponse(ResponseInterface $response): iDokladModelInterface
     {
-        return static::createFromStd(
-            ResponseUtil::handle($response)
-        );
+        $data = ResponseUtil::handle($response);
+
+        if (is_bool($data)) {
+            return BooleanModel::createFromResponse($response);
+        }
+
+        return static::createFromStd($data);
     }
 
     /**
