@@ -87,7 +87,7 @@ class iDokladTokenFactory
             throw new InvalidTokenException($response, 'ERR_IDOKLAD___INVALID_TOKEN_CALL');
         }
 
-        $content = \GuzzleHttp\json_decode($response->getBody()->getContents());
+        $content = json_decode($response->getBody()->getContents(), false, 512, JSON_THROW_ON_ERROR);
         $content = (array) $content;
 
         if (!\is_array($content) ||

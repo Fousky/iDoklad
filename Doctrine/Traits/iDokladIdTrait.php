@@ -11,9 +11,8 @@ trait iDokladIdTrait
 {
     /**
      * @var string|null
-     *
-     * @ORM\Column(name="idoklad_id", type="string", nullable=true)
      */
+    #[ORM\Column(name: 'idoklad_id', type: 'string', nullable: true)]
     protected $idokladId;
 
     /**

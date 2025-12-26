@@ -21,32 +21,32 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class IssuedInvoiceItemApiModelWrite extends iDokladAbstractModel
 {
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $Amount;
 
-    /** @Assert\IsNull(message="This value is readonly.") */
+    #[Assert\IsNull(message: 'This value is readonly.')]
     public $Id;
 
     /**
-     * @Assert\NotBlank()
-     * @Assert\Type(type="string")
-     * @Assert\Length(min="0", max="200")
+    #[Assert\NotBlank]
+    #[Assert\Type(type: 'string')]
+    #[Assert\Length(min: 0, max: 200)]
      */
     public $Name;
 
-    /** @Assert\Type(type="int") */
+    #[Assert\Type(type: 'int')]
     public $PriceListItemId;
 
-    /** @Assert\Type(type="Fousky\Component\iDoklad\LOV\PriceTypeEnum") */
+    #[Assert\Type(type: 'Fousky\Component\iDoklad\LOV\PriceTypeEnum')]
     public $PriceType;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $Unit;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $UnitPrice;
 
-    /** @Assert\Type(type="Fousky\Component\iDoklad\LOV\VatRateTypeEnum") */
+    #[Assert\Type(type: 'Fousky\Component\iDoklad\LOV\VatRateTypeEnum')]
     public $VatRateType;
 
     /**

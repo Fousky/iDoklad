@@ -12,12 +12,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class BatchModelOfInt32 extends iDokladAbstractModel
 {
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Count(min="1")
-     * @Assert\All(constraints={
-     *     @Assert\Type(type="int")
-     * })
-     */
+    #[Assert\NotBlank]
+    #[Assert\Count(min: 1)]
+    #[Assert\All(constraints: [new Assert\Type(type: 'int')])]
     public $Items;
 }

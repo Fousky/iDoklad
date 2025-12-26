@@ -45,116 +45,113 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class ProformaInvoiceApiModelInsert extends iDokladAbstractModel
 {
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $AccountNumber;
 
-    /** @Assert\Type(type="int") */
+    #[Assert\Type(type: 'int')]
     public $BankId;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $BankName;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $BankNumberCode;
 
-    /** @Assert\Type(type="int") */
+    #[Assert\Type(type: 'int')]
     public $ConstantSymbolId;
 
-    /** @Assert\Type(type="int") */
+    #[Assert\Type(type: 'int')]
     public $CurrencyId;
 
-    /** @Assert\DateTime() */
+    #[Assert\DateTime]
     public $DateOfIssue;
 
-    /** @Assert\DateTime() */
+    #[Assert\DateTime]
     public $DateOfMaturity;
 
-    /** @Assert\DateTime() */
+    #[Assert\DateTime]
     public $DateOfPayment;
 
-    /** @Assert\DateTime() */
+    #[Assert\DateTime]
     public $DateOfTaxing;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $Description;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $DiscountPercentage;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $DocumentNumber;
 
-    /** @Assert\Type(type="int") */
+    #[Assert\Type(type: 'int')]
     public $DocumentSerialNumber;
 
-    /** @Assert\Type(type="Fousky\Component\iDoklad\LOV\EetResponsibilityEnum") */
+    #[Assert\Type(type: 'Fousky\Component\iDoklad\LOV\EetResponsibilityEnum')]
     public $EetResponsibility;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $ExchangeRate;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $ExchangeRateAmount;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $Iban;
 
-    /** @Assert\Type(type="bool") */
+    #[Assert\Type(type: 'bool')]
     public $IsEet;
 
-    /** @Assert\Type(type="bool") */
+    #[Assert\Type(type: 'bool')]
     public $IsProformaTaxed;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $ItemsTextPrefix;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $ItemsTextSuffix;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $LanguageCode;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $Note;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $OrderNumber;
 
-    /** @Assert\Type(type="int") */
+    #[Assert\Type(type: 'int')]
     public $PaymentOptionId;
 
     /**
      * REQUIRED.
      *
      * @var IssuedInvoiceItemApiModelWrite[]
-     *
-     * @Assert\NotBlank()
-     * @Assert\Count(min="1")
-     * @Assert\All(constraints={
-     *     @Assert\Type(type="Fousky\Component\iDoklad\Model\IssuedInvoices\IssuedInvoiceItemApiModelWrite"),
-     * })
-     * @Assert\Valid(traverse=true)
      */
+    #[Assert\NotBlank]
+    #[Assert\Count(min: 1)]
+    #[Assert\All(constraints: [new Assert\Type(type: 'Fousky\Component\iDoklad\Model\IssuedInvoices\IssuedInvoiceItemApiModelWrite')])]
+    #[Assert\Valid(traverse: true)]
     public $ProformaInvoiceItems;
 
     /**
      * REQUIRED.
      *
-     * @Assert\NotBlank()
-     * @Assert\Type(type="int")
+    #[Assert\NotBlank]
+    #[Assert\Type(type: 'int')]
      */
     public $PurchaserId;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $ReportColorValue;
 
-    /** @Assert\Type(type="int") */
+    #[Assert\Type(type: 'int')]
     public $SalesPosEquipmentId;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $Swift;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $VariableSymbol;
 
     /**

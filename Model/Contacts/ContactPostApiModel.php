@@ -34,15 +34,11 @@ class ContactPostApiModel extends iDokladAbstractModel
 {
     public $City;
 
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Length(min="0", max="200")
-     */
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 0, max: 200)]
     public $CompanyName;
 
-    /**
-     * @Assert\NotBlank()
-     */
+    #[Assert\NotBlank]
     public $CountryId;
 
     /**
@@ -60,14 +56,10 @@ class ContactPostApiModel extends iDokladAbstractModel
 
     public $IdentificationNumber;
 
-    /**
-     * @Assert\Expression(expression="value == true or value == false", message="This value must be true or false.")
-     */
+    #[Assert\Expression(expression: 'value == true or value == false', message: 'This value must be true or false.')]
     public $IsRegisteredForVatOnPay;
 
-    /**
-     * @Assert\Expression(expression="value == true or value == false", message="This value must be true or false.")
-     */
+    #[Assert\Expression(expression: 'value == true or value == false', message: 'This value must be true or false.')]
     public $IsSendReminder;
 
     public $Mobile;

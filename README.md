@@ -1,6 +1,6 @@
 # iDoklad API v2 integration
 
-PHP7 library for calling iDoklad API (v2). Library is **not stable** yet.
+PHP 8+ library for calling iDoklad API (v2). Compatible with Symfony 6.4+ and PHP 8.1+. Supports both Guzzle 6 and 7.
 
 [![StyleCI](https://styleci.io/repos/94907919/shield?branch=master)](https://styleci.io/repos/94907919)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Fousky/iDoklad/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Fousky/iDoklad/?branch=master)
@@ -17,7 +17,7 @@ use Fousky\Component\iDoklad\Functions as Func;
 use Fousky\Component\iDoklad\iDoklad;
 use Fousky\Component\iDoklad\iDokladFactory;
 
-/** 
+/**
  * Create iDoklad client with specific configuration.
  *
  * @var \Fousky\Component\iDoklad\iDoklad $idoklad
@@ -28,7 +28,7 @@ $idoklad = iDokladFactory::create([
 ]);
 
 /**
- * Execute function (iDokladFunctionInterface), 
+ * Execute function (iDokladFunctionInterface),
  * this will call iDoklad API and returns model object (iDokladModelInterface).
  *
  * @var \Fousky\Component\iDoklad\Model\Contacts\ContactCollectionModel $responseModel

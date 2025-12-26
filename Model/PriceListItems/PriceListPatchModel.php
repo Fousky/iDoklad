@@ -11,6 +11,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class PriceListPatchModel extends PriceListPutModelV2
 {
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $BarCode;
 }

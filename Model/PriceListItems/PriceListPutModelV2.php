@@ -23,40 +23,40 @@ use Fousky\Component\iDoklad\Model\iDokladAbstractModel;
  */
 class PriceListPutModelV2 extends iDokladAbstractModel
 {
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $Amount;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $Code;
 
-    /** @Assert\Type(type="int") */
+    #[Assert\Type(type: 'int')]
     public $CurrencyId;
 
-    /** @Assert\IsNull(message="This value is readonly.") */
+    #[Assert\IsNull(message: 'This value is readonly.')]
     public $DateLastChange;
 
-    /** @Assert\Type(type="bool") */
+    #[Assert\Type(type: 'bool')]
     public $HasStockMovement;
 
-    /** @Assert\IsNull(message="This value is readonly.") */
+    #[Assert\IsNull(message: 'This value is readonly.')]
     public $Id;
 
     /**
-     * @Assert\NotBlank()
-     * @Assert\Type(type="string")
+    #[Assert\NotBlank]
+    #[Assert\Type(type: 'string')]
      */
     public $Name;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $Price;
 
-    /** @Assert\Type(type="Fousky\Component\iDoklad\LOV\PriceTypeEnum") */
+    #[Assert\Type(type: 'Fousky\Component\iDoklad\LOV\PriceTypeEnum')]
     public $PriceType;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $Unit;
 
-    /** @Assert\Type(type="Fousky\Component\iDoklad\LOV\VatRateTypeEnum") */
+    #[Assert\Type(type: 'Fousky\Component\iDoklad\LOV\VatRateTypeEnum')]
     public $VatRateType;
 
     /**

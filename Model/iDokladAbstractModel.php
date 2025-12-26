@@ -7,7 +7,6 @@ use Doctrine\Common\Collections\Collection;
 use Fousky\Component\iDoklad\LOV\iDokladAbstractEnum;
 use Fousky\Component\iDoklad\LOV\iDokladEnumInterface;
 use Fousky\Component\iDoklad\Model\Void\BooleanModel;
-use Fousky\Component\iDoklad\Util\AnnotationLoader;
 use Fousky\Component\iDoklad\Util\ResponseUtil;
 use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
@@ -210,10 +209,12 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
      */
     public function validate(): ConstraintViolationListInterface
     {
-        AnnotationLoader::init();
+        $builder = Validation::createValidatorBuilder();
 
-        return Validation::createValidatorBuilder()
-            ->enableAnnotationMapping()
+        // PHP 8+ uses attributes - enable attribute mapping
+        $builder->enableAttributeMapping();
+
+        return $builder
             ->getValidator()
             ->validate($this);
     }

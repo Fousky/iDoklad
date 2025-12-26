@@ -26,6 +26,6 @@ class ResponseUtil
             return new \stdClass();
         }
 
-        return \GuzzleHttp\json_decode($content);
+        return json_decode($content, false, 512, JSON_THROW_ON_ERROR);
     }
 }

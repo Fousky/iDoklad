@@ -30,17 +30,14 @@ class SalesReceiptApiModelPost extends iDokladAbstractModel
 
     /**
      * @var ElectronicRecordsOfSalesApiModel[]
-     *
-     * @Assert\Valid(traverse=true)
      */
+    #[Assert\Valid(traverse: true)]
     public $ElectronicRecordsOfSales;
 
     public $Exported;
 
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Length(min="0", max="20")
-     */
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 0, max: 20)]
     public $ExternalDocumentNumber;
 
     public $IsCumulative;
@@ -51,20 +48,18 @@ class SalesReceiptApiModelPost extends iDokladAbstractModel
 
     /**
      * @var SalesReceiptItemApiModelPost[]
-     *
-     * @Assert\Valid(traverse=true)
-     * @Assert\NotBlank()
-     * @Assert\Count(min="1")
      */
+    #[Assert\Valid(traverse: true)]
+    #[Assert\NotBlank]
+    #[Assert\Count(min: 1)]
     public $SalesReceiptItems;
 
     /**
      * @var SalesReceiptPaymentApiModelPost[]
-     *
-     * @Assert\Valid(traverse=true)
-     * @Assert\NotBlank()
-     * @Assert\Count(min="1")
      */
+    #[Assert\Valid(traverse: true)]
+    #[Assert\NotBlank]
+    #[Assert\Count(min: 1)]
     public $SalesReceiptPayments;
 
     /**

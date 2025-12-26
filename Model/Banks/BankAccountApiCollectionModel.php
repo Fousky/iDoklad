@@ -25,7 +25,7 @@ class BankAccountApiCollectionModel extends iDokladAbstractModel
     public static function createFromResponse(ResponseInterface $response): iDokladModelInterface
     {
         /** @var \stdClass[] $items */
-        $items = \GuzzleHttp\json_decode($response->getBody()->getContents());
+        $items = json_decode($response->getBody()->getContents(), false, 512, JSON_THROW_ON_ERROR);
 
         $model = new static();
         $model->BankAccounts = static::createCollection($items);

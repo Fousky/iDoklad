@@ -17,31 +17,21 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class BankAccountPostApiModel extends iDokladAbstractModel
 {
-    /**
-     * @Assert\Length(min="0", max="50")
-     */
+    #[Assert\Length(min: 0, max: 50)]
     public $AccountNumber;
 
     public $BankId;
 
-    /**
-     * @Assert\NotBlank()
-     */
+    #[Assert\NotBlank]
     public $CurrencyId;
 
-    /**
-     * @Assert\Length(min="0", max="50")
-     */
+    #[Assert\Length(min: 0, max: 50)]
     public $Iban;
 
-    /**
-     * @Assert\Length(min="0", max="100")
-     */
+    #[Assert\Length(min: 0, max: 100)]
     public $Name;
 
-    /**
-     * @Assert\Length(min="0", max="11")
-     */
+    #[Assert\Length(min: 0, max: 11)]
     public $Swift;
 
     /**

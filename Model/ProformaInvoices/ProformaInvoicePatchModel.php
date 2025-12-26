@@ -39,89 +39,86 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class ProformaInvoicePatchModel extends iDokladAbstractModel
 {
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $AccountNumber;
 
-    /** @Assert\Type(type="int") */
+    #[Assert\Type(type: 'int')]
     public $BankId;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $BankName;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $BankNumberCode;
 
-    /** @Assert\Type(type="int") */
+    #[Assert\Type(type: 'int')]
     public $ConstantSymbolId;
 
-    /** @Assert\Type(type="int") */
+    #[Assert\Type(type: 'int')]
     public $CurrencyId;
 
-    /** @Assert\DateTime() */
+    #[Assert\DateTime]
     public $DateOfIssue;
 
-    /** @Assert\DateTime() */
+    #[Assert\DateTime]
     public $DateOfMaturity;
 
-    /** @Assert\DateTime() */
+    #[Assert\DateTime]
     public $DateOfPayment;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $Description;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $ExchangeRate;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $ExchangeRateAmount;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $Iban;
 
-    /** @Assert\Type(type="bool") */
+    #[Assert\Type(type: 'bool')]
     public $IsProformaTaxed;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $ItemsTextPrefix;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $ItemsTextSuffix;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $LanguageCode;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $Note;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $OrderNumber;
 
-    /** @Assert\Type(type="int") */
+    #[Assert\Type(type: 'int')]
     public $PaymentOptionId;
 
     /**
      * @var IssuedInvoiceItemApiModelUpdate[]
-     *
-     * @Assert\All(constraints={
-     *     @Assert\Type(type="Fousky\Component\iDoklad\Model\IssuedInvoices\IssuedInvoiceItemApiModelUpdate"),
-     * })
-     * @Assert\Valid(traverse=true)
      */
+    #[Assert\All(constraints: [new Assert\Type(type: 'Fousky\Component\iDoklad\Model\IssuedInvoices\IssuedInvoiceItemApiModelUpdate')])]
+    #[Assert\Valid(traverse: true)]
     public $ProformaInvoiceItems;
 
-    /** @Assert\Type(type="int") */
+    #[Assert\Type(type: 'int')]
     public $PurchaserId;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $ReportColorValue;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $Swift;
 
-    /** @Assert\Type(type="string") */
+    #[Assert\Type(type: 'string')]
     public $VariableSymbol;
 
-    /** @Assert\Type(type="Fousky\Component\iDoklad\LOV\VatOnPayStatusEnum") */
+    #[Assert\Type(type: 'Fousky\Component\iDoklad\LOV\VatOnPayStatusEnum')]
     public $VatOnPayStatus;
 
     /**

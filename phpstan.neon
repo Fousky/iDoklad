@@ -1,4 +1,4 @@
 parameters:
-    excludes_analyse:
-        - %rootDir%/../../../bin/*
-        - %rootDir%/../../../vendor/*
+    excludePaths:
+        - bin/*
+        - vendor/*

@@ -32,12 +32,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 class ContactPatchApiModel extends iDokladAbstractModel
 {
     /**
-     * @Assert\Length(min="0", max="50")
+    #[Assert\Length(min: 0, max: 50)]
      */
     public $City;
 
     /**
-     * @Assert\Length(min="0", max="200")
+    #[Assert\Length(min: 0, max: 200)]
      */
     public $CompanyName;
 
@@ -46,76 +46,76 @@ class ContactPatchApiModel extends iDokladAbstractModel
     /**
      * @var null|BankAccountPostApiModel
      *
-     * @Assert\Valid()
+    #[Assert\Valid]
      */
     public $DefaultBankAccount;
 
     public $DiscountPercentage;
 
     /**
-     * @Assert\Length(min="0", max="50")
+    #[Assert\Length(min: 0, max: 50)]
      */
     public $Email;
 
     /**
-     * @Assert\Length(min="0", max="20")
+    #[Assert\Length(min: 0, max: 20)]
      */
     public $Fax;
 
     /**
-     * @Assert\Length(min="0", max="50")
+    #[Assert\Length(min: 0, max: 50)]
      */
     public $Firstname;
 
     /**
-     * @Assert\Length(min="0", max="20")
+    #[Assert\Length(min: 0, max: 20)]
      */
     public $IdentificationNumber;
 
     public $IsSendReminder;
 
     /**
-     * @Assert\Length(min="0", max="20")
+    #[Assert\Length(min: 0, max: 20)]
      */
     public $Mobile;
 
     /**
-     * @Assert\Length(min="0", max="20")
+    #[Assert\Length(min: 0, max: 20)]
      */
     public $Phone;
 
     /**
-     * @Assert\Length(min="0", max="11")
+    #[Assert\Length(min: 0, max: 11)]
      */
     public $PostalCode;
 
     /**
-     * @Assert\Length(min="0", max="100")
+    #[Assert\Length(min: 0, max: 100)]
      */
     public $Street;
 
     /**
-     * @Assert\Length(min="0", max="50")
+    #[Assert\Length(min: 0, max: 50)]
      */
     public $Surname;
 
     /**
-     * @Assert\Length(min="0", max="50")
+    #[Assert\Length(min: 0, max: 50)]
      */
     public $Title;
 
     /**
-     * @Assert\Length(min="0", max="20")
+    #[Assert\Length(min: 0, max: 20)]
      */
     public $VatIdentificationNumber;
 
     /**
-     * @Assert\Length(min="0", max="20")
+    #[Assert\Length(min: 0, max: 20)]
      */
     public $VatIdentificationNumberSk;
 
     /**
-     * @Assert\Length(min="0", max="50")
+    #[Assert\Length(min: 0, max: 50)]
      */
     public $Www;
 

@@ -38,112 +38,98 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class RegisteredSaleApiModelPost extends iDokladAbstractModel
 {
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $BaseTaxBasicRateHc;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $BaseTaxReducedRate1Hc;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $BaseTaxReducedRate2Hc;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $BaseTaxZeroRateHc;
 
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Type(type="string")
-     * @Assert\Regex(pattern="^([0-9a-fA-F]{8}-){4}[0-9a-fA-F]{8}$")
-     */
+    #[Assert\NotBlank]
+    #[Assert\Type(type: 'string')]
+    #[Assert\Regex(pattern: '/^([0-9a-fA-F]{8}-){4}[0-9a-fA-F]{8}$/')]
     public $Bkp;
 
-    /** @Assert\Type(type="int") */
+    #[Assert\Type(type: 'int')]
     public $CancelledRegisteredSaleId;
 
-    /** @Assert\DateTime() */
+    #[Assert\DateTime]
     public $DateOfAnswer;
 
-    /** @Assert\DateTime() */
+    #[Assert\DateTime]
     public $DateOfSale;
 
-    /** @Assert\DateTime() */
+    #[Assert\DateTime]
     public $DateOfSend;
 
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Type(type="string")
-     * @Assert\Regex(pattern="^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89abAB][0-9a-fAF]{3}-[0-9a-fA-F]{12}-[0-9a-fA-F]{2}$")
-     */
+    #[Assert\NotBlank]
+    #[Assert\Type(type: 'string')]
+    #[Assert\Regex(pattern: '~^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89abAB][0-9a-fAF]{3}-[0-9a-fA-F]{12}-[0-9a-fA-F]{2}$~')]
     public $Fik;
 
-    /** @Assert\Type(type="bool") */
+    #[Assert\Type(type: 'bool')]
     public $IsCanceled;
 
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Type(type="string")
-     * @Assert\Length(min="344", max="344")
-     */
+    #[Assert\NotBlank]
+    #[Assert\Type(type: 'string')]
+    #[Assert\Length(min: 344, max: 344)]
     public $Pkp;
 
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Type(type="string")
-     * @Assert\Regex(pattern="^[0-9a-zA-Z\.,:;/#\-_ ]{1,20}$")
-     */
+    #[Assert\NotBlank]
+    #[Assert\Type(type: 'string')]
+    #[Assert\Regex(pattern: '~^[0-9a-zA-Z\.,:;/#\-_ ]{1,20}$~')]
     public $ReceiptNumber;
 
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Type(type="int")
-     * @Assert\Regex(pattern="^[1-9][0-9]{0,5}$")
-     */
+    #[Assert\NotBlank]
+    #[Assert\Type(type: 'int')]
+    #[Assert\Regex(pattern: '~^[1-9][0-9]{0,5}$~')]
     public $SalesOfficeDesignation;
 
-    /** @Assert\Type(type="int") */
+    #[Assert\Type(type: 'int')]
     public $SalesPosEquipmentId;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $TaxBasicRateHc;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $TaxReducedRate1Hc;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $TaxReducedRate2Hc;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $TotalAdvancePayment;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $TotalFromAdvancePayment;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $TotalTravelServiceHc;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $TotalUsedGoodsBasicRateHc;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $TotalUsedGoodsReducedRate1Hc;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $TotalUsedGoodsReducedRate2Hc;
 
-    /** @Assert\Type(type="float") */
+    #[Assert\Type(type: 'float')]
     public $TotalWithVatHc;
 
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Type(type="string")
-     */
+    #[Assert\NotBlank]
+    #[Assert\Type(type: 'string')]
     public $Uuid;
 
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Type(type="string")
-     * @Assert\Regex(pattern="^CZ[0-9]{8,10}$")
-     */
+    #[Assert\NotBlank]
+    #[Assert\Type(type: 'string')]
+    #[Assert\Regex(pattern: '~^CZ[0-9]{8,10}$~')]
     public $VatIdentificationNumber;
 
     /**

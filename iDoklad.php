@@ -68,12 +68,12 @@ class iDoklad
 
         if (count($parts) > 0) {
             // URI does not have "?"
-            if (false === strpos($uri, '?')) {
+            if (strpos($uri, '?') === false) {
                 $uri .= '?';
             }
             // URI has "?", but does not ends with "&"
             $lastChar = substr($uri, -1);
-            if (false !== strpos($uri, '?') && !in_array($lastChar, ['&', '?'], true)) {
+            if (strpos($uri, '?') !== false && !in_array($lastChar, ['&', '?'], true)) {
                 $uri .= '&';
             }
             $uri .= http_build_query($parts);
@@ -94,21 +94,25 @@ class iDoklad
         if ($function->injectAccessTokenToHeaders()) {
             $token = $this->getToken();
 
-            $defaults = array_merge_recursive(
-                $defaults,
-                [
-                    'headers' => [
-                        'Authorization' => sprintf(
-                            '%s %s',
-                            $token->getType(),
-                            $token->getToken()
-                        ),
-                    ],
-                ]
+            $defaults[RequestOptions::HEADERS]['Authorization'] = sprintf(
+                '%s %s',
+                $token->getType(),
+                $token->getToken()
             );
         }
 
-        return array_merge_recursive($function->getGuzzleOptions(), $defaults);
+        $options = $function->getGuzzleOptions();
+
+        // Merge headers properly
+        if (isset($options[RequestOptions::HEADERS]) && isset($defaults[RequestOptions::HEADERS])) {
+            $options[RequestOptions::HEADERS] = array_merge(
+                $defaults[RequestOptions::HEADERS],
+                $options[RequestOptions::HEADERS]
+            );
+            unset($defaults[RequestOptions::HEADERS]);
+        }
+
+        return array_merge($defaults, $options);
     }
 
     public function getToken(): AccessToken
@@ -126,3 +130,4 @@ class iDoklad
         return iDokladAbstractFunction::assertConfiguration($config);
     }
 }
+

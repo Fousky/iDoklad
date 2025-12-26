@@ -25,7 +25,7 @@ class SummaryQuarterCollectionModel extends iDokladAbstractModel
     public static function createFromResponse(ResponseInterface $response): iDokladModelInterface
     {
         /** @var \stdClass[] $items */
-        $items = \GuzzleHttp\json_decode($response->getBody()->getContents());
+        $items = json_decode($response->getBody()->getContents(), false, 512, JSON_THROW_ON_ERROR);
 
         $collection = new ArrayCollection();
 

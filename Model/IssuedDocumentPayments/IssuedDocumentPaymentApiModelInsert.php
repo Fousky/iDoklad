@@ -20,39 +20,39 @@ use Symfony\Component\Validator\Constraints as Assert;
 class IssuedDocumentPaymentApiModelInsert extends iDokladAbstractModel
 {
     /**
-     * @Assert\DateTime()
+    #[Assert\DateTime]
      */
     public $DateOfPayment;
 
     /**
-     * @Assert\DateTime()
+    #[Assert\DateTime]
      */
     public $DateOfVatApplication;
 
     /**
      * @var null|ElectronicRecordsOfSalesApiModel
-     * @Assert\Valid()
+    #[Assert\Valid]
      */
     public $ElectronicRecordsOfSales;
 
     /**
-     * @Assert\NotBlank()
-     * @Assert\Type(type="int")
+    #[Assert\NotBlank]
+    #[Assert\Type(type: 'int')]
      */
     public $InvoiceId;
 
     /**
-     * @Assert\Type(type="float")
+    #[Assert\Type(type: 'float')]
      */
     public $PaymentAmount;
 
     /**
-     * @Assert\Type(type="int")
+    #[Assert\Type(type: 'int')]
      */
     public $PaymentOptionId;
 
     /**
-     * @Assert\Type(type="int")
+    #[Assert\Type(type: 'int')]
      */
     public $SalesPosEquipmentId;
 

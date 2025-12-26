@@ -18,16 +18,12 @@ class SalesReceiptPaymentApiModelPost extends iDokladAbstractModel
 {
     public $PaymentAmount;
 
-    /**
-     * @Assert\NotBlank()
-     * @Assert\GreaterThan(value="0")
-     */
+    #[Assert\NotBlank]
+    #[Assert\GreaterThan(value: 0)]
     public $PaymentOptionId;
 
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Length(min="0", max="20")
-     */
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 0, max: 20)]
     public $PaymentTransactionCode;
 
     /**

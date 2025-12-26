@@ -22,17 +22,17 @@ use Symfony\Component\Validator\Constraints as Assert;
 class CashVoucherItemApiModelInsert extends iDokladAbstractModel
 {
     /**
-     * @Assert\NotBlank()
+    #[Assert\NotBlank]
      */
     public $Amount;
 
     /**
-     * @Assert\NotBlank()
+    #[Assert\NotBlank]
      */
     public $Name;
 
     /**
-     * @Assert\NotBlank()
+    #[Assert\NotBlank]
      */
     public $Price;
 
