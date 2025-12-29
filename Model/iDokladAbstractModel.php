@@ -162,11 +162,24 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
             return $subArray;
         }
 
-        if ($value instanceof iDokladModelInterface || method_exists($value, 'toArray')) {
+        // Zkontrolujeme, zda je hodnota objekt před voláním method_exists()
+        if (!\is_object($value) && !\is_string($value)) {
+            return $value;
+        }
+
+        if ($value instanceof iDokladModelInterface) {
             return $value->toArray($options);
         }
 
-        if ($value instanceof iDokladEnumInterface || method_exists($value, 'createJson')) {
+        if (\is_object($value) && method_exists($value, 'toArray')) {
+            return $value->toArray($options);
+        }
+
+        if ($value instanceof iDokladEnumInterface) {
+            return $value->createJson();
+        }
+
+        if (\is_object($value) && method_exists($value, 'createJson')) {
             return $value->createJson();
         }
 
@@ -209,6 +222,24 @@ abstract class iDokladAbstractModel implements iDokladModelInterface
      */
     public function validate(): ConstraintViolationListInterface
     {
+        // Před validací převedeme DateTime objekty na stringy, protože Assert\DateTime očekává stringy
+        $reflection = new \ReflectionClass($this);
+        $dateMap = static::getDateMap();
+
+        foreach ($dateMap as $propertyName) {
+            if ($reflection->hasProperty($propertyName)) {
+                $property = $reflection->getProperty($propertyName);
+                $property->setAccessible(true);
+                $value = $property->getValue($this);
+
+                if ($value instanceof \DateTime) {
+                    // Převedeme DateTime na string ve formátu, který Assert\DateTime rozpozná
+                    // Symfony Assert\DateTime standardně očekává formát Y-m-d H:i:s
+                    $property->setValue($this, $value->format('Y-m-d H:i:s'));
+                }
+            }
+        }
+
         $builder = Validation::createValidatorBuilder();
 
         // PHP 8+ uses attributes - enable attribute mapping
